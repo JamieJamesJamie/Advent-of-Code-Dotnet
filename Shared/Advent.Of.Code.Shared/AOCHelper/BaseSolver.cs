@@ -5,6 +5,7 @@
 namespace Advent.Of.Code.Shared.AOCHelper;
 
 using AoCHelper;
+using System;
 
 /// <summary>
 /// Abstract Base Class to solve Advent of Code puzzles.
@@ -21,6 +22,9 @@ public abstract class BaseSolver<TSolve> : BaseSolver<TSolve, TSolve>
     /// <param name="inputFilePath">The expected input file path.</param>
     protected BaseSolver(string? inputFilePath)
         : base(inputFilePath) { }
+
+
+        
 }
 
 /// <summary>
