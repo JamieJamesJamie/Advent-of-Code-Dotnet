@@ -493,3 +493,11 @@ fabric.properties
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+### Custom .gitignore
+
+# Exclude actual input files,
+# but include public test files
+**/Advent.Of.Code.Y*/Inputs/*
+!**/Advent.Of.Code.Y*.Test/Inputs/*
+!**/Advent.Of.Code.Y*/Inputs/.gitkeep
