@@ -26,6 +26,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Y2022", "Sol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Y2022.Test", "Solvers\Y2022\Advent.Of.Code.Y2022.Test\Advent.Of.Code.Y2022.Test.csproj", "{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{7D3B9166-60E8-462E-A19C-866D83A12BFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{D4B314C3-7E7E-404F-AB4A-98E69625D0FA}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +65,8 @@ Global
 		{E3823DEB-823A-4AE6-B6BE-6E859D9E756E} = {8F114708-88CB-4BF0-A132-B3219B1A954C}
 		{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA} = {49A7C172-FFBE-4F72-82B5-9D37AC5D532B}
 		{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C} = {49A7C172-FFBE-4F72-82B5-9D37AC5D532B}
+		{7D3B9166-60E8-462E-A19C-866D83A12BFF} = {FE517000-65F5-4769-A0A9-7FF21C8D856B}
+		{D4B314C3-7E7E-404F-AB4A-98E69625D0FA} = {7D3B9166-60E8-462E-A19C-866D83A12BFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0BA7C98-EAAA-4B9F-909E-C7441F52158C}

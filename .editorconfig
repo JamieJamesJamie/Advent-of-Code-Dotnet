@@ -55,6 +55,8 @@ dotnet_style_prefer_conditional_expression_over_assignment = true:silent
 dotnet_style_prefer_conditional_expression_over_return = true:silent
 # Unnecessary usings
 dotnet_diagnostic.IDE0005.severity = warning
+# Simplify new expression
+dotnet_diagnostic.IDE0090.severity = warning
 ###############################
 # Naming Conventions          #
 ###############################
