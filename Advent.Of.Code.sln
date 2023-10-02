@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Helper", "Advent.Of.Code.Helper\Advent.Of.Code.Helper\Advent.Of.Code.Helper.csproj", "{7C2A31E4-1758-427B-BFCE-C6EF1E0482BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Shared", "Shared\Advent.Of.Code.Shared\Advent.Of.Code.Shared.csproj", "{7C2A31E4-1758-427B-BFCE-C6EF1E0482BE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advent.Of.Code.Helper", "Advent.Of.Code.Helper", "{8F114708-88CB-4BF0-A132-B3219B1A954C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Helper.Test", "Advent.Of.Code.Helper\Advent.Of.Code.Helper.Test\Advent.Of.Code.Helper.Test.csproj", "{CCC68813-6C25-4EE8-B48D-817013491837}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advent.Of.Code.Shared", "Advent.Of.Code.Shared", "{8F114708-88CB-4BF0-A132-B3219B1A954C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FE517000-65F5-4769-A0A9-7FF21C8D856B}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,13 +16,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Y2022", "Advent.Of.Code\Y2022\Advent.Of.Code.Y2022\Advent.Of.Code.Y2022.csproj", "{76C432C0-0101-4295-922F-AD1B244CBFA7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advent.Of.Code", "Advent.Of.Code", "{29083C32-7788-4AF3-A1EC-6809CA359FB5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Y2022", "Y2022", "{49A7C172-FFBE-4F72-82B5-9D37AC5D532B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Y2022.Test", "Advent.Of.Code\Y2022\Advent.Of.Code.Y2022.Test\Advent.Of.Code.Y2022.Test.csproj", "{82187251-DDD6-4C13-925A-5AB1911680AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Shared.Test", "Shared\Advent.Of.Code.Shared.Test\Advent.Of.Code.Shared.Test.csproj", "{E3823DEB-823A-4AE6-B6BE-6E859D9E756E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Y2022", "Solvers\Y2022\Advent.Of.Code.Y2022\Advent.Of.Code.Y2022.csproj", "{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advent.Of.Code.Y2022.Test", "Solvers\Y2022\Advent.Of.Code.Y2022.Test\Advent.Of.Code.Y2022.Test.csproj", "{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,28 +36,28 @@ Global
 		{7C2A31E4-1758-427B-BFCE-C6EF1E0482BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C2A31E4-1758-427B-BFCE-C6EF1E0482BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C2A31E4-1758-427B-BFCE-C6EF1E0482BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCC68813-6C25-4EE8-B48D-817013491837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCC68813-6C25-4EE8-B48D-817013491837}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCC68813-6C25-4EE8-B48D-817013491837}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCC68813-6C25-4EE8-B48D-817013491837}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76C432C0-0101-4295-922F-AD1B244CBFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76C432C0-0101-4295-922F-AD1B244CBFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76C432C0-0101-4295-922F-AD1B244CBFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76C432C0-0101-4295-922F-AD1B244CBFA7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82187251-DDD6-4C13-925A-5AB1911680AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82187251-DDD6-4C13-925A-5AB1911680AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82187251-DDD6-4C13-925A-5AB1911680AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82187251-DDD6-4C13-925A-5AB1911680AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3823DEB-823A-4AE6-B6BE-6E859D9E756E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3823DEB-823A-4AE6-B6BE-6E859D9E756E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3823DEB-823A-4AE6-B6BE-6E859D9E756E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3823DEB-823A-4AE6-B6BE-6E859D9E756E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7C2A31E4-1758-427B-BFCE-C6EF1E0482BE} = {8F114708-88CB-4BF0-A132-B3219B1A954C}
-		{CCC68813-6C25-4EE8-B48D-817013491837} = {8F114708-88CB-4BF0-A132-B3219B1A954C}
-		{76C432C0-0101-4295-922F-AD1B244CBFA7} = {49A7C172-FFBE-4F72-82B5-9D37AC5D532B}
 		{49A7C172-FFBE-4F72-82B5-9D37AC5D532B} = {29083C32-7788-4AF3-A1EC-6809CA359FB5}
-		{82187251-DDD6-4C13-925A-5AB1911680AF} = {49A7C172-FFBE-4F72-82B5-9D37AC5D532B}
+		{E3823DEB-823A-4AE6-B6BE-6E859D9E756E} = {8F114708-88CB-4BF0-A132-B3219B1A954C}
+		{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA} = {49A7C172-FFBE-4F72-82B5-9D37AC5D532B}
+		{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C} = {49A7C172-FFBE-4F72-82B5-9D37AC5D532B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0BA7C98-EAAA-4B9F-909E-C7441F52158C}

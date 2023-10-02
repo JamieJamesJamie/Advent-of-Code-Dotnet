@@ -31,6 +31,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup Label="Non-Test Project Package References" Condition="!$(MSBuildProjectName.EndsWith('.Test'))">
+    <PackageReference Include="AoCHelper" />
+  </ItemGroup>
+
   <ItemGroup Label="Test Project Package References" Condition="$(MSBuildProjectName.EndsWith('.Test'))">
     <PackageReference Include="coverlet.collector">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
