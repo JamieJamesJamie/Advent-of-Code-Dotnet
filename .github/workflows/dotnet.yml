@@ -1,0 +1,44 @@
+name: Dotnet
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  csharpier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "7.0.401"
+      - run: |
+          dotnet tool restore
+          dotnet csharpier --check .
+
+  dotnet-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "7.0.401"
+      - run: dotnet format --verify-no-changes
+
+  test-shared:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "7.0.401"
+      - run: dotnet test Shared/Advent.Of.Code.Shared.Test/Advent.Of.Code.Shared.Test.csproj
+
+  test-Y2022:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "7.0.401"
+      - run: dotnet test Solvers/Y2022/Advent.Of.Code.Y2022.Test/Advent.Of.Code.Y2022.Test.csproj
