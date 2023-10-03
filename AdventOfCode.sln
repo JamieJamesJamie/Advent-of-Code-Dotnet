@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Common", "Shared\Advent.Of.Code.Shared\AdventOfCode.Common.csproj", "{7C2A31E4-1758-427B-BFCE-C6EF1E0482BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Common", "Common\AdventOfCode.Common\AdventOfCode.Common.csproj", "{7C2A31E4-1758-427B-BFCE-C6EF1E0482BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdventOfCode.Common", "AdventOfCode.Common", "{8F114708-88CB-4BF0-A132-B3219B1A954C}"
 EndProject
@@ -20,11 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdventOfCode", "AdventOfCod
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Y2022", "Y2022", "{49A7C172-FFBE-4F72-82B5-9D37AC5D532B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Common.Test", "Shared\Advent.Of.Code.Shared.Test\AdventOfCode.Common.Test.csproj", "{E3823DEB-823A-4AE6-B6BE-6E859D9E756E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Common.Test", "Common\AdventOfCode.Common.Test\AdventOfCode.Common.Test.csproj", "{E3823DEB-823A-4AE6-B6BE-6E859D9E756E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Y2022", "Solvers\Y2022\Advent.Of.Code.Y2022\AdventOfCode.Y2022.csproj", "{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Y2022", "Solvers\Y2022\AdventOfCode.Y2022\AdventOfCode.Y2022.csproj", "{EEBCC406-A99A-4B04-86E3-DD8E5281F5AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Y2022.Test", "Solvers\Y2022\Advent.Of.Code.Y2022.Test\AdventOfCode.Y2022.Test.csproj", "{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Y2022.Test", "Solvers\Y2022\AdventOfCode.Y2022.Test\AdventOfCode.Y2022.Test.csproj", "{0D2B6681-E51D-4EF1-AC6C-CDC7463C252C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{7D3B9166-60E8-462E-A19C-866D83A12BFF}"
 EndProject
