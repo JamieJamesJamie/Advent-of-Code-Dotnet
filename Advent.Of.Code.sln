@@ -38,6 +38,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{9A33
 		.config\dotnet-tools.json = .config\dotnet-tools.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".husky", ".husky", "{A0A05608-19E2-49EF-AAAA-62B88AC28F56}"
+	ProjectSection(SolutionItems) = preProject
+		.husky\task-runner.json = .husky\task-runner.json
+		.husky\pre-commit = .husky\pre-commit
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +79,7 @@ Global
 		{7D3B9166-60E8-462E-A19C-866D83A12BFF} = {FE517000-65F5-4769-A0A9-7FF21C8D856B}
 		{D4B314C3-7E7E-404F-AB4A-98E69625D0FA} = {7D3B9166-60E8-462E-A19C-866D83A12BFF}
 		{9A335FD3-453E-4843-B723-B437BDB26014} = {FE517000-65F5-4769-A0A9-7FF21C8D856B}
+		{A0A05608-19E2-49EF-AAAA-62B88AC28F56} = {FE517000-65F5-4769-A0A9-7FF21C8D856B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0BA7C98-EAAA-4B9F-909E-C7441F52158C}

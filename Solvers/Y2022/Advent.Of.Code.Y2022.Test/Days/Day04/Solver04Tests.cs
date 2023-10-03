@@ -1,4 +1,4 @@
-﻿// <copyright file="Solver04Tests.cs" company="JamieJamesJamie">
+﻿// <copyright file="20e16_Solver04Tests.cs" company="JamieJamesJamie">
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
@@ -12,8 +12,6 @@ using Advent.Of.Code.Y2022.Days.Day04;
 /// </summary>
 public class Solver04Tests : TestFixture
 {
-    private readonly Solver04 solver;
-
     /// <summary>
     /// Initializes a new instance of the <see cref="Solver04Tests"/> class.
     /// </summary>
@@ -25,7 +23,8 @@ public class Solver04Tests : TestFixture
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
     [Fact]
-    public async Task Solve_1_ReturnsExpected() => (await this.solver.Solve_1()).Should().Be("2");
+    public async Task Solve_1_ReturnsExpected() =>
+        (await this.solver.Solve_1().ConfigureAwait(false)).Should().Be("2");
 
     /// <summary>
     /// Tests that <see cref="Solver04.Solve2"/> returns as expected.

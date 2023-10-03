@@ -1,34 +1,42 @@
-{
-   "tasks": [
-      {
-         "name": "commit-message-linter",
-         "command": "dotnet",
-         "args": [
-            "husky",
-            "exec",
-            ".husky/csx/commit-lint.csx",
-            "--args",
-            "${args}"
-         ]
-      },
-      {
-         "name": "Run dotnet format",
-         "command": "dotnet",
-         "args": [ "format", "--include", "${staged}" ],
-         "include": [ "**/*.cs" ]
-      },
-      {
-         "name": "Run csharpier",
-         "command": "dotnet",
-         "args": [ "csharpier", "${staged}" ],
-         "include": [ "**/*.cs" ]
-      },
-      {
-         "name": "warning-check",
-         "command": "dotnet",
-         "group": "pre-push",
-         "args": ["build", "/warnaserror"],
-         "include": ["**/*.cs", "**/*.vb"]
-      }
-   ]
-}
+//{
+//   "tasks": [
+//      {
+//         "name": "commit-message-linter",
+//         "command": "dotnet",
+//         "args": [
+//            "husky",
+//            "exec",
+//            ".husky/csx/commit-lint.csx",
+//            "--args",
+//            "${args}"
+//         ]
+//      },
+//   {
+//"name": "Run JetBrains Clean Up Code",
+//       "command": "cmd",
+//       "pathMode": "relative",
+//       "args": [
+//         "/c", "dotnet", "jb", "cleanupcode", "Advent.Of.Code.sln"
+//       ]
+//     },
+//      {
+//         "name": "Run dotnet format",
+//         "command": "dotnet",
+//         "args": [ "format", "--include", "${staged}" ],
+//         "include": [ "**/*.cs" ]
+//      },
+//      {
+//         "name": "Run csharpier",
+//         "command": "dotnet",
+//         "args": [ "csharpier", "${staged}" ],
+//         "include": [ "**/*.cs" ]
+//      },
+//      {
+//         "name": "warning-check",
+//         "command": "dotnet",
+//         "group": "pre-push",
+//         "args": ["build", "/warnaserror"],
+//         "include": ["**/*.cs", "**/*.vb"]
+//      }
+//   ]
+//}
