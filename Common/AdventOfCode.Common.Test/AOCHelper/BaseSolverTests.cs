@@ -22,8 +22,8 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("01"));
 
-        (await solver.Solve_1().ConfigureAwait(false)).Should().Be("100");
-        (await solver.Solve_2().ConfigureAwait(false)).Should().Be("e");
+        (await solver.Solve_1()).Should().Be("100");
+        (await solver.Solve_2()).Should().Be("e");
     }
 
     /// <summary>
@@ -37,8 +37,8 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("02"));
 
-        (await solver.Solve_1().ConfigureAwait(false)).Should().Be("12.345");
-        (await solver.Solve_2().ConfigureAwait(false)).Should().Be("234");
+        (await solver.Solve_1()).Should().Be("12.345");
+        (await solver.Solve_2()).Should().Be("234");
     }
 
     /// <summary>
@@ -52,8 +52,8 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("03"));
 
-        (await solver.Solve_1().ConfigureAwait(false)).Should().Be("test1");
-        (await solver.Solve_2().ConfigureAwait(false)).Should().Be("test2");
+        (await solver.Solve_1()).Should().Be("test1");
+        (await solver.Solve_2()).Should().Be("test2");
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("00"));
 
-        (await solver.Solve_1().ConfigureAwait(false)).Should().Be(string.Empty);
+        (await solver.Solve_1()).Should().Be(string.Empty);
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("00"));
 
-        (await solver.Solve_2().ConfigureAwait(false)).Should().Be(string.Empty);
+        (await solver.Solve_2()).Should().Be(string.Empty);
     }
 
     /// <summary>
@@ -113,7 +113,7 @@ public class BaseSolverTests
     private static string ExpectedInputFilePath(string number) =>
         Path.Combine("Inputs", $"{number}.txt");
 
-    private class ChildSolver1 : BaseSolver<int, char>
+    private sealed class ChildSolver1 : BaseSolver<int, char>
     {
         public ChildSolver1(string? inputFilePath = null)
             : base(inputFilePath) { }
@@ -123,7 +123,7 @@ public class BaseSolverTests
         protected override char Solve2() => 'e';
     }
 
-    private class ChildSolver02 : BaseSolver<double, long>
+    private sealed class ChildSolver02 : BaseSolver<double, long>
     {
         public ChildSolver02(string? inputFilePath = null)
             : base(inputFilePath) { }
@@ -133,7 +133,7 @@ public class BaseSolverTests
         protected override long Solve2() => 234L;
     }
 
-    private class ChildSolver_03 : BaseSolver<string>
+    private sealed class ChildSolver_03 : BaseSolver<string>
     {
         public ChildSolver_03(string? inputFilePath = null)
             : base(inputFilePath) { }
@@ -143,7 +143,7 @@ public class BaseSolverTests
         protected override string Solve2() => "test2";
     }
 
-    private class NullSolver : BaseSolver<string?>
+    private sealed class NullSolver : BaseSolver<string?>
     {
         public NullSolver(string? inputFilePath = null)
             : base(inputFilePath) { }
