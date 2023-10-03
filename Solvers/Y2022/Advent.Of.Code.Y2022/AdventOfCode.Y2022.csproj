@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\Advent.Of.Code.Shared\Advent.Of.Code.Shared.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Advent.Of.Code.Shared\AdventOfCode.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

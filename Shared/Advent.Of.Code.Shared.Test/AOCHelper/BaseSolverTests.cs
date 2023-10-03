@@ -2,9 +2,9 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace Advent.Of.Code.Shared.Test.AOCHelper;
+namespace AdventOfCode.Common.Test.AOCHelper;
 
-using Advent.Of.Code.Shared.AOCHelper;
+using AdventOfCode.Common.AOCHelper;
 
 /// <summary>
 /// Tests for <see cref="BaseSolver{TSolve1, TSolve2}"/> and <see cref="BaseSolver{TSolve}"/>.
@@ -22,8 +22,8 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("01"));
 
-        (await solver.Solve_1()).Should().Be("100");
-        (await solver.Solve_2()).Should().Be("e");
+        (await solver.Solve_1().ConfigureAwait(false)).Should().Be("100");
+        (await solver.Solve_2().ConfigureAwait(false)).Should().Be("e");
     }
 
     /// <summary>
@@ -37,8 +37,8 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("02"));
 
-        (await solver.Solve_1()).Should().Be("12.345");
-        (await solver.Solve_2()).Should().Be("234");
+        (await solver.Solve_1().ConfigureAwait(false)).Should().Be("12.345");
+        (await solver.Solve_2().ConfigureAwait(false)).Should().Be("234");
     }
 
     /// <summary>
@@ -52,8 +52,8 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("03"));
 
-        (await solver.Solve_1()).Should().Be("test1");
-        (await solver.Solve_2()).Should().Be("test2");
+        (await solver.Solve_1().ConfigureAwait(false)).Should().Be("test1");
+        (await solver.Solve_2().ConfigureAwait(false)).Should().Be("test2");
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("00"));
 
-        (await solver.Solve_1()).Should().Be(string.Empty);
+        (await solver.Solve_1().ConfigureAwait(false)).Should().Be(string.Empty);
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ public class BaseSolverTests
 
         solver.InputFilePath.Should().Be(ExpectedInputFilePath("00"));
 
-        (await solver.Solve_2()).Should().Be(string.Empty);
+        (await solver.Solve_2().ConfigureAwait(false)).Should().Be(string.Empty);
     }
 
     /// <summary>

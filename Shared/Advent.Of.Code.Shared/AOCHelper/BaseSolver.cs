@@ -2,7 +2,7 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace Advent.Of.Code.Shared.AOCHelper;
+namespace AdventOfCode.Common.AOCHelper;
 
 using AoCHelper;
 

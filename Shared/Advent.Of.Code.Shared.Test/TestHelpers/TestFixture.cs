@@ -2,7 +2,7 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace Advent.Of.Code.Shared.Test.TestHelpers;
+namespace AdventOfCode.Common.Test.TestHelpers;
 
 /// <summary>
 /// Test Fixture for Advent Of Code puzzles.

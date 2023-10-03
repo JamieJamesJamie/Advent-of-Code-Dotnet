@@ -2,10 +2,10 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace Advent.Of.Code.Y2022.Test.Days.Day04;
+namespace AdventOfCode.Y2022.Test.Days.Day04;
 
-using Advent.Of.Code.Shared.Test.TestHelpers;
-using Advent.Of.Code.Y2022.Days.Day04;
+using AdventOfCode.Common.Test.TestHelpers;
+using AdventOfCode.Y2022.Days.Day04;
 
 /// <summary>
 /// Tests for <see cref="Solver04"/>.
@@ -25,12 +25,14 @@ public class Solver04Tests : TestFixture
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
     [Fact]
-    public async Task Solve_1_ReturnsExpected() => (await this.solver.Solve_1()).Should().Be("2");
+    public async Task Solve_1_ReturnsExpected() =>
+        (await this.solver.Solve_1().ConfigureAwait(false)).Should().Be("2");
 
     /// <summary>
     /// Tests that <see cref="Solver04.Solve2"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
     [Fact]
-    public async Task Solve_2_ReturnsExpected() => (await this.solver.Solve_2()).Should().Be("4");
+    public async Task Solve_2_ReturnsExpected() =>
+        (await this.solver.Solve_2().ConfigureAwait(false)).Should().Be("4");
 }

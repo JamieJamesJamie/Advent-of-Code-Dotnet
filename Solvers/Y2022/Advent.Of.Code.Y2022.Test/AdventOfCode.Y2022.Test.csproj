@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\Advent.Of.Code.Shared.Test\Advent.Of.Code.Shared.Test.csproj" />
-    <ProjectReference Include="..\Advent.Of.Code.Y2022\Advent.Of.Code.Y2022.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Advent.Of.Code.Shared.Test\AdventOfCode.Common.Test.csproj" />
+    <ProjectReference Include="..\Advent.Of.Code.Y2022\AdventOfCode.Y2022.csproj" />
   </ItemGroup>
 
   <ItemGroup>
