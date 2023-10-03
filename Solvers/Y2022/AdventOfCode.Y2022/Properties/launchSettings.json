@@ -4,12 +4,12 @@
       "commandName": "WSL2",
       "distributionName": ""
     },
-    "Advent.Of.Code.Y2022 - Solve Last": {
-      "commandName": "Project"
-    },
-    "Advent.Of.Code.Y2022 - Solve All": {
+    "AdventOfCode.Y2022 - Solve All": {
       "commandName": "Project",
       "commandLineArgs": "all"
+    },
+    "AdventOfCode.Y2022 - Solve Last": {
+      "commandName": "Project"
     }
   }
 }

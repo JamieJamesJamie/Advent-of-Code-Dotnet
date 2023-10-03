@@ -2,9 +2,9 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace Advent.Of.Code.Y2022.Days.Day01;
+namespace AdventOfCode.Y2022.Days.Day01;
 
-using Advent.Of.Code.Shared.AOCHelper;
+using AdventOfCode.Common.AOCHelper;
 using FileParser;
 
 /// <summary>

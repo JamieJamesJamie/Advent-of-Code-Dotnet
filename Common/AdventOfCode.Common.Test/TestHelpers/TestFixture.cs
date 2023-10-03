@@ -2,7 +2,9 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace Advent.Of.Code.Shared.Test.TestHelpers;
+namespace AdventOfCode.Common.Test.TestHelpers;
+
+using System.Globalization;
 
 /// <summary>
 /// Test Fixture for Advent Of Code puzzles.
@@ -27,13 +29,13 @@ public abstract class TestFixture
         string typeName = this.GetType().Name;
 
         string substring = typeName[
-            (typeName.IndexOf(ClassPrefix) + ClassPrefix.Length)..
+            (typeName.IndexOf(ClassPrefix, StringComparison.Ordinal) + ClassPrefix.Length)..
         ].TrimStart('_');
 
         string numbersOnly = new(substring.TakeWhile(char.IsDigit).ToArray());
 
         uint digits = uint.TryParse(numbersOnly, out uint index) ? index : default;
 
-        return digits.ToString("D2");
+        return digits.ToString("D2", CultureInfo.InvariantCulture);
     }
 }

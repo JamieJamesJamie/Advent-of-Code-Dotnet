@@ -2,10 +2,10 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace Advent.Of.Code.Y2022.Test.Days.Day01;
+namespace AdventOfCode.Y2022.Test.Days.Day01;
 
-using Advent.Of.Code.Shared.Test.TestHelpers;
-using Advent.Of.Code.Y2022.Days.Day01;
+using AdventOfCode.Common.Test.TestHelpers;
+using AdventOfCode.Y2022.Days.Day01;
 
 /// <summary>
 /// Tests for <see cref="Solver01"/>.

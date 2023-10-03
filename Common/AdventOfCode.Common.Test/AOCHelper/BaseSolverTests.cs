@@ -2,9 +2,9 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace Advent.Of.Code.Shared.Test.AOCHelper;
+namespace AdventOfCode.Common.Test.AOCHelper;
 
-using Advent.Of.Code.Shared.AOCHelper;
+using AdventOfCode.Common.AOCHelper;
 
 /// <summary>
 /// Tests for <see cref="BaseSolver{TSolve1, TSolve2}"/> and <see cref="BaseSolver{TSolve}"/>.
@@ -113,7 +113,7 @@ public class BaseSolverTests
     private static string ExpectedInputFilePath(string number) =>
         Path.Combine("Inputs", $"{number}.txt");
 
-    private class ChildSolver1 : BaseSolver<int, char>
+    private sealed class ChildSolver1 : BaseSolver<int, char>
     {
         public ChildSolver1(string? inputFilePath = null)
             : base(inputFilePath) { }
@@ -123,7 +123,7 @@ public class BaseSolverTests
         protected override char Solve2() => 'e';
     }
 
-    private class ChildSolver02 : BaseSolver<double, long>
+    private sealed class ChildSolver02 : BaseSolver<double, long>
     {
         public ChildSolver02(string? inputFilePath = null)
             : base(inputFilePath) { }
@@ -133,7 +133,7 @@ public class BaseSolverTests
         protected override long Solve2() => 234L;
     }
 
-    private class ChildSolver_03 : BaseSolver<string>
+    private sealed class ChildSolver_03 : BaseSolver<string>
     {
         public ChildSolver_03(string? inputFilePath = null)
             : base(inputFilePath) { }
@@ -143,7 +143,7 @@ public class BaseSolverTests
         protected override string Solve2() => "test2";
     }
 
-    private class NullSolver : BaseSolver<string?>
+    private sealed class NullSolver : BaseSolver<string?>
     {
         public NullSolver(string? inputFilePath = null)
             : base(inputFilePath) { }
