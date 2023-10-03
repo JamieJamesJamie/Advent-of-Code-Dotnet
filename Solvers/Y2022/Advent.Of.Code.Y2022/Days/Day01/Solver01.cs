@@ -4,8 +4,8 @@
 
 namespace Advent.Of.Code.Y2022.Days.Day01;
 
-using Advent.Of.Code.Shared.AOCHelper;
 using FileParser;
+using Shared.AOCHelper;
 
 /// <summary>
 /// Solver for day 1.

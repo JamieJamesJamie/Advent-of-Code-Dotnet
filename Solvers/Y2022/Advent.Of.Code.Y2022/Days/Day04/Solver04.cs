@@ -39,7 +39,7 @@ public class Solver04 : BaseSolver<int>
 
     private IEnumerable<Tuple<HashSet<int>, HashSet<int>>> ParseInput()
     {
-        ParsedFile file = new(this.InputFilePath, existingSeparator: new char[] { ',', '-' });
+        ParsedFile file = new(this.InputFilePath, existingSeparator: new[] { ',', '-' });
 
         while (!file.Empty)
         {

@@ -27,7 +27,7 @@ public abstract class TestFixture
         string typeName = this.GetType().Name;
 
         string substring = typeName[
-            (typeName.IndexOf(ClassPrefix) + ClassPrefix.Length)..
+            (typeName.IndexOf(ClassPrefix, StringComparison.Ordinal) + ClassPrefix.Length)..
         ].TrimStart('_');
 
         string numbersOnly = new(substring.TakeWhile(char.IsDigit).ToArray());
