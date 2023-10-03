@@ -12,7 +12,7 @@
   <PropertyGroup Label="Test Project Properties" Condition="$(MSBuildProjectName.EndsWith('.Test'))">
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <NoWarn>CA2007</NoWarn>
+    <NoWarn>CA2007,CA1707</NoWarn>
   </PropertyGroup>
 
   <ItemGroup Label=".editorconfig EditorConfigFiles">
