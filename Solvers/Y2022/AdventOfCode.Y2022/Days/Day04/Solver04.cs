@@ -9,6 +9,7 @@ using FileParser;
 
 /// <summary>
 /// Solver for day 4.
+/// hi.
 /// </summary>
 public class Solver04 : BaseSolver<int>
 {
@@ -39,11 +40,12 @@ public class Solver04 : BaseSolver<int>
 
     private IEnumerable<Tuple<HashSet<int>, HashSet<int>>> ParseInput()
     {
-        ParsedFile file = new(this.InputFilePath, existingSeparator: new char[] { ',', '-' });
+        ParsedFile fileNewName =
+            new(this.InputFilePath, existingSeparator: new char[] { ',', '-' });
 
-        while (!file.Empty)
+        while (!fileNewName.Empty)
         {
-            IParsedLine line = file.NextLine();
+            IParsedLine line = fileNewName.NextLine();
 
             int start1 = line.NextElement<int>();
             int end1 = line.NextElement<int>();
