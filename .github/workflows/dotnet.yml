@@ -34,7 +34,10 @@ jobs:
           dotnet-version: "7.0.401"
       - run: |
           dotnet tool restore
-          dotnet jb inspectcode --build -o='report.xml' AdventOfCode.sln
+          dotnet jb inspectcode --build -f='sarif' -o='report.sarif' AdventOfCode.sln
+      - uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: report.sarif
 
   test-shared:
     runs-on: ubuntu-latest
