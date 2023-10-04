@@ -44,6 +44,9 @@ jobs:
       - uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: report.sarif
+          # Optional category for the results
+          # Used to differentiate multiple results for one commit
+          category: my-resharper-tool
 
   test-shared:
     runs-on: ubuntu-latest
