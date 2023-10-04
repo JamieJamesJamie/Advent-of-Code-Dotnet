@@ -422,7 +422,7 @@ FodyWeavers.xsd
 # .idea/artifacts
 # .idea/compiler.xml
 # .idea/jarRepositories.xml
-# .idea/modules.xml
+.idea/modules.xml
 # .idea/*.iml
 # .idea/modules
 # *.iml
@@ -487,3 +487,7 @@ fabric.properties
 **/Advent.Of.Code.Y*/Inputs/*
 !**/Advent.Of.Code.Y*.Test/Inputs/*
 !**/Advent.Of.Code.Y*/Inputs/.gitkeep
+
+# Rider ignored files
+.idea/**/.idea.AdventOfCode.iml
+.idea/**/projectSettingsUpdater.xml
