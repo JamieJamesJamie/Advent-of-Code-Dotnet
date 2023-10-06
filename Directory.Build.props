@@ -52,6 +52,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup Label="Solver Project Global Usings"
+             Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))">
+    <Using Include="AdventOfCode.Common.AOCHelper" />
+    <Using Include="FileParser" />
+  </ItemGroup>
+
   <ItemGroup Label="Test Project Global Usings" Condition="$(MSBuildProjectName.EndsWith('.Test'))">
     <Using Include="FluentAssertions" />
     <Using Include="Xunit" />
