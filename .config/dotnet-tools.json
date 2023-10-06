@@ -13,12 +13,6 @@
       "commands": [
         "husky"
       ]
-    },
-    "jetbrains.resharper.globaltools": {
-      "version": "2023.2.2",
-      "commands": [
-        "jb"
-      ]
     }
   }
 }
