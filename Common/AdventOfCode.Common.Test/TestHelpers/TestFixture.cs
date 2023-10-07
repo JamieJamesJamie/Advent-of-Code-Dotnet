@@ -21,7 +21,7 @@ public abstract class TestFixture
     /// <param name="fileName">Name of the file to get the path of.</param>
     /// <param name="fileExtension">Extension of the file to get the path of.</param>
     /// <returns>The path of the test input file.</returns>
-    protected string InputFilePath(string fileName, string fileExtension = "txt") =>
+    protected string InputFilePath(string fileName = "example1", string fileExtension = "txt") =>
         Path.Combine(this.InputsDir, $"{fileName}.{fileExtension}");
 
     private string CalculateIndex()
