@@ -2,6 +2,7 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageVersion Include="AoCHelper" Version="2.0.2" />
     <PackageVersion Include="coverlet.collector" Version="6.0.0" />
