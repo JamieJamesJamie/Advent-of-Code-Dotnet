@@ -28,7 +28,12 @@
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
-      "extensions": ["ms-dotnettools.csdevkit", "csharpier.csharpier-vscode"]
+      "extensions": [
+        "ms-dotnettools.csdevkit",
+        "csharpier.csharpier-vscode",
+        "esbenp.prettier-vscode",
+        "github.vscode-github-actions"
+      ]
     }
   }
 
