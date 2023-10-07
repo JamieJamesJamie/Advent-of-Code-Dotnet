@@ -90,9 +90,7 @@ public class Solver02 : BaseSolver<int>
     private static Outcome GetOutcome(Move opponentMove, Move myMove)
     {
         if ((int)myMove % Enum.GetNames(typeof(Move)).Length == (int)opponentMove - 1)
-        {
             return Outcome.Lose;
-        }
 
         if (myMove == opponentMove)
         {
