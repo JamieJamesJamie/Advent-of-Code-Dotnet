@@ -1,0 +1,23 @@
+name: Node
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          # Version Spec of the version to use in SemVer notation.
+          # It also emits such aliases as lts, latest, nightly and canary builds
+          # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
+          node-version: "20.8.0"
+          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
+          # Package manager should be pre-installed
+          # Default: ''
+          cache: "npm"
+      - run: npm ci
+      - run: npx prettier . --check
