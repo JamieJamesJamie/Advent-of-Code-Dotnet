@@ -5,6 +5,15 @@ on:
     branches: [main]
 
 jobs:
+  warning-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "7.0.401"
+      - run: dotnet build /warnaserror
+
   csharpier:
     runs-on: ubuntu-latest
     steps:
