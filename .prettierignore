@@ -624,3 +624,6 @@ dist
 # Rider ignored files
 .idea/**/.idea.AdventOfCode.iml
 .idea/**/projectSettingsUpdater.xml
+
+# Dotnet lock files
+**/packages.lock.json

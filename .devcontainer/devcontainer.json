@@ -23,7 +23,7 @@
   // }
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "dotnet restore && npm ci",
+  "postCreateCommand": "dotnet restore --locked-mode && npm ci",
 
   // Configure tool-specific properties.
   "customizations": {
