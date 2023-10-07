@@ -31,6 +31,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{D4B314C3-7E7E-404F-AB4A-98E69625D0FA}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		.github\workflows\node.yml = .github\workflows\node.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".husky", ".husky", "{A6A2D77F-C4E9-4E55-88CD-8F3D93F775EC}"
@@ -42,6 +43,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{0608F857-AD44-4068-8D30-A196ADD00CEE}"
 	ProjectSection(SolutionItems) = preProject
 		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".devcontainer", ".devcontainer", "{1B321B1E-CF37-464C-851A-16FAA3F88049}"
+	ProjectSection(SolutionItems) = preProject
+		.devcontainer\devcontainer.json = .devcontainer\devcontainer.json
 	EndProjectSection
 EndProject
 Global
@@ -80,6 +86,7 @@ Global
 		{D4B314C3-7E7E-404F-AB4A-98E69625D0FA} = {7D3B9166-60E8-462E-A19C-866D83A12BFF}
 		{A6A2D77F-C4E9-4E55-88CD-8F3D93F775EC} = {FE517000-65F5-4769-A0A9-7FF21C8D856B}
 		{0608F857-AD44-4068-8D30-A196ADD00CEE} = {FE517000-65F5-4769-A0A9-7FF21C8D856B}
+		{1B321B1E-CF37-464C-851A-16FAA3F88049} = {FE517000-65F5-4769-A0A9-7FF21C8D856B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0BA7C98-EAAA-4B9F-909E-C7441F52158C}
