@@ -4,7 +4,6 @@
 
 namespace AdventOfCode.Y2022.Test.Days.Day04;
 
-using AdventOfCode.Common.Test.TestHelpers;
 using AdventOfCode.Y2022.Days.Day04;
 
 /// <summary>

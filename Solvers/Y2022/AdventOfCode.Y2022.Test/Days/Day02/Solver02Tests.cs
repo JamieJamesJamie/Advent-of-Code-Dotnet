@@ -4,8 +4,7 @@
 
 namespace AdventOfCode.Y2022.Test.Days.Day02;
 
-using Common.Test.TestHelpers;
-using Y2022.Days.Day02;
+using AdventOfCode.Y2022.Days.Day02;
 
 /// <summary>
 /// Tests for <see cref="Solver02"/>.

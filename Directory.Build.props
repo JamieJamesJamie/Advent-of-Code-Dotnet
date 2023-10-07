@@ -58,6 +58,10 @@
     <Using Include="FileParser" />
   </ItemGroup>
 
+  <ItemGroup Label="Solver Test Project Global Usings" Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And $(MSBuildProjectName.EndsWith('.Test'))">
+    <Using Include="AdventOfCode.Common.Test.TestHelpers" />
+  </ItemGroup>
+
   <ItemGroup Label="Test Project Global Usings" Condition="$(MSBuildProjectName.EndsWith('.Test'))">
     <Using Include="FluentAssertions" />
     <Using Include="Xunit" />

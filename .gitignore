@@ -484,9 +484,9 @@ fabric.properties
 
 # Exclude actual input files,
 # but include public test files
-**/Advent.Of.Code.Y*/Inputs/*
-!**/Advent.Of.Code.Y*.Test/Inputs/*
-!**/Advent.Of.Code.Y*/Inputs/.gitkeep
+**/AdventOfCode.Y*/Inputs/*
+!**/AdventOfCode.Y*.Test/Inputs/*
+!**/AdventOfCode.Y*/Inputs/.gitkeep
 
 # Rider ignored files
 .idea/**/.idea.AdventOfCode.iml
