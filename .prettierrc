@@ -7,5 +7,5 @@
       "options": { "parser": "json" }
     }
   ],
-  "xmlWhitespaceSensitivity": "preserve"
+  "xmlWhitespaceSensitivity": "ignore"
 }
