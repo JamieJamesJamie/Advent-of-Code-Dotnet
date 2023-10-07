@@ -29,10 +29,37 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-dotnettools.csdevkit",
+        // Dotnet extensions
         "csharpier.csharpier-vscode",
+        "ms-dotnettools.csdevkit",
+        "tintoy.msbuild-project-tools",
+
+        // Prettier
         "esbenp.prettier-vscode",
-        "github.vscode-github-actions"
+        "tombonnike.vscode-status-bar-format-toggle",
+
+        // Git extensions
+        "codezombiech.gitignore",
+        "donjayamanne.githistory",
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github",
+
+        // Dictionary extensions
+        "streetsidesoftware.code-spell-checker-british-english",
+
+        // Markdown extensions
+        "bierner.markdown-emoji",
+        "DavidAnson.vscode-markdownlint",
+        "DevHawk.markdown-sup",
+
+        // Other extensions
+        "christian-kohler.path-intellisense",
+        "EditorConfig.EditorConfig",
+        "Gruntfuggly.todo-tree",
+        "mechatroner.rainbow-csv",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "richie5um2.vscode-sort-json"
       ]
     }
   }
