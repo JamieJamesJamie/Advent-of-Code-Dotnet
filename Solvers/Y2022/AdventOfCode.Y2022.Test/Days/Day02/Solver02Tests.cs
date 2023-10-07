@@ -16,8 +16,7 @@ public class Solver02Tests : TestFixture
     /// <summary>
     /// Initializes a new instance of the <see cref="Solver02Tests"/> class.
     /// </summary>
-    public Solver02Tests() =>
-        this.solver = new Solver02(inputFilePath: this.InputFilePath("example"));
+    public Solver02Tests() => this.solver = new Solver02(inputFilePath: this.InputFilePath());
 
     /// <summary>
     /// Tests that <see cref="Solver02.Solve1"/> returns as expected.

@@ -9,7 +9,7 @@ namespace AdventOfCode.Y2022.Days.Day04;
 /// </summary>
 public class Solver04 : BaseSolver<int>
 {
-    private readonly IEnumerable<Tuple<HashSet<int>, HashSet<int>>> sectionIds;
+    private readonly IEnumerable<(HashSet<int>, HashSet<int>)> sectionIds;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Solver04"/> class.
@@ -34,7 +34,7 @@ public class Solver04 : BaseSolver<int>
     protected override int Solve2() =>
         this.sectionIds.Count(sets => sets.Item1.Intersect(sets.Item2).Any());
 
-    private IEnumerable<Tuple<HashSet<int>, HashSet<int>>> ParseInput()
+    private IEnumerable<(HashSet<int>, HashSet<int>)> ParseInput()
     {
         ParsedFile file = new(this.InputFilePath, existingSeparator: new[] { ',', '-' });
 
