@@ -1,9 +1,5 @@
 {
   "profiles": {
-    "WSL": {
-      "commandName": "WSL2",
-      "distributionName": ""
-    },
     "AdventOfCode.Y2022 - Solve All": {
       "commandName": "Project",
       "commandLineArgs": "all"
