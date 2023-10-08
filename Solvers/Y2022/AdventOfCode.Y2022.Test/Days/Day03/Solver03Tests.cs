@@ -2,7 +2,7 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-namespace AdventOfCode.Y2022.Test.Days.Day04;
+namespace AdventOfCode.Y2022.Test.Days.Day03;
 
 using AdventOfCode.Y2022.Days.Day03;
 

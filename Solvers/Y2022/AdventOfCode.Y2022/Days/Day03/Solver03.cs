@@ -4,6 +4,8 @@
 
 namespace AdventOfCode.Y2022.Days.Day03;
 
+using AdventOfCode.Common.Extensions;
+
 /// <summary>
 /// Solver for day 3.
 /// </summary>
@@ -41,25 +43,32 @@ public class Solver03 : BaseSolver<int>
     /// <inheritdoc/>
     protected override int Solve2()
     {
-        int summedPriorities = 0;
-
-        using (IEnumerator<string> rucksack1 = this.GetEveryNthRucksack(3).GetEnumerator())
-        using (IEnumerator<string> rucksack2 = this.GetEveryNthRucksack(1).GetEnumerator())
-        using (IEnumerator<string> rucksack3 = this.GetEveryNthRucksack(2).GetEnumerator())
-        {
-            while (rucksack1.MoveNext() && rucksack2.MoveNext() && rucksack3.MoveNext())
+        List<IEnumerable<string>> rucksackSets =
+            new()
             {
-                HashSet<char> contents1 = new(rucksack1.Current);
-                HashSet<char> contents2 = new(rucksack2.Current);
-                HashSet<char> contents3 = new(rucksack3.Current);
+                this.GetEveryNthRucksack(3),
+                this.GetEveryNthRucksack(1),
+                this.GetEveryNthRucksack(2),
+            };
 
-                char sharedCharacter = contents1.Intersect(contents2).Intersect(contents3).First();
+        return rucksackSets
+            .Zip(rucksackList =>
+            {
+                char sharedCharacter = rucksackList
+                    .Skip(1)
+                    .Aggregate(
+                        new HashSet<char>(rucksackList.First()),
+                        (sharedCharacters, rucksack) =>
+                        {
+                            sharedCharacters.IntersectWith(rucksack);
+                            return sharedCharacters;
+                        }
+                    )
+                    .First();
 
-                summedPriorities += CharacterPriority(sharedCharacter);
-            }
-        }
-
-        return summedPriorities;
+                return CharacterPriority(sharedCharacter);
+            })
+            .Sum();
     }
 
     private static int UppercasePriority(char character) => character - 'A' + 27;
