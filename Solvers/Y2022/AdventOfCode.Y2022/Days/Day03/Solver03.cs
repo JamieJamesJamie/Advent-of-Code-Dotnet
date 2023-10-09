@@ -46,9 +46,9 @@ public class Solver03 : BaseSolver<int>
         List<IEnumerable<string>> rucksackSets =
             new()
             {
-                this.GetEveryNthRucksack(3),
-                this.GetEveryNthRucksack(1),
-                this.GetEveryNthRucksack(2),
+                this.rucksacks.SliceStep(3),
+                this.rucksacks.Skip(1).SliceStep(3),
+                this.rucksacks.Skip(2).SliceStep(3),
             };
 
         return rucksackSets
@@ -87,7 +87,4 @@ public class Solver03 : BaseSolver<int>
             yield return file.NextLine().ToSingleString(wordSeparator: string.Empty);
         }
     }
-
-    private IEnumerable<string> GetEveryNthRucksack(int nCount) =>
-        this.rucksacks.Where((element, index) => (index + nCount) % 3 == 0);
 }

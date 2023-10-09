@@ -12,6 +12,26 @@ using AdventOfCode.Common.Extensions;
 public class IEnumerableExtensionsTests
 {
     /// <summary>
+    /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.SliceStep{T}"/>.
+    /// </summary>
+    public static readonly TheoryData<int, List<int>> SliceStepData =
+        new()
+        {
+            {
+                2,
+                new() { 1, 3, 5 }
+            },
+            {
+                3,
+                new() { 1, 4 }
+            },
+            {
+                -2,
+                new() { 1, 3, 5 }
+            },
+        };
+
+    /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T,TResult}"/>.
     /// </summary>
     public static readonly TheoryData<
@@ -170,12 +190,50 @@ public class IEnumerableExtensionsTests
             },
         };
 
+    private static readonly IEnumerable<int> SliceStepInput = new List<int> { 1, 2, 3, 4, 5 };
+
     private static Func<List<object>, object> ReverseFunction =>
         x =>
         {
             x.Reverse();
             return x;
         };
+
+    /// <summary>
+    /// Tests whether <see cref="IEnumerableExtensions.SliceStep{T}"/> returns
+    /// expected outputs given valid inputs.
+    /// </summary>
+    /// <param name="step">Input.</param>
+    /// <param name="expectedOutput">Expected output.</param>
+    [Theory]
+    [MemberData(nameof(SliceStepData))]
+    public void SliceStep_WithStepInput_ReturnsExpected(
+        int step,
+        IEnumerable<int> expectedOutput
+    ) =>
+        SliceStepInput
+            .SliceStep(step)
+            .Should()
+            .BeEquivalentTo(expectedOutput, options => options.WithStrictOrdering());
+
+    /// <summary>
+    /// Tests whether <see cref="IEnumerableExtensions.SliceStep{T}"/> returns
+    /// the same object if the provided step is 1 or -1.
+    /// </summary>
+    /// <param name="step">Input.</param>
+    [Theory]
+    [InlineData(1)]
+    [InlineData(-1)]
+    public void SliceStep_WithSingleStep_ReturnsSameEnumerable(int step) =>
+        SliceStepInput.SliceStep(step).Should().BeSameAs(SliceStepInput);
+
+    /// <summary>
+    /// Tests whether <see cref="IEnumerableExtensions.SliceStep{T}"/> returns
+    /// the same object if no inputs are provided.
+    /// </summary>
+    [Fact]
+    public void SliceStep_NoStepInput_ReturnsExpected() =>
+        SliceStepInput.SliceStep().Should().BeSameAs(SliceStepInput);
 
     /// <summary>
     /// Tests whether <see cref="IEnumerableExtensions.Zip{T,TResult}"/> returns
