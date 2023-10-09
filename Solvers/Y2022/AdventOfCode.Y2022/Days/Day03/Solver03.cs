@@ -41,35 +41,30 @@ public class Solver03 : BaseSolver<int>
         });
 
     /// <inheritdoc/>
-    protected override int Solve2()
-    {
-        List<IEnumerable<string>> rucksackSets =
-            new()
-            {
-                this.rucksacks.SliceStep(3),
-                this.rucksacks.Skip(1).SliceStep(3),
-                this.rucksacks.Skip(2).SliceStep(3),
-            };
-
-        return rucksackSets
-            .Zip(rucksackList =>
-            {
-                char sharedCharacter = rucksackList
-                    .Skip(1)
-                    .Aggregate(
-                        new HashSet<char>(rucksackList.First()),
-                        (sharedCharacters, rucksack) =>
-                        {
-                            sharedCharacters.IntersectWith(rucksack);
-                            return sharedCharacters;
-                        }
+    protected override int Solve2() =>
+        new List<IEnumerable<string>>
+        {
+            this.rucksacks.SliceStep(3),
+            this.rucksacks.Skip(1).SliceStep(3),
+            this.rucksacks.Skip(2).SliceStep(3),
+        }
+            .Zip(
+                rucksackList =>
+                    CharacterPriority(
+                        rucksackList
+                            .Skip(1)
+                            .Aggregate(
+                                new HashSet<char>(rucksackList.First()),
+                                (sharedCharacters, rucksack) =>
+                                {
+                                    sharedCharacters.IntersectWith(rucksack);
+                                    return sharedCharacters;
+                                }
+                            )
+                            .First()
                     )
-                    .First();
-
-                return CharacterPriority(sharedCharacter);
-            })
+            )
             .Sum();
-    }
 
     private static int UppercasePriority(char character) => character - 'A' + 27;
 
