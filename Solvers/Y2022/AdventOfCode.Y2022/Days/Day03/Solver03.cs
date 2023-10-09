@@ -32,12 +32,12 @@ public class Solver03 : BaseSolver<int>
         {
             int compartmentLength = rucksack.Length / 2;
 
-            HashSet<char> compartment1 = new(rucksack[..compartmentLength]);
-            HashSet<char> compartment2 = new(rucksack[compartmentLength..]);
-
-            IEnumerable<char> intersection = compartment1.Intersect(compartment2);
-
-            return CharacterPriority(intersection.First());
+            return CharacterPriority(
+                rucksack
+                    .Take(compartmentLength)
+                    .Intersect(rucksack.TakeLast(compartmentLength))
+                    .First()
+            );
         });
 
     /// <inheritdoc/>
