@@ -59,7 +59,7 @@ public class Solver03 : BaseSolver<int>
                 char sharedCharacter = rucksackList
                     .Skip(1)
                     .Aggregate(
-                        new HashSet<char>(rucksackList.First()),
+                        new HashSet<char>(rucksackList[0]),
                         (sharedCharacters, rucksack) =>
                         {
                             sharedCharacters.IntersectWith(rucksack);
