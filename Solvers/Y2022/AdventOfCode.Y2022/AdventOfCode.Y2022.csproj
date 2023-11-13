@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
@@ -9,7 +8,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\AdventOfCode.Common\AdventOfCode.Common.csproj" />
+    <ProjectReference
+      Include="..\..\..\Common\AdventOfCode.Common\AdventOfCode.Common.csproj"
+    />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,5 +18,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
 </Project>

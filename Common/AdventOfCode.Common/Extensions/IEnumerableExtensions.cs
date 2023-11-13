@@ -12,7 +12,7 @@ using System.Collections.Immutable;
 public static class IEnumerableExtensions
 {
     /// <summary>
-    /// Enumerates through <see cref="sequence"/> and produces a sequence of every
+    /// Enumerates through <paramref name="sequence"/> and produces a sequence of every
     /// "<paramref name="step"/>"th element.
     /// </summary>
     /// <param name="sequence">The sequence to enumerate through.</param>
