@@ -28,6 +28,15 @@ public static class IEnumerableExtensions
 
     /// <summary>
     /// Produces a sequence of results from the specified <paramref name="sequences"/>.
+    /// </summary>
+    /// <param name="sequences">The sequences to zip.</param>
+    /// <typeparam name="T">The type of element contained in the underlying sequences.</typeparam>
+    /// <returns>The zipped contents of <paramref name="sequences"/>.</returns>
+    public static IEnumerable<List<T>> Zip<T>(this IEnumerable<IEnumerable<T>> sequences) =>
+        Zip(sequences, zippedSequence => zippedSequence);
+
+    /// <summary>
+    /// Produces a sequence of results from the specified <paramref name="sequences"/>.
     /// The result is calculated based on <paramref name="resultSelector"/>.
     /// </summary>
     /// <param name="sequences">The sequences to zip.</param>
@@ -43,9 +52,17 @@ public static class IEnumerableExtensions
         Func<List<T>, TResult>? resultSelector
     )
     {
+        ArgumentNullException.ThrowIfNull(resultSelector);
+        return ZipIterator(sequences, resultSelector);
+    }
+
+    private static IEnumerable<TResult> ZipIterator<T, TResult>(
+        IEnumerable<IEnumerable<T>> sequences,
+        Func<List<T>, TResult> resultSelector
+    )
+    {
         ImmutableList<IEnumerable<T>> sequencesList = sequences.ToImmutableList();
 
-        ArgumentNullException.ThrowIfNull(resultSelector);
         if (!sequencesList.Any())
         {
             yield break;
@@ -57,7 +74,7 @@ public static class IEnumerableExtensions
 
         try
         {
-            while (enumerators.All(enumerator => enumerator.MoveNext()))
+            while (enumerators.TrueForAll(enumerator => enumerator.MoveNext()))
             {
                 yield return resultSelector(
                     enumerators.Select(enumerator => enumerator.Current).ToList()
@@ -72,13 +89,4 @@ public static class IEnumerableExtensions
             }
         }
     }
-
-    /// <summary>
-    /// Produces a sequence of results from the specified <paramref name="sequences"/>.
-    /// </summary>
-    /// <param name="sequences">The sequences to zip.</param>
-    /// <typeparam name="T">The type of element contained in the underlying sequences.</typeparam>
-    /// <returns>The zipped contents of <paramref name="sequences"/>.</returns>
-    public static IEnumerable<List<T>> Zip<T>(this IEnumerable<IEnumerable<T>> sequences) =>
-        Zip(sequences, zippedSequence => zippedSequence);
 }
