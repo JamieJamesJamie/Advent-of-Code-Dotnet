@@ -9,6 +9,8 @@ namespace AdventOfCode.Y2022.Days.Day04;
 /// </summary>
 public class Solver04 : BaseSolver<int>
 {
+    private static readonly char[] ExistingSeparator =  [ ',', '-' ];
+
     private readonly IEnumerable<(HashSet<int>, HashSet<int>)> sectionIds;
 
     /// <summary>
@@ -36,7 +38,7 @@ public class Solver04 : BaseSolver<int>
 
     private IEnumerable<(HashSet<int>, HashSet<int>)> ParseInput()
     {
-        ParsedFile file = new(this.InputFilePath, existingSeparator: new[] { ',', '-' });
+        ParsedFile file = new(this.InputFilePath, existingSeparator: ExistingSeparator);
 
         while (!file.Empty)
         {
