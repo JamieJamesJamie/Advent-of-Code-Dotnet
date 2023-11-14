@@ -63,7 +63,7 @@ public static class IEnumerableExtensions
     {
         ImmutableList<IEnumerable<T>> sequencesList = sequences.ToImmutableList();
 
-        if (!sequencesList.Any())
+        if (sequencesList.IsEmpty)
         {
             yield break;
         }
