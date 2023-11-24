@@ -57,6 +57,8 @@ dotnet_style_prefer_conditional_expression_over_return = true:silent
 dotnet_diagnostic.IDE0005.severity = warning
 # Simplify new expression
 dotnet_diagnostic.IDE0090.severity = warning
+# Simplify collection initialization
+dotnet_diagnostic.IDE0300.severity = warning
 ###############################
 # Naming Conventions          #
 ###############################
