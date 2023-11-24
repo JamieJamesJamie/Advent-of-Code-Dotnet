@@ -9,7 +9,7 @@ namespace AdventOfCode.Y2022.Days.Day04;
 /// </summary>
 public class Solver04 : BaseSolver<int>
 {
-    private static readonly char[] ExistingSeparator =  [ ',', '-' ];
+    private static readonly char[] ExistingSeparator = [',', '-'];
 
     private readonly IEnumerable<(HashSet<int>, HashSet<int>)> sectionIds;
 
