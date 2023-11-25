@@ -263,8 +263,8 @@
       },
       "Spectre.Console": {
         "type": "Transitive",
-        "resolved": "0.45.0",
-        "contentHash": "e//13o8/BCrWmwN26eJ4zCzD2iq7iUlqQd+nDI9nJUdnJ/rYAanYiNFZZ7YHwlv48IKuKtRYYP6/wPt1DG67ww==",
+        "resolved": "0.48.0",
+        "contentHash": "4Mc1UT7Azgtyb8FyNwK5FZmoZbKuT5PmY7ZwaKUytjD5kGFMNBACpOZTwYtkuY377YkYtZYBeDDTJUwTW86QXw==",
         "dependencies": {
           "System.Memory": "4.5.5"
         }
@@ -1057,7 +1057,7 @@
       "adventofcode.common": {
         "type": "Project",
         "dependencies": {
-          "AoCHelper": "[2.0.2, )"
+          "AoCHelper": "[3.0.0, )"
         }
       },
       "adventofcode.common.test": {
@@ -1073,17 +1073,17 @@
         "type": "Project",
         "dependencies": {
           "AdventOfCode.Common": "[1.0.0, )",
-          "AoCHelper": "[2.0.2, )",
+          "AoCHelper": "[3.0.0, )",
           "FileParser": "[2.4.0, )"
         }
       },
       "AoCHelper": {
         "type": "CentralTransitive",
-        "requested": "[2.0.2, )",
-        "resolved": "2.0.2",
-        "contentHash": "XqOlJ1ULoYqWcIaYgh7JLKtcY9dA6U80bZwITkHY+Mq4RVgrqsu6BkS+5VyDv5f9PQPFlGfleduhm+AAhAWW/w==",
+        "requested": "[3.0.0, )",
+        "resolved": "3.0.0",
+        "contentHash": "6/pLYV70wJ5Xdq7cllQmVLpkmo77Fx1cHoxCgrNlzuAFjzVaIqtotKrJnIM08mMpiLks1fBvAfjNBoe5j/uV9Q==",
         "dependencies": {
-          "Spectre.Console": "0.45.0"
+          "Spectre.Console": "0.48.0"
         }
       },
       "FileParser": {
