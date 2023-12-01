@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference
+      Include="..\..\..\Common\AdventOfCode.Common.Test\AdventOfCode.Common.Test.csproj"
+    />
+    <ProjectReference
+      Include="..\AdventOfCode.Y2023\AdventOfCode.Y2023.csproj"
+    />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Inputs\**\*.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

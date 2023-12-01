@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net8.0": {
+      "AoCHelper": {
+        "type": "Direct",
+        "requested": "[3.1.0, )",
+        "resolved": "3.1.0",
+        "contentHash": "xD6n7vBljqNzIUD+vE2wxOI0s0NJsGKYQKPIerQgY0dhusp9ywxJxvExgpQbsSihlbIfeDQGfbz5HbBUf54jZA==",
+        "dependencies": {
+          "Spectre.Console": "0.48.0"
+        }
+      },
+      "FileParser": {
+        "type": "Direct",
+        "requested": "[2.4.0, )",
+        "resolved": "2.4.0",
+        "contentHash": "YsQo7pvhkcjDOsaTt2aOQit98x1WWZdW1YNxYfCTg5TEpd7L/0sMgUbiE7WN03bTvw3Oaur1FSvvnNR+GQo1Vw=="
+      },
+      "StyleCop.Analyzers": {
+        "type": "Direct",
+        "requested": "[1.1.118, )",
+        "resolved": "1.1.118",
+        "contentHash": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw=="
+      },
+      "Spectre.Console": {
+        "type": "Transitive",
+        "resolved": "0.48.0",
+        "contentHash": "4Mc1UT7Azgtyb8FyNwK5FZmoZbKuT5PmY7ZwaKUytjD5kGFMNBACpOZTwYtkuY377YkYtZYBeDDTJUwTW86QXw==",
+        "dependencies": {
+          "System.Memory": "4.5.5"
+        }
+      },
+      "System.Memory": {
+        "type": "Transitive",
+        "resolved": "4.5.5",
+        "contentHash": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw=="
+      },
+      "adventofcode.common": {
+        "type": "Project",
+        "dependencies": {
+          "AoCHelper": "[3.1.0, )"
+        }
+      }
+    }
+  }
+}
