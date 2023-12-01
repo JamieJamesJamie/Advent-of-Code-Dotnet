@@ -5,12 +5,11 @@
 
   <ItemGroup>
     <PackageReference Include="FileParser" />
+    <PackageReference Include="TreeCollections" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference
-      Include="..\..\..\Common\AdventOfCode.Common\AdventOfCode.Common.csproj"
-    />
+    <ProjectReference Include="..\..\..\Common\AdventOfCode.Common\AdventOfCode.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

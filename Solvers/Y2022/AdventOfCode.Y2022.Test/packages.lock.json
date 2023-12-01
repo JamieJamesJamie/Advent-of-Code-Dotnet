@@ -1074,7 +1074,8 @@
         "dependencies": {
           "AdventOfCode.Common": "[1.0.0, )",
           "AoCHelper": "[3.0.0, )",
-          "FileParser": "[2.4.0, )"
+          "FileParser": "[2.4.0, )",
+          "TreeCollections": "[1.0.4, )"
         }
       },
       "AoCHelper": {
@@ -1091,6 +1092,15 @@
         "requested": "[2.4.0, )",
         "resolved": "2.4.0",
         "contentHash": "YsQo7pvhkcjDOsaTt2aOQit98x1WWZdW1YNxYfCTg5TEpd7L/0sMgUbiE7WN03bTvw3Oaur1FSvvnNR+GQo1Vw=="
+      },
+      "TreeCollections": {
+        "type": "CentralTransitive",
+        "requested": "[1.0.4, )",
+        "resolved": "1.0.4",
+        "contentHash": "+KoiINtd5SNPQrVqIWHcUn9rKViCLbpuA2RJG2HaO4UFUqYahwxWh7M8yzHwDoyVBr24lhpil8o5d4+DQ7GtaQ==",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        }
       }
     }
   }
