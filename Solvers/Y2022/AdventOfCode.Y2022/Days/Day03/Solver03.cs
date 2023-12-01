@@ -46,12 +46,11 @@ public class Solver03 : BaseSolver<int>
         const int step = 3;
 
         List<IEnumerable<string>> rucksackSets =
-            new()
-            {
-                this.rucksacks.SliceStep(step),
-                this.rucksacks.Skip(1).SliceStep(step),
-                this.rucksacks.Skip(2).SliceStep(step),
-            };
+        [
+            this.rucksacks.SliceStep(step),
+            this.rucksacks.Skip(1).SliceStep(step),
+            this.rucksacks.Skip(2).SliceStep(step),
+        ];
 
         return rucksackSets
             .Zip(rucksackList =>
