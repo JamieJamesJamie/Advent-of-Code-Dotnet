@@ -59,6 +59,7 @@ dotnet_diagnostic.IDE0005.severity = warning
 dotnet_diagnostic.IDE0090.severity = warning
 # Simplify collection initialization
 dotnet_diagnostic.IDE0300.severity = warning
+dotnet_diagnostic.IDE0028.severity = warning
 ###############################
 # Naming Conventions          #
 ###############################
