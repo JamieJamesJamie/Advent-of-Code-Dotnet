@@ -9,7 +9,10 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
-  <PropertyGroup Label="Solver Project Properties" Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))">
+  <PropertyGroup
+    Label="Solver Project Properties"
+    Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))"
+  >
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
@@ -51,8 +54,9 @@
   </ItemGroup>
 
   <ItemGroup
-  Label="Solver Project Package References"
- Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))" >
+    Label="Solver Project Package References"
+    Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))"
+  >
     <PackageReference Include="FileParser" />
   </ItemGroup>
 
@@ -77,9 +81,13 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup Label="Solver Project Project References"  Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))"
+  <ItemGroup
+    Label="Solver Project Project References"
+    Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))"
   >
-    <ProjectReference Include="$(MSBuildThisFileDirectory)Common\AdventOfCode.Common\AdventOfCode.Common.csproj"/>
+    <ProjectReference
+      Include="$(MSBuildThisFileDirectory)Common\AdventOfCode.Common\AdventOfCode.Common.csproj"
+    />
   </ItemGroup>
 
   <ItemGroup

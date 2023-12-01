@@ -45,7 +45,7 @@ jobs:
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
       - run: dotnet test Solvers/Y2022/AdventOfCode.Y2022.Test/AdventOfCode.Y2022.Test.csproj
-  
+
   test-Y2023:
     runs-on: ubuntu-latest
     steps:
