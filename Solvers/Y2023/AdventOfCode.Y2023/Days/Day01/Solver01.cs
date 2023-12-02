@@ -23,6 +23,16 @@ public class Solver01 : BaseSolver<int>
             { "nine", 9 },
         };
 
+    private static readonly Dictionary<string, int> NumberMappingsReversed = NumberMappings
+        .Select(
+            numberMapping =>
+                new KeyValuePair<string, int>(
+                    new string(numberMapping.Key.Reverse().ToArray()),
+                    numberMapping.Value
+                )
+        )
+        .ToDictionary();
+
     private readonly IEnumerable<string> lines;
 
     /// <summary>
@@ -59,49 +69,28 @@ public class Solver01 : BaseSolver<int>
 
     /// <inheritdoc/>
     protected override int Solve2() =>
-        this.lines.Sum(line => (10 * FindNumberStart(line)) + FindNumberEnd(line));
+        this.lines.Sum(line => (10 * FindNumber(line)) + FindNumber(line, reverse: true));
 
-    private static int FindNumberStart(string line)
+    private static int FindNumber(string line, bool reverse = false)
     {
+        if (reverse)
+        {
+            line = new string(line.Reverse().ToArray());
+        }
+
+        Dictionary<string, int> mappings = reverse ? NumberMappingsReversed : NumberMappings;
+
         for (int characterIndex = 0; characterIndex < line.Length; characterIndex++)
         {
-            if (int.TryParse(line[characterIndex].ToString(), out int tensDigit))
+            if (int.TryParse(line[characterIndex].ToString(), out int digit))
             {
-                return tensDigit;
+                return digit;
             }
 
-            int wordNumber = NumberMappings
+            int wordNumber = mappings
                 .FirstOrDefault(
                     numberMapping =>
                         line[characterIndex..].StartsWith(
-                            numberMapping.Key,
-                            StringComparison.InvariantCulture
-                        )
-                )
-                .Value;
-
-            if (wordNumber != 0)
-            {
-                return wordNumber;
-            }
-        }
-
-        return 0;
-    }
-
-    private static int FindNumberEnd(string line)
-    {
-        for (int characterIndex = line.Length - 1; characterIndex >= 0; characterIndex--)
-        {
-            if (int.TryParse(line[characterIndex].ToString(), out int unitsDigit))
-            {
-                return unitsDigit;
-            }
-
-            int wordNumber = NumberMappings
-                .FirstOrDefault(
-                    numberMapping =>
-                        line[..(characterIndex + 1)].EndsWith(
                             numberMapping.Key,
                             StringComparison.InvariantCulture
                         )
