@@ -10,8 +10,8 @@
     "ghcr.io/devcontainers/features/node:1": {
       "nodeGypDependencies": true,
       "version": "21.2.0",
-      "nvmVersion": "0.39.5",
-    },
+      "nvmVersion": "0.39.5"
+    }
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -59,10 +59,10 @@
         "mechatroner.rainbow-csv",
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
-        "richie5um2.vscode-sort-json",
-      ],
-    },
-  },
+        "richie5um2.vscode-sort-json"
+      ]
+    }
+  }
 
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
