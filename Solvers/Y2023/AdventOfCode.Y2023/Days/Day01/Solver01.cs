@@ -24,13 +24,10 @@ public class Solver01 : BaseSolver<int>
         };
 
     private static readonly Dictionary<string, int> NumberMappingsReversed = NumberMappings
-        .Select(
-            numberMapping =>
-                new KeyValuePair<string, int>(
-                    new string(numberMapping.Key.Reverse().ToArray()),
-                    numberMapping.Value
-                )
-        )
+        .Select(numberMapping => new KeyValuePair<string, int>(
+            new string(numberMapping.Key.Reverse().ToArray()),
+            numberMapping.Value
+        ))
         .ToDictionary();
 
     private readonly IEnumerable<string> lines;
@@ -50,21 +47,20 @@ public class Solver01 : BaseSolver<int>
 
     /// <inheritdoc/>
     protected override int Solve1() =>
-        this.lines.Sum(
-            line =>
-                (
-                    10
-                    * (
-                        int.TryParse(line.First(char.IsDigit).ToString(), out int tensDigit)
-                            ? tensDigit
-                            : 0
-                    )
-                )
-                + (
-                    int.TryParse(line.Last(char.IsDigit).ToString(), out int unitsDigit)
-                        ? unitsDigit
+        this.lines.Sum(line =>
+            (
+                10
+                * (
+                    int.TryParse(line.First(char.IsDigit).ToString(), out int tensDigit)
+                        ? tensDigit
                         : 0
                 )
+            )
+            + (
+                int.TryParse(line.Last(char.IsDigit).ToString(), out int unitsDigit)
+                    ? unitsDigit
+                    : 0
+            )
         );
 
     /// <inheritdoc/>
@@ -88,12 +84,11 @@ public class Solver01 : BaseSolver<int>
             }
 
             int wordNumber = mappings
-                .FirstOrDefault(
-                    numberMapping =>
-                        line[characterIndex..].StartsWith(
-                            numberMapping.Key,
-                            StringComparison.InvariantCulture
-                        )
+                .FirstOrDefault(numberMapping =>
+                    line[characterIndex..].StartsWith(
+                        numberMapping.Key,
+                        StringComparison.InvariantCulture
+                    )
                 )
                 .Value;
 

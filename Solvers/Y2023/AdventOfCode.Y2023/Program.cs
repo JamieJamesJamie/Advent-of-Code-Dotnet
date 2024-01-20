@@ -22,8 +22,8 @@ else if (args.Length == 1 && args[0].Contains("all", StringComparison.CurrentCul
 }
 else
 {
-    IEnumerable<uint> indices = args.Select(
-        arg => uint.TryParse(arg, out uint index) ? index : uint.MaxValue
+    IEnumerable<uint> indices = args.Select(arg =>
+        uint.TryParse(arg, out uint index) ? index : uint.MaxValue
     );
 
     await Solver

@@ -28,8 +28,8 @@ public class Solver04 : BaseSolver<int>
 
     /// <inheritdoc/>
     protected override int Solve1() =>
-        this.sectionIds.Count(
-            sets => sets.Item1.IsSubsetOf(sets.Item2) || sets.Item2.IsSubsetOf(sets.Item1)
+        this.sectionIds.Count(sets =>
+            sets.Item1.IsSubsetOf(sets.Item2) || sets.Item2.IsSubsetOf(sets.Item1)
         );
 
     /// <inheritdoc/>

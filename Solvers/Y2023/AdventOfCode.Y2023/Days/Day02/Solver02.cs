@@ -30,24 +30,22 @@ public partial class Solver02 : BaseSolver<int>
 
     /// <inheritdoc/>
     protected override int Solve1() =>
-        this.matchCollections.Sum(
-            matches =>
-                (
-                    IsMatchPossible(matches, "red", 12)
-                    && IsMatchPossible(matches, "green", 13)
-                    && IsMatchPossible(matches, "blue", 14)
-                )
-                    ? int.Parse(matches[0].Groups["game"].Value, CultureInfo.InvariantCulture)
-                    : 0
+        this.matchCollections.Sum(matches =>
+            (
+                IsMatchPossible(matches, "red", 12)
+                && IsMatchPossible(matches, "green", 13)
+                && IsMatchPossible(matches, "blue", 14)
+            )
+                ? int.Parse(matches[0].Groups["game"].Value, CultureInfo.InvariantCulture)
+                : 0
         );
 
     /// <inheritdoc/>
     protected override int Solve2() =>
-        this.matchCollections.Sum(
-            matches =>
-                SmallestPossibleMatch(matches, "red")
-                * SmallestPossibleMatch(matches, "green")
-                * SmallestPossibleMatch(matches, "blue")
+        this.matchCollections.Sum(matches =>
+            SmallestPossibleMatch(matches, "red")
+            * SmallestPossibleMatch(matches, "green")
+            * SmallestPossibleMatch(matches, "blue")
         );
 
     [GeneratedRegex(
