@@ -190,7 +190,7 @@ public class IEnumerableExtensionsTests
             },
         };
 
-    private static readonly IEnumerable<int> SliceStepInput = new List<int> { 1, 2, 3, 4, 5 };
+    private static readonly IEnumerable<int> SliceStepInput = [1, 2, 3, 4, 5];
 
     private static Func<List<object>, object> ReverseFunction =>
         x =>

@@ -13,15 +13,12 @@ using AoCHelper;
 /// The return type of the answers for both
 /// part 1 and part 2 of the problem.
 /// </typeparam>
-public abstract class BaseSolver<TSolve> : BaseSolver<TSolve, TSolve>
-{
-    /// <summary>
-    /// Initializes a new instance of the <see cref="BaseSolver{TSolve}"/> class.
-    /// </summary>
-    /// <param name="inputFilePath">The expected input file path.</param>
-    protected BaseSolver(string? inputFilePath)
-        : base(inputFilePath) { }
-}
+/// <remarks>
+/// Initializes a new instance of the <see cref="BaseSolver{TSolve}"/> class.
+/// </remarks>
+/// <param name="inputFilePath">The expected input file path.</param>
+public abstract class BaseSolver<TSolve>(string? inputFilePath)
+    : BaseSolver<TSolve, TSolve>(inputFilePath) { }
 
 /// <summary>
 /// Abstract Base Class to solve Advent of Code puzzles.
