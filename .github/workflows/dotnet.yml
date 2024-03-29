@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 env:
-  # renovate: datasource=docker lookupName=mcr.microsoft.com/dotnet/sdk
+  # renovate: datasource=dotnet-version depName=dotnet-sdk
   DOTNET_VERSION: "8.0.100"
 
 jobs:
