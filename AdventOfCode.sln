@@ -49,13 +49,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".devcontainer", ".devcontainer", "{1B321B1E-CF37-464C-851A-16FAA3F88049}"
 	ProjectSection(SolutionItems) = preProject
 		.devcontainer\devcontainer.json = .devcontainer\devcontainer.json
+		.devcontainer\Dockerfile = .devcontainer\Dockerfile
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Y2023", "Y2023", "{DE887DDA-C222-4B25-9ACC-66E56C4CA25F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Y2023", "Solvers\Y2023\AdventOfCode.Y2023\AdventOfCode.Y2023.csproj", "{D0EAA78E-69DF-4C96-8E65-FD964EDC8846}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Y2023", "Solvers\Y2023\AdventOfCode.Y2023\AdventOfCode.Y2023.csproj", "{D0EAA78E-69DF-4C96-8E65-FD964EDC8846}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode.Y2023.Test", "Solvers\Y2023\AdventOfCode.Y2023.Test\AdventOfCode.Y2023.Test.csproj", "{00E199BA-F655-4510-ACB6-4876EBE0793A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode.Y2023.Test", "Solvers\Y2023\AdventOfCode.Y2023.Test\AdventOfCode.Y2023.Test.csproj", "{00E199BA-F655-4510-ACB6-4876EBE0793A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
