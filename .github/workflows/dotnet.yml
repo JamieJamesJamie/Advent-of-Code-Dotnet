@@ -6,7 +6,7 @@ on:
 
 env:
   # renovate: datasource=dotnet-version depName=dotnet-sdk
-  DOTNET_VERSION: "8.0.202"
+  DOTNET_VERSION: "8.0.204"
 
 jobs:
   csharpier:
