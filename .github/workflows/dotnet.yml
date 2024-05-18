@@ -29,13 +29,13 @@ jobs:
       - uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
-     
+
       - run: dotnet format
-  
+
       - run: dotnet tool restore
-  
+
       - run: dotnet csharpier .
-  
+
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           # Version Spec of the version to use in SemVer notation.
@@ -48,9 +48,9 @@ jobs:
           cache: "npm"
 
       - run: npm ci
-  
+
       - run: npx prettier . --write
-  
+
       - name: Verify Changed files
         uses: tj-actions/verify-changed-files@v20
         id: verify-changed-files
@@ -58,7 +58,7 @@ jobs:
       - name: Fail job if any files changed
         if: steps.verify-changed-files.outputs.files_changed == 'true'
         run: exit 1
-  
+
       - uses: stefanzweifel/git-auto-commit-action@8621497c8c39c72f3e2a999a26b4ca1b5058a842 # v5
         if: success() || failure()
         with:
@@ -69,40 +69,40 @@ jobs:
     needs: format
 
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
-    
+
       - uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
-      
+
       - run: dotnet tool restore
-     
+
       - run: dotnet csharpier --check .
 
   dotnet-format:
     needs: format
-    
+
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
-    
+
       - uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
-      
+
       - run: dotnet format --verify-no-changes
-  
+
   prettier:
     needs: format
-    
+
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
-    
+
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           # Version Spec of the version to use in SemVer notation.
@@ -113,49 +113,49 @@ jobs:
           # Package manager should be pre-installed
           # Default: ''
           cache: "npm"
-      
+
       - run: npm ci
-     
+
       - run: npx prettier . --check
 
   test-shared:
     needs: [format, csharpier, dotnet-format, prettier]
-    
+
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
-    
+
       - uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
-      
+
       - run: dotnet test Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj
 
   test-Y2022:
     needs: [format, csharpier, dotnet-format, prettier]
-    
+
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
-    
+
       - uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
-      
+
       - run: dotnet test Solvers/Y2022/AdventOfCode.Y2022.Test/AdventOfCode.Y2022.Test.csproj
 
   test-Y2023:
     needs: [format, csharpier, dotnet-format, prettier]
-    
+
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
-    
+
       - uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
-      
+
       - run: dotnet test Solvers/Y2023/AdventOfCode.Y2023.Test/AdventOfCode.Y2023.Test.csproj
