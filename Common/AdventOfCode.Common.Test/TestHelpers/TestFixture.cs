@@ -30,7 +30,8 @@ public abstract class TestFixture
 
         string substring = typeName[
             (typeName.IndexOf(ClassPrefix, StringComparison.Ordinal) + ClassPrefix.Length)..
-        ].TrimStart('_');
+        ]
+            .TrimStart('_');
 
         string numbersOnly = new(substring.TakeWhile(char.IsDigit).ToArray());
 
