@@ -85,10 +85,8 @@ public class Solver01 : BaseSolver<int>
 
             int wordNumber = mappings
                 .FirstOrDefault(numberMapping =>
-                    line[characterIndex..].StartsWith(
-                        numberMapping.Key,
-                        StringComparison.InvariantCulture
-                    )
+                    line[characterIndex..]
+                        .StartsWith(numberMapping.Key, StringComparison.InvariantCulture)
                 )
                 .Value;
 
