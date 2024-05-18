@@ -52,7 +52,7 @@ jobs:
       - run: npx prettier . --write
 
       - name: Verify Changed files
-        uses: tj-actions/verify-changed-files@v20
+        uses: tj-actions/verify-changed-files@6ed7632824d235029086612d4330d659005af687 # v20
         id: verify-changed-files
 
       - name: Fail job if any files changed
