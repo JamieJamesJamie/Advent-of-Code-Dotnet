@@ -1,1 +1,1 @@
-FROM mcr.microsoft.com/devcontainers/dotnet:1.1.7-8.0-jammy@sha256:c7a30b32003f45ee6355b4b4c2681996d5b567cb8daa54a0fd9ecc717e487762
+FROM mcr.microsoft.com/devcontainers/dotnet:1.1.8-8.0-jammy@sha256:09232b55415b38fc7939be69f87d54d4d582310ff4aa022e1a5ef63a02528430
