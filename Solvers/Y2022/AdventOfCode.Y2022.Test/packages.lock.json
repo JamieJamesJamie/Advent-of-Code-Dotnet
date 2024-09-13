@@ -10,9 +10,9 @@
       },
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[6.12.0, )",
-        "resolved": "6.12.0",
-        "contentHash": "ZXhHT2YwP9lajrwSKbLlFqsmCCvFJMoRSK9t7sImfnCyd0OB3MhgxdoMcVqxbq1iyxD6mD2fiackWmBb7ayiXQ==",
+        "requested": "[6.12.1, )",
+        "resolved": "6.12.1",
+        "contentHash": "hciWwryyLw3eonfqhFpOMTXyM1/auJChYslEBA+iGJyuBs5O3t/kA8YaeH4iRo/2Fe3ElSYL86C0miivtZ0f3g==",
         "dependencies": {
           "System.Configuration.ConfigurationManager": "4.4.0"
         }
@@ -158,7 +158,7 @@
         "type": "Project",
         "dependencies": {
           "AdventOfCode.Common": "[1.0.0, )",
-          "FluentAssertions": "[6.12.0, )",
+          "FluentAssertions": "[6.12.1, )",
           "Microsoft.NET.Test.Sdk": "[17.10.0, )",
           "xunit": "[2.9.0, )"
         }
