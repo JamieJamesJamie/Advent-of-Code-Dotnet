@@ -4,7 +4,6 @@
 
 namespace AdventOfCode.Common.AOCHelper;
 
-using System;
 using AoCHelper;
 
 /// <summary>
