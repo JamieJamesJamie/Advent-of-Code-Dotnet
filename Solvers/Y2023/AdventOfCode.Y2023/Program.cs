@@ -2,9 +2,7 @@
 // Copyright (c) JamieJamesJamie. All rights reserved.
 // </copyright>
 
-#pragma warning disable SA1200 // Using directives should be placed correctly
 using AoCHelper;
-#pragma warning restore SA1200 // Using directives should be placed correctly
 
 if (args.Length == 0)
 {

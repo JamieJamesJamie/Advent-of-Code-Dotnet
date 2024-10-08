@@ -33,7 +33,7 @@ public class Solver02 : BaseSolver<int>
             { 'Z', Outcome.Win },
         };
 
-    private readonly IEnumerable<(char, char)> roundInformation;
+    private readonly IEnumerable<RoundInformation> roundInformation;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Solver02"/> class.
@@ -66,8 +66,8 @@ public class Solver02 : BaseSolver<int>
     protected override int Solve1() =>
         this.roundInformation.Sum(round =>
         {
-            Move opponentMove = OpponentTranslations[round.Item1];
-            Move myMove = MyTranslationsPart1[round.Item2];
+            Move opponentMove = OpponentTranslations[round.OpponentKey];
+            Move myMove = MyTranslationsPart1[round.MyKey];
 
             int gameOutcome = (int)GetOutcome(opponentMove, myMove);
             int moveOutcome = (int)myMove;
@@ -79,8 +79,8 @@ public class Solver02 : BaseSolver<int>
     protected override int Solve2() =>
         this.roundInformation.Sum(round =>
         {
-            Move opponentMove = OpponentTranslations[round.Item1];
-            Outcome myOutcome = MyTranslationsPart2[round.Item2];
+            Move opponentMove = OpponentTranslations[round.OpponentKey];
+            Outcome myOutcome = MyTranslationsPart2[round.MyKey];
 
             Move myMove = GetMove(opponentMove, myOutcome);
 
@@ -117,7 +117,7 @@ public class Solver02 : BaseSolver<int>
         return Move.Scissors;
     }
 
-    private IEnumerable<(char, char)> ParseInput()
+    private IEnumerable<RoundInformation> ParseInput()
     {
         ParsedFile file = new(this.InputFilePath);
 
@@ -125,7 +125,9 @@ public class Solver02 : BaseSolver<int>
         {
             string line = file.NextLine().ToSingleString(wordSeparator: string.Empty);
 
-            yield return (line[0], line[1]);
+            yield return new RoundInformation(line[0], line[1]);
         }
     }
+
+    private sealed record RoundInformation(char OpponentKey, char MyKey);
 }
