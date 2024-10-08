@@ -32,7 +32,7 @@ public static class IEnumerableExtensions
     /// <param name="sequences">The sequences to zip.</param>
     /// <typeparam name="T">The type of element contained in the underlying sequences.</typeparam>
     /// <returns>The zipped contents of <paramref name="sequences"/>.</returns>
-    public static IEnumerable<List<T>> Zip<T>(this IEnumerable<IEnumerable<T>> sequences) =>
+    public static IEnumerable<IEnumerable<T>> Zip<T>(this IEnumerable<IEnumerable<T>> sequences) =>
         Zip(sequences, zippedSequence => zippedSequence);
 
     /// <summary>
@@ -49,7 +49,7 @@ public static class IEnumerableExtensions
     /// </returns>
     public static IEnumerable<TResult> Zip<T, TResult>(
         this IEnumerable<IEnumerable<T>> sequences,
-        Func<List<T>, TResult>? resultSelector
+        Func<IEnumerable<T>, TResult>? resultSelector
     )
     {
         ArgumentNullException.ThrowIfNull(resultSelector);
@@ -58,7 +58,7 @@ public static class IEnumerableExtensions
 
     private static IEnumerable<TResult> ZipIterator<T, TResult>(
         IEnumerable<IEnumerable<T>> sequences,
-        Func<List<T>, TResult> resultSelector
+        Func<IEnumerable<T>, TResult> resultSelector
     )
     {
         ImmutableList<IEnumerable<T>> sequencesList = sequences.ToImmutableList();
@@ -77,7 +77,7 @@ public static class IEnumerableExtensions
             while (enumerators.TrueForAll(enumerator => enumerator.MoveNext()))
             {
                 yield return resultSelector(
-                    enumerators.Select(enumerator => enumerator.Current).ToList()
+                    enumerators.Select(enumerator => enumerator.Current).ToImmutableList()
                 );
             }
         }

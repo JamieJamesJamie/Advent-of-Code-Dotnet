@@ -14,190 +14,189 @@ public class IEnumerableExtensionsTests
     /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.SliceStep{T}"/>.
     /// </summary>
-    public static readonly TheoryData<int, List<int>> SliceStepData =
+    public static readonly TheoryData<int, int[]> SliceStepData =
         new()
         {
-            {
-                2,
-                new() { 1, 3, 5 }
-            },
-            {
-                3,
-                new() { 1, 4 }
-            },
-            {
-                -2,
-                new() { 1, 3, 5 }
-            },
+            { 2, [1, 3, 5] },
+            { 3, [1, 4] },
+            { -2, [1, 3, 5] },
         };
 
     /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T,TResult}"/>.
     /// </summary>
     public static readonly TheoryData<
-        List<List<object>>,
-        List<List<object>>,
-        Func<List<object>, object>
+        object[][],
+        object[][],
+        Func<IEnumerable<object>, object>
     > ZipCustomResultSelectorData =
         new()
         {
             {
-                new()
-                {
-                    new() { 1, 2, 3 },
-                    new() { 4, 5, 6 },
-                },
-                new()
-                {
-                    new() { 1, 4 },
-                    new() { 2, 5 },
-                    new() { 3, 6 },
-                },
+
+                [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                ],
+
+                [
+                    [1, 4],
+                    [2, 5],
+                    [3, 6],
+                ],
                 x => x
             },
             {
-                new()
-                {
-                    new() { 1, 2, 3 },
-                    new() { 4, 5, 6 },
-                },
-                new()
-                {
-                    new() { 4, 1 },
-                    new() { 5, 2 },
-                    new() { 6, 3 },
-                },
-                ReverseFunction
+
+                [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                ],
+
+                [
+                    [4, 1],
+                    [5, 2],
+                    [6, 3],
+                ],
+                x => x.Reverse()
             },
             {
-                new()
-                {
-                    new() { 1, 2, 3 },
-                    new() { 4, 5 },
-                },
-                new()
-                {
-                    new() { 4, 1 },
-                    new() { 5, 2 },
-                },
-                ReverseFunction
+
+                [
+                    [1, 2, 3],
+                    [4, 5],
+                ],
+
+                [
+                    [4, 1],
+                    [5, 2],
+                ],
+                x => x.Reverse()
             },
             {
-                new()
-                {
-                    new() { 1, 2 },
-                    new() { 3, 4, 5 },
-                },
-                new()
-                {
-                    new() { 3, 1 },
-                    new() { 4, 2 },
-                },
-                ReverseFunction
+
+                [
+                    [1, 2],
+                    [3, 4, 5],
+                ],
+
+                [
+                    [3, 1],
+                    [4, 2],
+                ],
+                x => x.Reverse()
             },
-            { new(), new(), ReverseFunction },
+            { [], [], x => x.Reverse() },
             {
-                new() { new() },
-                new(),
-                ReverseFunction
-            },
-            {
-                new() { new() { 1 } },
-                new() { new() { 1 } },
-                ReverseFunction
+
+                [
+                    [],
+                ],
+                [],
+                x => x.Reverse()
             },
             {
-                new()
-                {
-                    new() { "aaa", "bbb", "ccc" },
-                    new() { "ddd", "eee" },
-                },
-                new()
-                {
-                    new() { "ddd", "aaa" },
-                    new() { "eee", "bbb" },
-                },
-                ReverseFunction
+
+                [
+                    [1],
+                ],
+
+                [
+                    [1],
+                ],
+                x => x.Reverse()
+            },
+            {
+
+                [
+                    ["aaa", "bbb", "ccc"],
+                    ["ddd", "eee"],
+                ],
+
+                [
+                    ["ddd", "aaa"],
+                    ["eee", "bbb"],
+                ],
+                x => x.Reverse()
             },
         };
 
     /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T}"/>.
     /// </summary>
-    public static readonly TheoryData<
-        List<List<object>>,
-        List<List<object>>
-    > ZipDefaultResultSelectorData =
+    public static readonly TheoryData<object[][], object[][]> ZipDefaultResultSelectorData =
         new()
         {
             {
-                new()
-                {
-                    new() { 1, 2, 3 },
-                    new() { 4, 5, 6 },
-                },
-                new()
-                {
-                    new() { 1, 4 },
-                    new() { 2, 5 },
-                    new() { 3, 6 },
-                }
+
+                [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                ],
+
+                [
+                    [1, 4],
+                    [2, 5],
+                    [3, 6],
+                ]
             },
             {
-                new()
-                {
-                    new() { 1, 2, 3 },
-                    new() { 4, 5 },
-                },
-                new()
-                {
-                    new() { 1, 4 },
-                    new() { 2, 5 },
-                }
+
+                [
+                    [1, 2, 3],
+                    [4, 5],
+                ],
+
+                [
+                    [1, 4],
+                    [2, 5],
+                ]
             },
             {
-                new()
-                {
-                    new() { 1, 2 },
-                    new() { 3, 4, 5 },
-                },
-                new()
-                {
-                    new() { 1, 3 },
-                    new() { 2, 4 },
-                }
+
+                [
+                    [1, 2],
+                    [3, 4, 5],
+                ],
+
+                [
+                    [1, 3],
+                    [2, 4],
+                ]
             },
-            { new(), new() },
+            { [], [] },
             {
-                new() { new() },
-                new()
+
+                [
+                    [],
+                ],
+                []
             },
             {
-                new() { new() { 1 } },
-                new() { new() { 1 } }
+
+                [
+                    [1],
+                ],
+
+                [
+                    [1],
+                ]
             },
             {
-                new()
-                {
-                    new() { "aaa", "bbb", "ccc" },
-                    new() { "ddd", "eee" },
-                },
-                new()
-                {
-                    new() { "aaa", "ddd" },
-                    new() { "bbb", "eee" },
-                }
+
+                [
+                    ["aaa", "bbb", "ccc"],
+                    ["ddd", "eee"],
+                ],
+
+                [
+                    ["aaa", "ddd"],
+                    ["bbb", "eee"],
+                ]
             },
         };
 
     private static readonly IEnumerable<int> SliceStepInput = [1, 2, 3, 4, 5];
-
-    private static Func<List<object>, object> ReverseFunction =>
-        x =>
-        {
-            x.Reverse();
-            return x;
-        };
 
     /// <summary>
     /// Tests whether <see cref="IEnumerableExtensions.SliceStep{T}"/> returns
@@ -247,7 +246,7 @@ public class IEnumerableExtensionsTests
     public void Zip_CustomResultSelector_ReturnsExpected(
         IEnumerable<IEnumerable<object>> input,
         IEnumerable<IEnumerable<object>> expectedOutput,
-        Func<List<object>, object> resultSelector
+        Func<IEnumerable<object>, object> resultSelector
     ) =>
         input
             .Zip(resultSelector)
