@@ -6,7 +6,7 @@ on:
 
 env:
   # renovate: datasource=dotnet-version depName=dotnet-sdk
-  DOTNET_VERSION: "8.0.402"
+  DOTNET_VERSION: "8.0.403"
 
   # renovate: datasource=node
   NODE_VERSION: "21.2.0"
