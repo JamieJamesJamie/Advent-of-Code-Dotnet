@@ -12,61 +12,61 @@ env:
   NODE_VERSION: "21.2.0"
 
 jobs:
-  format:
-    runs-on: ubuntu-latest
-
-    permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
-      contents: write
-
-    steps:
-      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
-        with:
-          ref: ${{ github.head_ref }}
-          token: ${{ secrets.GIT_AUTO_COMMIT_ACTION_CHECKOUT_PAT }}
-
-      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
-        with:
-          dotnet-version: "${{ env.DOTNET_VERSION }}"
-
-      - run: dotnet format
-
-      - run: dotnet tool restore
-
-      - run: dotnet csharpier .
-
-      - uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
-        with:
-          # Version Spec of the version to use in SemVer notation.
-          # It also emits such aliases as lts, latest, nightly and canary builds
-          # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
-          node-version: "${{ env.NODE_VERSION }}"
-          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
-          # Package manager should be pre-installed
-          # Default: ''
-          cache: "npm"
-
-      - run: npm ci
-
-      - run: npx prettier . --write
-
-      - name: Verify Changed files
-        uses: tj-actions/verify-changed-files@6ed7632824d235029086612d4330d659005af687 # v20
-        id: verify-changed-files
-
-      - name: Fail job if any files changed
-        if: steps.verify-changed-files.outputs.files_changed == 'true'
-        run: exit 1
-
-      - uses: stefanzweifel/git-auto-commit-action@8621497c8c39c72f3e2a999a26b4ca1b5058a842 # v5
-        if: success() || failure()
-        with:
-          commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          commit_message: "chore(pre-commit): apply automatic changes"
+  #format:
+  #  runs-on: ubuntu-latest
+  #
+  #  permissions:
+  #    # Give the default GITHUB_TOKEN write permission to commit and push the
+  #    # added or changed files to the repository.
+  #    contents: write
+  #
+  #  steps:
+  #    - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+  #      with:
+  #        ref: ${{ github.head_ref }}
+  #        token: ${{ secrets.GIT_AUTO_COMMIT_ACTION_CHECKOUT_PAT }}
+  #
+  #    - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
+  #      with:
+  #        dotnet-version: "${{ env.DOTNET_VERSION }}"
+  #
+  #    - run: dotnet format
+  #
+  #    - run: dotnet tool restore
+  #
+  #    - run: dotnet csharpier .
+  #
+  #    - uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
+  #      with:
+  #        # Version Spec of the version to use in SemVer notation.
+  #        # It also emits such aliases as lts, latest, nightly and canary builds
+  #        # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
+  #        node-version: "${{ env.NODE_VERSION }}"
+  #        # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
+  #        # Package manager should be pre-installed
+  #        # Default: ''
+  #        cache: "npm"
+  #
+  #    - run: npm ci
+  #
+  #    - run: npx prettier . --write
+  #
+  #    - name: Verify Changed files
+  #      uses: tj-actions/verify-changed-files@6ed7632824d235029086612d4330d659005af687 # v20
+  #      id: verify-changed-files
+  #
+  #    - name: Fail job if any files changed
+  #      if: steps.verify-changed-files.outputs.files_changed == 'true'
+  #      run: exit 1
+  #
+  #    - uses: stefanzweifel/git-auto-commit-action@8621497c8c39c72f3e2a999a26b4ca1b5058a842 # v5
+  #      if: success() || failure()
+  #      with:
+  #        commit_author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+  #        commit_message: "chore(pre-commit): apply automatic changes"
 
   csharpier:
-    needs: format
+    #needs: format
 
     runs-on: ubuntu-latest
 
@@ -82,7 +82,7 @@ jobs:
       - run: dotnet csharpier --check .
 
   dotnet-format:
-    needs: format
+    #needs: format
 
     runs-on: ubuntu-latest
 
@@ -96,7 +96,7 @@ jobs:
       - run: dotnet format --verify-no-changes
 
   prettier:
-    needs: format
+    #needs: format
 
     runs-on: ubuntu-latest
 
@@ -119,7 +119,7 @@ jobs:
       - run: npx prettier . --check
 
   test-shared:
-    needs: [format, csharpier, dotnet-format, prettier]
+    needs: [csharpier, dotnet-format, prettier]
 
     runs-on: ubuntu-latest
 
@@ -133,7 +133,7 @@ jobs:
       - run: dotnet test Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj
 
   test-Y2022:
-    needs: [format, csharpier, dotnet-format, prettier]
+    needs: [csharpier, dotnet-format, prettier]
 
     runs-on: ubuntu-latest
 
@@ -147,7 +147,7 @@ jobs:
       - run: dotnet test Solvers/Y2022/AdventOfCode.Y2022.Test/AdventOfCode.Y2022.Test.csproj
 
   test-Y2023:
-    needs: [format, csharpier, dotnet-format, prettier]
+    needs: [csharpier, dotnet-format, prettier]
 
     runs-on: ubuntu-latest
 

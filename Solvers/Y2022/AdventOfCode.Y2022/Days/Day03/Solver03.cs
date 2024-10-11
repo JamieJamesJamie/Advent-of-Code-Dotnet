@@ -4,6 +4,7 @@
 
 namespace AdventOfCode.Y2022.Days.Day03;
 
+using System;
 using AdventOfCode.Common.Extensions;
 
 /// <summary>
