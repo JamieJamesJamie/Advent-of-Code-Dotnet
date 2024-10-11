@@ -49,7 +49,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".devcontainer", ".devcontainer", "{1B321B1E-CF37-464C-851A-16FAA3F88049}"
 	ProjectSection(SolutionItems) = preProject
 		.devcontainer\devcontainer.json = .devcontainer\devcontainer.json
-		.devcontainer\Dockerfile = .devcontainer\Dockerfile
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Y2023", "Y2023", "{DE887DDA-C222-4B25-9ACC-66E56C4CA25F}"
