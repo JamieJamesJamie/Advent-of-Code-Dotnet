@@ -8,9 +8,6 @@ env:
   # renovate: datasource=dotnet-version depName=dotnet-sdk
   DOTNET_VERSION: "8.0.402"
 
-  # renovate: datasource=node
-  NODE_VERSION: "21.2.0"
-
 jobs:
   format:
     runs-on: ubuntu-latest
@@ -38,10 +35,9 @@ jobs:
 
       - uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
         with:
-          # Version Spec of the version to use in SemVer notation.
-          # It also emits such aliases as lts, latest, nightly and canary builds
-          # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
-          node-version: "${{ env.NODE_VERSION }}"
+          # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+          # If node-version and node-version-file are both provided the action will use version from node-version.
+          node-version-file: ".nvmrc"
           # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
           # Package manager should be pre-installed
           # Default: ''
@@ -105,10 +101,9 @@ jobs:
 
       - uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4
         with:
-          # Version Spec of the version to use in SemVer notation.
-          # It also emits such aliases as lts, latest, nightly and canary builds
-          # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
-          node-version: "${{ env.NODE_VERSION }}"
+          # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+          # If node-version and node-version-file are both provided the action will use version from node-version.
+          node-version-file: ".nvmrc"
           # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
           # Package manager should be pre-installed
           # Default: ''
