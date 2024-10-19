@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "AdventOfCode.Y2015 - Solve All": {
+      "commandName": "Project",
+      "commandLineArgs": "all"
+    },
+    "AdventOfCode.Y2015 - Solve Last": {
+      "commandName": "Project"
+    }
+  }
+}
