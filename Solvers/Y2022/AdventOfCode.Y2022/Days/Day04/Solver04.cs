@@ -11,7 +11,7 @@ public class Solver04 : BaseSolver<int>
 {
     private static readonly char[] ExistingSeparator = [',', '-'];
 
-    private readonly IEnumerable<(HashSet<int>, HashSet<int>)> sectionIds;
+    private readonly IEnumerable<SectionAssignmentPair> sectionIds;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Solver04"/> class.
@@ -29,14 +29,15 @@ public class Solver04 : BaseSolver<int>
     /// <inheritdoc/>
     protected override int Solve1() =>
         this.sectionIds.Count(sets =>
-            sets.Item1.IsSubsetOf(sets.Item2) || sets.Item2.IsSubsetOf(sets.Item1)
+            sets.Elf1Sections.IsSubsetOf(sets.Elf2Sections)
+            || sets.Elf2Sections.IsSubsetOf(sets.Elf1Sections)
         );
 
     /// <inheritdoc/>
     protected override int Solve2() =>
-        this.sectionIds.Count(sets => sets.Item1.Intersect(sets.Item2).Any());
+        this.sectionIds.Count(sets => sets.Elf1Sections.Intersect(sets.Elf2Sections).Any());
 
-    private IEnumerable<(HashSet<int>, HashSet<int>)> ParseInput()
+    private IEnumerable<SectionAssignmentPair> ParseInput()
     {
         ParsedFile file = new(this.InputFilePath, existingSeparator: ExistingSeparator);
 
@@ -55,4 +56,9 @@ public class Solver04 : BaseSolver<int>
             );
         }
     }
+
+    private sealed record SectionAssignmentPair(
+        HashSet<int> Elf1Sections,
+        HashSet<int> Elf2Sections
+    );
 }

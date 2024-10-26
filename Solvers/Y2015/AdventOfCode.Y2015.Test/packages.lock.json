@@ -162,6 +162,23 @@
           "AoCHelper": "[3.1.0, )"
         }
       },
+      "adventofcode.common.test": {
+        "type": "Project",
+        "dependencies": {
+          "AdventOfCode.Common": "[1.0.0, )",
+          "FluentAssertions": "[6.12.1, )",
+          "Microsoft.NET.Test.Sdk": "[17.11.1, )",
+          "xunit": "[2.9.2, )"
+        }
+      },
+      "adventofcode.y2015": {
+        "type": "Project",
+        "dependencies": {
+          "AdventOfCode.Common": "[1.0.0, )",
+          "AoCHelper": "[3.1.0, )",
+          "FileParser": "[3.0.0, )"
+        }
+      },
       "AoCHelper": {
         "type": "CentralTransitive",
         "requested": "[3.1.0, )",
@@ -170,6 +187,12 @@
         "dependencies": {
           "Spectre.Console": "0.48.0"
         }
+      },
+      "FileParser": {
+        "type": "CentralTransitive",
+        "requested": "[3.0.0, )",
+        "resolved": "3.0.0",
+        "contentHash": "I7AybPkOYSStNMuzqsTjP+cKWwkyY/uCLG6ULTiOzzWaaY4Kof26/EilGJUiBI75OgI96qR9JZDJQF0vpY7OCg=="
       }
     }
   }

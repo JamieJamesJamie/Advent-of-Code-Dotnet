@@ -6,10 +6,7 @@ on:
 
 env:
   # renovate: datasource=dotnet-version depName=dotnet-sdk
-  DOTNET_VERSION: "8.0.401"
-
-  # renovate: datasource=node
-  NODE_VERSION: "21.2.0"
+  DOTNET_VERSION: "8.0.403"
 
 jobs:
   format:
@@ -21,12 +18,12 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GIT_AUTO_COMMIT_ACTION_CHECKOUT_PAT }}
 
-      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
+      - uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
@@ -36,12 +33,11 @@ jobs:
 
       - run: dotnet csharpier .
 
-      - uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
         with:
-          # Version Spec of the version to use in SemVer notation.
-          # It also emits such aliases as lts, latest, nightly and canary builds
-          # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
-          node-version: "${{ env.NODE_VERSION }}"
+          # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+          # If node-version and node-version-file are both provided the action will use version from node-version.
+          node-version-file: ".nvmrc"
           # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
           # Package manager should be pre-installed
           # Default: ''
@@ -71,9 +67,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
+      - uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
@@ -87,9 +83,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
+      - uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
@@ -101,14 +97,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
         with:
-          # Version Spec of the version to use in SemVer notation.
-          # It also emits such aliases as lts, latest, nightly and canary builds
-          # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
-          node-version: "${{ env.NODE_VERSION }}"
+          # File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.
+          # If node-version and node-version-file are both provided the action will use version from node-version.
+          node-version-file: ".nvmrc"
           # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
           # Package manager should be pre-installed
           # Default: ''
@@ -124,38 +119,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
+      - uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
       - run: dotnet test Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj
 
-  test-Y2022:
+  test-year:
     needs: [format, csharpier, dotnet-format, prettier]
 
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+    strategy:
+      matrix:
+        project-year: ["2015", "2022", "2023"]
 
-      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
-      - run: dotnet test Solvers/Y2022/AdventOfCode.Y2022.Test/AdventOfCode.Y2022.Test.csproj
-
-  test-Y2023:
-    needs: [format, csharpier, dotnet-format, prettier]
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-
-      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee # v4
-        with:
-          dotnet-version: "${{ env.DOTNET_VERSION }}"
-
-      - run: dotnet test Solvers/Y2023/AdventOfCode.Y2023.Test/AdventOfCode.Y2023.Test.csproj
+      - run: dotnet test Solvers/Y${{ matrix.project-year }}/AdventOfCode.Y${{ matrix.project-year }}.Test/AdventOfCode.Y${{ matrix.project-year }}.Test.csproj
