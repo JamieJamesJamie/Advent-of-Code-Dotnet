@@ -1,4 +1,5 @@
 {
+  "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
   "tasks": [
     {
       "name": "commit-message-linter",
@@ -14,27 +15,27 @@
     {
       "name": "Run prettier",
       "command": "npx",
-      "args": ["prettier", "--ignore-unknown", "--write", "${staged}"],
+      "args": [ "prettier", "--ignore-unknown", "--write", "${staged}" ],
       "pathMode": "absolute"
     },
     {
       "name": "Run dotnet format",
       "command": "dotnet",
-      "args": ["format", "--include", "${staged}"],
-      "include": ["**/*.cs"]
+      "args": [ "format", "--include", "${staged}" ],
+      "include": [ "**/*.cs" ]
     },
     {
       "name": "Run csharpier",
       "command": "dotnet",
-      "args": ["csharpier", "${staged}"],
-      "include": ["**/*.cs"]
+      "args": [ "csharpier", "${staged}" ],
+      "include": [ "**/*.cs" ]
     },
     {
       "name": "warning-check",
       "command": "dotnet",
       "group": "pre-push",
-      "args": ["build", "/warnaserror"],
-      "include": ["**/*.cs", "**/*.vb"]
+      "args": [ "build", "/warnaserror" ],
+      "include": [ "**/*.cs", "**/*.vb" ]
     }
   ]
 }
