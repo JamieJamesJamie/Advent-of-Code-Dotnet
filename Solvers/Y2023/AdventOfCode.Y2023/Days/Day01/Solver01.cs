@@ -9,19 +9,18 @@ namespace AdventOfCode.Y2023.Days.Day01;
 /// </summary>
 public class Solver01 : BaseSolver<int>
 {
-    private static readonly Dictionary<string, int> NumberMappings =
-        new()
-        {
-            { "one", 1 },
-            { "two", 2 },
-            { "three", 3 },
-            { "four", 4 },
-            { "five", 5 },
-            { "six", 6 },
-            { "seven", 7 },
-            { "eight", 8 },
-            { "nine", 9 },
-        };
+    private static readonly Dictionary<string, int> NumberMappings = new()
+    {
+        { "one", 1 },
+        { "two", 2 },
+        { "three", 3 },
+        { "four", 4 },
+        { "five", 5 },
+        { "six", 6 },
+        { "seven", 7 },
+        { "eight", 8 },
+        { "nine", 9 },
+    };
 
     private static readonly Dictionary<string, int> NumberMappingsReversed = NumberMappings
         .Select(numberMapping => new KeyValuePair<string, int>(

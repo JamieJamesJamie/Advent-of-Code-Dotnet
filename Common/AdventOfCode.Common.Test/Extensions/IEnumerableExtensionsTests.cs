@@ -14,13 +14,12 @@ public class IEnumerableExtensionsTests
     /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.SliceStep{T}"/>.
     /// </summary>
-    public static readonly TheoryData<int, int[]> SliceStepData =
-        new()
-        {
-            { 2, [1, 3, 5] },
-            { 3, [1, 4] },
-            { -2, [1, 3, 5] },
-        };
+    public static readonly TheoryData<int, int[]> SliceStepData = new()
+    {
+        { 2, [1, 3, 5] },
+        { 3, [1, 4] },
+        { -2, [1, 3, 5] },
+    };
 
     /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T,TResult}"/>.
@@ -29,172 +28,170 @@ public class IEnumerableExtensionsTests
         object[][],
         object[][],
         Func<IEnumerable<object>, object>
-    > ZipCustomResultSelectorData =
-        new()
+    > ZipCustomResultSelectorData = new()
+    {
         {
-            {
 
-                [
-                    [1, 2, 3],
-                    [4, 5, 6],
-                ],
+            [
+                [1, 2, 3],
+                [4, 5, 6],
+            ],
 
-                [
-                    [1, 4],
-                    [2, 5],
-                    [3, 6],
-                ],
-                x => x
-            },
-            {
+            [
+                [1, 4],
+                [2, 5],
+                [3, 6],
+            ],
+            x => x
+        },
+        {
 
-                [
-                    [1, 2, 3],
-                    [4, 5, 6],
-                ],
+            [
+                [1, 2, 3],
+                [4, 5, 6],
+            ],
 
-                [
-                    [4, 1],
-                    [5, 2],
-                    [6, 3],
-                ],
-                x => x.Reverse()
-            },
-            {
+            [
+                [4, 1],
+                [5, 2],
+                [6, 3],
+            ],
+            x => x.Reverse()
+        },
+        {
 
-                [
-                    [1, 2, 3],
-                    [4, 5],
-                ],
+            [
+                [1, 2, 3],
+                [4, 5],
+            ],
 
-                [
-                    [4, 1],
-                    [5, 2],
-                ],
-                x => x.Reverse()
-            },
-            {
+            [
+                [4, 1],
+                [5, 2],
+            ],
+            x => x.Reverse()
+        },
+        {
 
-                [
-                    [1, 2],
-                    [3, 4, 5],
-                ],
+            [
+                [1, 2],
+                [3, 4, 5],
+            ],
 
-                [
-                    [3, 1],
-                    [4, 2],
-                ],
-                x => x.Reverse()
-            },
-            { [], [], x => x.Reverse() },
-            {
+            [
+                [3, 1],
+                [4, 2],
+            ],
+            x => x.Reverse()
+        },
+        { [], [], x => x.Reverse() },
+        {
 
-                [
-                    [],
-                ],
+            [
                 [],
-                x => x.Reverse()
-            },
-            {
+            ],
+            [],
+            x => x.Reverse()
+        },
+        {
 
-                [
-                    [1],
-                ],
+            [
+                [1],
+            ],
 
-                [
-                    [1],
-                ],
-                x => x.Reverse()
-            },
-            {
+            [
+                [1],
+            ],
+            x => x.Reverse()
+        },
+        {
 
-                [
-                    ["aaa", "bbb", "ccc"],
-                    ["ddd", "eee"],
-                ],
+            [
+                ["aaa", "bbb", "ccc"],
+                ["ddd", "eee"],
+            ],
 
-                [
-                    ["ddd", "aaa"],
-                    ["eee", "bbb"],
-                ],
-                x => x.Reverse()
-            },
-        };
+            [
+                ["ddd", "aaa"],
+                ["eee", "bbb"],
+            ],
+            x => x.Reverse()
+        },
+    };
 
     /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T}"/>.
     /// </summary>
-    public static readonly TheoryData<object[][], object[][]> ZipDefaultResultSelectorData =
-        new()
+    public static readonly TheoryData<object[][], object[][]> ZipDefaultResultSelectorData = new()
+    {
         {
-            {
 
-                [
-                    [1, 2, 3],
-                    [4, 5, 6],
-                ],
+            [
+                [1, 2, 3],
+                [4, 5, 6],
+            ],
 
-                [
-                    [1, 4],
-                    [2, 5],
-                    [3, 6],
-                ]
-            },
-            {
+            [
+                [1, 4],
+                [2, 5],
+                [3, 6],
+            ]
+        },
+        {
 
-                [
-                    [1, 2, 3],
-                    [4, 5],
-                ],
+            [
+                [1, 2, 3],
+                [4, 5],
+            ],
 
-                [
-                    [1, 4],
-                    [2, 5],
-                ]
-            },
-            {
+            [
+                [1, 4],
+                [2, 5],
+            ]
+        },
+        {
 
-                [
-                    [1, 2],
-                    [3, 4, 5],
-                ],
+            [
+                [1, 2],
+                [3, 4, 5],
+            ],
 
-                [
-                    [1, 3],
-                    [2, 4],
-                ]
-            },
-            { [], [] },
-            {
+            [
+                [1, 3],
+                [2, 4],
+            ]
+        },
+        { [], [] },
+        {
 
-                [
-                    [],
-                ],
-                []
-            },
-            {
+            [
+                [],
+            ],
+            []
+        },
+        {
 
-                [
-                    [1],
-                ],
+            [
+                [1],
+            ],
 
-                [
-                    [1],
-                ]
-            },
-            {
+            [
+                [1],
+            ]
+        },
+        {
 
-                [
-                    ["aaa", "bbb", "ccc"],
-                    ["ddd", "eee"],
-                ],
+            [
+                ["aaa", "bbb", "ccc"],
+                ["ddd", "eee"],
+            ],
 
-                [
-                    ["aaa", "ddd"],
-                    ["bbb", "eee"],
-                ]
-            },
-        };
+            [
+                ["aaa", "ddd"],
+                ["bbb", "eee"],
+            ]
+        },
+    };
 
     private static readonly IEnumerable<int> SliceStepInput = [1, 2, 3, 4, 5];
 

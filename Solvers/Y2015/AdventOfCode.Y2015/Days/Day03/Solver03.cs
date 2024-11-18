@@ -11,14 +11,13 @@ using System.Numerics;
 /// </summary>
 public class Solver03 : BaseSolver<int>
 {
-    private static readonly Dictionary<char, Vector2> DirectionMappings =
-        new()
-        {
-            { '^', new(0, 1) },
-            { 'v', new(0, -1) },
-            { '>', new(1, 0) },
-            { '<', new(-1, 0) },
-        };
+    private static readonly Dictionary<char, Vector2> DirectionMappings = new()
+    {
+        { '^', new(0, 1) },
+        { 'v', new(0, -1) },
+        { '>', new(1, 0) },
+        { '<', new(-1, 0) },
+    };
 
     private readonly string directions;
 

@@ -9,29 +9,26 @@ namespace AdventOfCode.Y2022.Days.Day02;
 /// </summary>
 public class Solver02 : BaseSolver<int>
 {
-    private static readonly Dictionary<char, Move> OpponentTranslations =
-        new()
-        {
-            { 'A', Move.Rock },
-            { 'B', Move.Paper },
-            { 'C', Move.Scissors },
-        };
+    private static readonly Dictionary<char, Move> OpponentTranslations = new()
+    {
+        { 'A', Move.Rock },
+        { 'B', Move.Paper },
+        { 'C', Move.Scissors },
+    };
 
-    private static readonly Dictionary<char, Move> MyTranslationsPart1 =
-        new()
-        {
-            { 'X', Move.Rock },
-            { 'Y', Move.Paper },
-            { 'Z', Move.Scissors },
-        };
+    private static readonly Dictionary<char, Move> MyTranslationsPart1 = new()
+    {
+        { 'X', Move.Rock },
+        { 'Y', Move.Paper },
+        { 'Z', Move.Scissors },
+    };
 
-    private static readonly Dictionary<char, Outcome> MyTranslationsPart2 =
-        new()
-        {
-            { 'X', Outcome.Lose },
-            { 'Y', Outcome.Draw },
-            { 'Z', Outcome.Win },
-        };
+    private static readonly Dictionary<char, Outcome> MyTranslationsPart2 = new()
+    {
+        { 'X', Outcome.Lose },
+        { 'Y', Outcome.Draw },
+        { 'Z', Outcome.Win },
+    };
 
     private readonly IEnumerable<RoundInformation> roundInformation;
 
