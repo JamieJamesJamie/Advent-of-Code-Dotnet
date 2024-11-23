@@ -7,7 +7,7 @@ namespace AdventOfCode.Y2023.Days.Day01;
 /// <summary>
 /// Solver for day 1.
 /// </summary>
-public class Solver01 : BaseSolver<int>
+internal sealed class Solver01 : BaseSolver<int>
 {
     private static readonly Dictionary<string, int> NumberMappings = new()
     {

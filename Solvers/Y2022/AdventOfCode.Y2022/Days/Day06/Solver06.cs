@@ -9,7 +9,7 @@ using System.Collections;
 /// <summary>
 /// Solver for day 6.
 /// </summary>
-public class Solver06 : BaseSolver<int>
+internal sealed class Solver06 : BaseSolver<int>
 {
     private readonly string input;
 

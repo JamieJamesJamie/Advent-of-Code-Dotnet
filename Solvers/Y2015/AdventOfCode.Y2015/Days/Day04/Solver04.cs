@@ -10,7 +10,7 @@ using System.Text;
 /// <summary>
 /// Solver for day 4.
 /// </summary>
-public class Solver04 : BaseSolver<int>
+internal sealed class Solver04 : BaseSolver<int>
 {
     private readonly string keyPrefix;
 

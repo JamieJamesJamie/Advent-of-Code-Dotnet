@@ -11,15 +11,13 @@ using AoCHelper;
 /// </summary>
 /// <typeparam name="TSolve1">The return type of the answer for part 1 of the problem.</typeparam>
 /// <typeparam name="TSolve2">The return type of the answer for part 2 of the problem.</typeparam>
-public abstract class BaseSolver<TSolve1, TSolve2> : BaseDay
+/// <remarks>
+/// Initializes a new instance of the <see cref="BaseSolver{TSolve1, TSolve2}"/> class.
+/// </remarks>
+/// <param name="inputFilePath">The expected input file path.</param>
+public abstract class BaseSolver<TSolve1, TSolve2>(string? inputFilePath) : BaseDay
 {
-    private readonly string? inputFilePath;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="BaseSolver{TSolve1, TSolve2}"/> class.
-    /// </summary>
-    /// <param name="inputFilePath">The expected input file path.</param>
-    protected BaseSolver(string? inputFilePath) => this.inputFilePath = inputFilePath;
+    private readonly string? inputFilePath = inputFilePath;
 
     /// <inheritdoc/>
     public sealed override string InputFilePath => this.inputFilePath ?? base.InputFilePath;

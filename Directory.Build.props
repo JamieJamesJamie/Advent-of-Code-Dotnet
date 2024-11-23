@@ -16,13 +16,20 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
+  <ItemGroup
+    Label="Non-Test Project Properties"
+    Condition="!$(MSBuildProjectName.EndsWith('.Test'))"
+  >
+    <InternalsVisibleTo Include="$(MSBuildProjectName).Test" />
+  </ItemGroup>
+
   <PropertyGroup
     Label="Test Project Properties"
     Condition="$(MSBuildProjectName.EndsWith('.Test'))"
   >
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <NoWarn>$(NoWarn);CA2007;CA1707</NoWarn>
+    <NoWarn>$(NoWarn);CA2007;CA1707;CA1515</NoWarn>
   </PropertyGroup>
 
   <ItemGroup Label=".editorconfig EditorConfigFiles">

@@ -7,7 +7,7 @@ namespace AdventOfCode.Y2022.Days.Day01;
 /// <summary>
 /// Solver for day 1.
 /// </summary>
-public class Solver01 : BaseSolver<long>
+internal sealed class Solver01 : BaseSolver<long>
 {
     private readonly IEnumerable<int> groupSums;
 

@@ -7,7 +7,7 @@ namespace AdventOfCode.Y2015.Days.Day01;
 /// <summary>
 /// Solver for day 1.
 /// </summary>
-public class Solver01 : BaseSolver<int, uint?>
+internal sealed class Solver01 : BaseSolver<int, uint?>
 {
     private readonly IEnumerable<int> floorIncrements;
 

@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 /// <summary>
 /// Solver for day 2.
 /// </summary>
-public partial class Solver02 : BaseSolver<int>
+internal sealed partial class Solver02 : BaseSolver<int>
 {
     private readonly IEnumerable<MatchCollection> matchCollections;
 
