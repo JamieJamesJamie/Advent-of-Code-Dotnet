@@ -31,12 +31,10 @@ public class IEnumerableExtensionsTests
     > ZipCustomResultSelectorData = new()
     {
         {
-
             [
                 [1, 2, 3],
                 [4, 5, 6],
             ],
-
             [
                 [1, 4],
                 [2, 5],
@@ -45,12 +43,10 @@ public class IEnumerableExtensionsTests
             x => x
         },
         {
-
             [
                 [1, 2, 3],
                 [4, 5, 6],
             ],
-
             [
                 [4, 1],
                 [5, 2],
@@ -59,12 +55,10 @@ public class IEnumerableExtensionsTests
             x => x.Reverse()
         },
         {
-
             [
                 [1, 2, 3],
                 [4, 5],
             ],
-
             [
                 [4, 1],
                 [5, 2],
@@ -72,12 +66,10 @@ public class IEnumerableExtensionsTests
             x => x.Reverse()
         },
         {
-
             [
                 [1, 2],
                 [3, 4, 5],
             ],
-
             [
                 [3, 1],
                 [4, 2],
@@ -86,7 +78,6 @@ public class IEnumerableExtensionsTests
         },
         { [], [], x => x.Reverse() },
         {
-
             [
                 [],
             ],
@@ -94,23 +85,19 @@ public class IEnumerableExtensionsTests
             x => x.Reverse()
         },
         {
-
             [
                 [1],
             ],
-
             [
                 [1],
             ],
             x => x.Reverse()
         },
         {
-
             [
                 ["aaa", "bbb", "ccc"],
                 ["ddd", "eee"],
             ],
-
             [
                 ["ddd", "aaa"],
                 ["eee", "bbb"],
@@ -125,12 +112,10 @@ public class IEnumerableExtensionsTests
     public static readonly TheoryData<object[][], object[][]> ZipDefaultResultSelectorData = new()
     {
         {
-
             [
                 [1, 2, 3],
                 [4, 5, 6],
             ],
-
             [
                 [1, 4],
                 [2, 5],
@@ -138,24 +123,20 @@ public class IEnumerableExtensionsTests
             ]
         },
         {
-
             [
                 [1, 2, 3],
                 [4, 5],
             ],
-
             [
                 [1, 4],
                 [2, 5],
             ]
         },
         {
-
             [
                 [1, 2],
                 [3, 4, 5],
             ],
-
             [
                 [1, 3],
                 [2, 4],
@@ -163,29 +144,24 @@ public class IEnumerableExtensionsTests
         },
         { [], [] },
         {
-
             [
                 [],
             ],
             []
         },
         {
-
             [
                 [1],
             ],
-
             [
                 [1],
             ]
         },
         {
-
             [
                 ["aaa", "bbb", "ccc"],
                 ["ddd", "eee"],
             ],
-
             [
                 ["aaa", "ddd"],
                 ["bbb", "eee"],
