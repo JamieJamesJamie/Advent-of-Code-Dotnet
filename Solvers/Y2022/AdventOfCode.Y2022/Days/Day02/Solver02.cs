@@ -7,7 +7,7 @@ namespace AdventOfCode.Y2022.Days.Day02;
 /// <summary>
 /// Solver for day 2.
 /// </summary>
-public class Solver02 : BaseSolver<int>
+internal sealed class Solver02 : BaseSolver<int>
 {
     private static readonly Dictionary<char, Move> OpponentTranslations = new()
     {
@@ -84,35 +84,15 @@ public class Solver02 : BaseSolver<int>
             return (int)myOutcome + (int)myMove;
         });
 
-    private static Outcome GetOutcome(Move opponentMove, Move myMove)
-    {
-        if ((int)myMove % Enum.GetNames(typeof(Move)).Length == (int)opponentMove - 1)
-        {
-            return Outcome.Lose;
-        }
+    private static Outcome GetOutcome(Move opponentMove, Move myMove) =>
+        (int)myMove % Enum.GetNames<Move>().Length == (int)opponentMove - 1 ? Outcome.Lose
+        : myMove == opponentMove ? Outcome.Draw
+        : Outcome.Win;
 
-        if (myMove == opponentMove)
-        {
-            return Outcome.Draw;
-        }
-
-        return Outcome.Win;
-    }
-
-    private static Move GetMove(Move opponentMove, Outcome myOutcome)
-    {
-        if (GetOutcome(opponentMove, Move.Rock) == myOutcome)
-        {
-            return Move.Rock;
-        }
-
-        if (GetOutcome(opponentMove, Move.Paper) == myOutcome)
-        {
-            return Move.Paper;
-        }
-
-        return Move.Scissors;
-    }
+    private static Move GetMove(Move opponentMove, Outcome myOutcome) =>
+        GetOutcome(opponentMove, Move.Rock) == myOutcome ? Move.Rock
+        : GetOutcome(opponentMove, Move.Paper) == myOutcome ? Move.Paper
+        : Move.Scissors;
 
     private IEnumerable<RoundInformation> ParseInput()
     {

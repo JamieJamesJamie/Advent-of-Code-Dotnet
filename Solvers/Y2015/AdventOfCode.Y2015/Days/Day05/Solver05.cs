@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 /// <summary>
 /// Solver for day 5.
 /// </summary>
-public class Solver05 : BaseSolver<int>
+internal sealed class Solver05 : BaseSolver<int>
 {
     private const string ContainsAtLeast1RepeatingLetterRegex = @"(?<character>\w)\k<character>";
 

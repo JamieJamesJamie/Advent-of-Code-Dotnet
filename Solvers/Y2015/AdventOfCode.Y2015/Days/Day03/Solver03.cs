@@ -9,7 +9,7 @@ using System.Numerics;
 /// <summary>
 /// Solver for day 3.
 /// </summary>
-public class Solver03 : BaseSolver<int>
+internal sealed class Solver03 : BaseSolver<int>
 {
     private static readonly Dictionary<char, Vector2> DirectionMappings = new()
     {
@@ -56,11 +56,7 @@ public class Solver03 : BaseSolver<int>
         Vector2 roboSantaPosition = new(0, 0);
         HashSet<Vector2> housesVisited = [santaPosition];
 
-        foreach (
-            (int index, char direction) in this.directions.Select(
-                (direction, index) => (index, direction)
-            )
-        )
+        foreach ((int index, char direction) in this.directions.Index())
         {
             if (index % 2 == 0)
             {

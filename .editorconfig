@@ -60,6 +60,10 @@ dotnet_diagnostic.IDE0090.severity = warning
 # Simplify collection initialization
 dotnet_diagnostic.IDE0300.severity = warning
 dotnet_diagnostic.IDE0028.severity = warning
+# IDE0058: Remove unnecessary expression value
+dotnet_diagnostic.IDE0058.severity = none
+# S3358: Ternary operators should not be nested
+dotnet_diagnostic.S3358.severity = suggestion
 ###############################
 # Naming Conventions          #
 ###############################
@@ -233,6 +237,7 @@ csharp_style_prefer_switch_expression = true:suggestion
 csharp_style_prefer_extended_property_pattern = true:suggestion
 csharp_style_prefer_not_pattern = true:suggestion
 csharp_style_prefer_primary_constructors = true:silent
+csharp_prefer_system_threading_lock = true:suggestion
 ###############################
 # VB Coding Conventions       #
 ###############################

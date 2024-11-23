@@ -9,7 +9,7 @@ using AdventOfCode.Common.Extensions;
 /// <summary>
 /// Solver for day 3.
 /// </summary>
-public class Solver03 : BaseSolver<int>
+internal sealed class Solver03 : BaseSolver<int>
 {
     private readonly IEnumerable<string> rucksacks;
 

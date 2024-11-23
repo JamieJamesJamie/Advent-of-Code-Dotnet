@@ -4,11 +4,17 @@
 
 namespace AdventOfCode.Common.Test.TestHelpers;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 /// <summary>
 /// Test Fixture for Advent Of Code puzzles.
 /// </summary>
+[SuppressMessage(
+    "Maintainability",
+    "CA1515:Consider making public types internal",
+    Justification = "This TestFixture is used in multiple Test projects"
+)]
 public abstract class TestFixture
 {
     private const string ClassPrefix = "Solver";

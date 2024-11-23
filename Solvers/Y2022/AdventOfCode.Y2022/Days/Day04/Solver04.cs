@@ -7,7 +7,7 @@ namespace AdventOfCode.Y2022.Days.Day04;
 /// <summary>
 /// Solver for day 4.
 /// </summary>
-public class Solver04 : BaseSolver<int>
+internal sealed class Solver04 : BaseSolver<int>
 {
     private static readonly char[] ExistingSeparator = [',', '-'];
 

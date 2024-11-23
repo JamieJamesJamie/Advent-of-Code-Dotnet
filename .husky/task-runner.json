@@ -19,9 +19,15 @@
       "pathMode": "absolute"
     },
     {
-      "name": "Run dotnet format",
+      "name": "Run dotnet format style",
       "command": "dotnet",
-      "args": ["format", "--include", "${staged}"],
+      "args": ["format", "style", "--include", "${staged}"],
+      "include": ["**/*.cs"]
+    },
+    {
+      "name": "Run dotnet format analyzers",
+      "command": "dotnet",
+      "args": ["format", "analyzers", "--include", "${staged}"],
       "include": ["**/*.cs"]
     },
     {
