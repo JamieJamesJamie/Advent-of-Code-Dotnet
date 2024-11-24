@@ -79,10 +79,14 @@ jobs:
 
       - run: dotnet csharpier --check .
 
-  dotnet-format-style:
+  dotnet-format:
     needs: format
 
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        subcommand: ["style", "analyzers"]
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -91,21 +95,7 @@ jobs:
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
-      - run: dotnet format style --verify-no-changes
-
-  dotnet-format-analyzers:
-    needs: format
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-
-      - uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
-        with:
-          dotnet-version: "${{ env.DOTNET_VERSION }}"
-
-      - run: dotnet format analyzers --verify-no-changes
+      - run: dotnet format ${{ matrix.subcommand }} --verify-no-changes
 
   prettier:
     needs: format
@@ -130,14 +120,7 @@ jobs:
       - run: npx prettier . --check
 
   test-shared:
-    needs:
-      [
-        format,
-        csharpier,
-        dotnet-format-style,
-        dotnet-format-analyzers,
-        prettier,
-      ]
+    needs: [format, csharpier, dotnet-format, prettier]
 
     runs-on: ubuntu-latest
 
@@ -151,14 +134,7 @@ jobs:
       - run: dotnet test Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj
 
   test-year:
-    needs:
-      [
-        format,
-        csharpier,
-        dotnet-format-style,
-        dotnet-format-analyzers,
-        prettier,
-      ]
+    needs: [format, csharpier, dotnet-format, prettier]
 
     runs-on: ubuntu-latest
 
