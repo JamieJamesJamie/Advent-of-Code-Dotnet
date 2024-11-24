@@ -120,7 +120,7 @@ jobs:
       - run: npx prettier . --check
 
   test-shared:
-    needs:   [    format,   csharpier,  dotnet-format,  prettier ]
+    needs: [format, csharpier, dotnet-format, prettier]
 
     runs-on: ubuntu-latest
 
@@ -134,7 +134,7 @@ jobs:
       - run: dotnet test Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj
 
   test-year:
-    needs:   [   format,  csharpier, dotnet-format, prettier]
+    needs: [format, csharpier, dotnet-format, prettier]
 
     runs-on: ubuntu-latest
 
