@@ -24,24 +24,8 @@ public class IEnumerableExtensionsTests
     /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T,TResult}"/>.
     /// </summary>
-    public static readonly TheoryData<
-        object[][],
-        object[][],
-        Func<IEnumerable<object>, object>
-    > ZipCustomResultSelectorData = new()
+    public static readonly TheoryData<int[][], int[][]> ZipCustomResultSelectorIntegerData = new()
     {
-        {
-            [
-                [1, 2, 3],
-                [4, 5, 6],
-            ],
-            [
-                [1, 4],
-                [2, 5],
-                [3, 6],
-            ],
-            x => x
-        },
         {
             [
                 [1, 2, 3],
@@ -51,8 +35,7 @@ public class IEnumerableExtensionsTests
                 [4, 1],
                 [5, 2],
                 [6, 3],
-            ],
-            x => x.Reverse()
+            ]
         },
         {
             [
@@ -62,8 +45,7 @@ public class IEnumerableExtensionsTests
             [
                 [4, 1],
                 [5, 2],
-            ],
-            x => x.Reverse()
+            ]
         },
         {
             [
@@ -73,16 +55,14 @@ public class IEnumerableExtensionsTests
             [
                 [3, 1],
                 [4, 2],
-            ],
-            x => x.Reverse()
+            ]
         },
-        { [], [], x => x.Reverse() },
+        { [], [] },
         {
             [
                 [],
             ],
-            [],
-            x => x.Reverse()
+            []
         },
         {
             [
@@ -90,26 +70,14 @@ public class IEnumerableExtensionsTests
             ],
             [
                 [1],
-            ],
-            x => x.Reverse()
-        },
-        {
-            [
-                ["aaa", "bbb", "ccc"],
-                ["ddd", "eee"],
-            ],
-            [
-                ["ddd", "aaa"],
-                ["eee", "bbb"],
-            ],
-            x => x.Reverse()
+            ]
         },
     };
 
     /// <summary>
     /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T}"/>.
     /// </summary>
-    public static readonly TheoryData<object[][], object[][]> ZipDefaultResultSelectorData = new()
+    public static readonly TheoryData<int[][], int[][]> ZipDefaultResultSelectorIntegerData = new()
     {
         {
             [
@@ -168,16 +136,6 @@ public class IEnumerableExtensionsTests
                 [1],
             ]
         },
-        {
-            [
-                ["aaa", "bbb", "ccc"],
-                ["ddd", "eee"],
-            ],
-            [
-                ["aaa", "ddd"],
-                ["bbb", "eee"],
-            ]
-        },
     };
 
     private static readonly IEnumerable<int> SliceStepInput = [1, 2, 3, 4, 5];
@@ -220,22 +178,75 @@ public class IEnumerableExtensionsTests
 
     /// <summary>
     /// Tests whether <see cref="IEnumerableExtensions.Zip{T,TResult}"/> returns
-    /// expected outputs given valid inputs.
+    /// expected outputs given valid inputs, that the custom result selector
+    /// is the identity function, <c>T</c> is of type <see langword="int"/>,
+    /// and <c>TResult</c> is an <see cref="IEnumerable{T}"/> containing
+    /// elements of type <see langword="int"/>.
+    /// </summary>
+    [Fact]
+    public void Zip_CustomResultSelector_IdentityFunctionSelector_ReturnsExpected() =>
+        new List<List<int>>()
+        {
+            new() { 1, 2, 3 },
+            new() { 4, 5, 6 },
+        }
+            .Zip(x => x)
+            .Should()
+            .BeEquivalentTo(
+                new List<List<int>>()
+                {
+                    new() { 1, 4 },
+                    new() { 2, 5 },
+                    new() { 3, 6 },
+                },
+                options => options.WithStrictOrdering()
+            );
+
+    /// <summary>
+    /// Tests whether <see cref="IEnumerableExtensions.Zip{T,TResult}"/> returns
+    /// expected outputs given valid inputs, that the custom result selector
+    /// is the reverse function, <c>T</c> is of type <see langword="int"/>,
+    /// and <c>TResult</c> is an <see cref="IEnumerable{T}"/> containing
+    /// elements of type <see langword="int"/>.
     /// </summary>
     /// <param name="input">Sequence to zip.</param>
     /// <param name="expectedOutput">Expected output.</param>
-    /// <param name="resultSelector">Function to perform on zipped elements.</param>
+
     [Theory]
-    [MemberData(nameof(ZipCustomResultSelectorData))]
-    public void Zip_CustomResultSelector_ReturnsExpected(
-        IEnumerable<IEnumerable<object>> input,
-        IEnumerable<IEnumerable<object>> expectedOutput,
-        Func<IEnumerable<object>, object> resultSelector
+    [MemberData(nameof(ZipCustomResultSelectorIntegerData))]
+    public void Zip_CustomResultSelector_ReverseFunctionSelector_IntegerElements_ReturnsExpected(
+        IEnumerable<IEnumerable<int>> input,
+        IEnumerable<IEnumerable<int>> expectedOutput
     ) =>
         input
-            .Zip(resultSelector)
+            .Zip(x => x.Reverse())
             .Should()
             .BeEquivalentTo(expectedOutput, options => options.WithStrictOrdering());
+
+    /// <summary>
+    /// Tests whether <see cref="IEnumerableExtensions.Zip{T,TResult}"/> returns
+    /// expected outputs given valid inputs, that the custom result selector
+    /// is the reverse function, <c>T</c> is of type <see langword="string"/>,
+    /// and <c>TResult</c> is an <see cref="IEnumerable{T}"/> containing
+    /// elements of type <see langword="string"/>.
+    /// </summary>
+    [Fact]
+    public void Zip_CustomResultSelector_ReverseFunctionSelector_StringElements_ReturnsExpected() =>
+        new List<List<string>>()
+        {
+            new() { "aaa", "bbb", "ccc" },
+            new() { "ddd", "eee" },
+        }
+            .Zip(x => x.Reverse())
+            .Should()
+            .BeEquivalentTo(
+                new List<List<string>>()
+                {
+                    new() { "ddd", "aaa" },
+                    new() { "eee", "bbb" },
+                },
+                options => options.WithStrictOrdering()
+            );
 
     /// <summary>
     /// Tests whether <see cref="IEnumerableExtensions.Zip{T,TResult}"/> throws
@@ -250,18 +261,42 @@ public class IEnumerableExtensionsTests
 
     /// <summary>
     /// Tests whether <see cref="IEnumerableExtensions.Zip{T}"/> returns
-    /// expected outputs given valid inputs.
+    /// expected outputs given valid inputs, that the custom result selector
+    /// is the reverse function and <c>T</c> is of type <see langword="int"/>.
     /// </summary>
     /// <param name="input">Sequence to zip.</param>
     /// <param name="expectedOutput">Expected output.</param>
     [Theory]
-    [MemberData(nameof(ZipDefaultResultSelectorData))]
-    public void Zip_DefaultResultSelector_ReturnsExpected(
-        IEnumerable<IEnumerable<object>> input,
-        IEnumerable<IEnumerable<object>> expectedOutput
+    [MemberData(nameof(ZipDefaultResultSelectorIntegerData))]
+    public void Zip_DefaultResultSelector_IntegerElements_ReturnsExpected(
+        IEnumerable<IEnumerable<int>> input,
+        IEnumerable<IEnumerable<int>> expectedOutput
     ) =>
         input
             .Zip()
             .Should()
             .BeEquivalentTo(expectedOutput, options => options.WithStrictOrdering());
+
+    /// <summary>
+    /// Tests whether <see cref="IEnumerableExtensions.Zip{T}"/> returns
+    /// expected outputs given valid inputs, that the custom result selector
+    /// is the reverse function and <c>T</c> is of type <see langword="string"/>.
+    /// </summary>
+    [Fact]
+    public void Zip_DefaultResultSelector_StringElements_ReturnsExpected() =>
+        new List<List<string>>()
+        {
+            new() { "aaa", "bbb", "ccc" },
+            new() { "ddd", "eee" },
+        }
+            .Zip()
+            .Should()
+            .BeEquivalentTo(
+                new List<List<string>>()
+                {
+                    new() { "aaa", "ddd" },
+                    new() { "bbb", "eee" },
+                },
+                options => options.WithStrictOrdering()
+            );
 }
