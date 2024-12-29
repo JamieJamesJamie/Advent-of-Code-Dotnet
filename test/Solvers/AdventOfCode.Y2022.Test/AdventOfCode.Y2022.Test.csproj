@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference
-      Include="..\..\..\Common\AdventOfCode.Common.Test\AdventOfCode.Common.Test.csproj"
+      Include="..\..\Common\AdventOfCode.Common.Test\AdventOfCode.Common.Test.csproj"
     />
     <ProjectReference
-      Include="..\AdventOfCode.Y2023\AdventOfCode.Y2023.csproj"
+      Include="..\..\..\src\Solvers\AdventOfCode.Y2022\AdventOfCode.Y2022.csproj"
     />
   </ItemGroup>
 

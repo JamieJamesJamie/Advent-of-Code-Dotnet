@@ -9,29 +9,6 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
-  <PropertyGroup
-    Label="Solver Project Properties"
-    Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <OutputType>Exe</OutputType>
-  </PropertyGroup>
-
-  <ItemGroup
-    Label="Non-Test Project Properties"
-    Condition="!$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <InternalsVisibleTo Include="$(MSBuildProjectName).Test" />
-  </ItemGroup>
-
-  <PropertyGroup
-    Label="Test Project Properties"
-    Condition="$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
-    <NoWarn>$(NoWarn);CA2007;CA1707;CA1515</NoWarn>
-  </PropertyGroup>
-
   <ItemGroup Label=".editorconfig EditorConfigFiles">
     <EditorConfigFiles Remove="$(MSBuildThisFileDirectory).editorconfig" />
   </ItemGroup>
@@ -51,72 +28,5 @@
         runtime; build; native; contentfiles; analyzers; buildtransitive
       </IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup
-    Label="Non-Test Project Package References"
-    Condition="!$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <PackageReference Include="AoCHelper" />
-  </ItemGroup>
-
-  <ItemGroup
-    Label="Solver Project Package References"
-    Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <PackageReference Include="FileParser" />
-  </ItemGroup>
-
-  <ItemGroup
-    Label="Test Project Package References"
-    Condition="$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <PackageReference Include="coverlet.collector">
-      <IncludeAssets>
-        runtime; build; native; contentfiles; analyzers; buildtransitive
-      </IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="xunit" />
-    <PackageReference Include="xunit.runner.visualstudio">
-      <IncludeAssets>
-        runtime; build; native; contentfiles; analyzers; buildtransitive
-      </IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup
-    Label="Solver Project Project References"
-    Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <ProjectReference
-      Include="$(MSBuildThisFileDirectory)Common\AdventOfCode.Common\AdventOfCode.Common.csproj"
-    />
-  </ItemGroup>
-
-  <ItemGroup
-    Label="Solver Project Global Usings"
-    Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And !$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <Using Include="AdventOfCode.Common.AOCHelper" />
-    <Using Include="FileParser" />
-  </ItemGroup>
-
-  <ItemGroup
-    Label="Solver Test Project Global Usings"
-    Condition="$(MSBuildProjectName.StartsWith('AdventOfCode.Y')) And $(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <Using Include="AdventOfCode.Common.Test.TestHelpers" />
-  </ItemGroup>
-
-  <ItemGroup
-    Label="Test Project Global Usings"
-    Condition="$(MSBuildProjectName.EndsWith('.Test'))"
-  >
-    <Using Include="FluentAssertions" />
-    <Using Include="Xunit" />
   </ItemGroup>
 </Project>
