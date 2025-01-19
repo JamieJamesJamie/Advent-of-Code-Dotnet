@@ -11,7 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup Label="xunit.runner.json">
-    <Content Include="$(MSBuildThisFileDirectory)xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content
+      Include="$(MSBuildThisFileDirectory)xunit.runner.json"
+      CopyToOutputDirectory="PreserveNewest"
+    />
   </ItemGroup>
 
   <ItemGroup Label="Test Project Package References">
