@@ -131,7 +131,7 @@ jobs:
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
-      - run: dotnet test test/Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj
+      - run: dotnet run --project test/Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj
 
   test-year:
     needs: [format, csharpier, dotnet-format, prettier]
@@ -149,4 +149,4 @@ jobs:
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
-      - run: dotnet test test/Solvers/AdventOfCode.Y${{ matrix.project-year }}.Test/AdventOfCode.Y${{ matrix.project-year }}.Test.csproj
+      - run: dotnet run --project test/Solvers/AdventOfCode.Y${{ matrix.project-year }}.Test/AdventOfCode.Y${{ matrix.project-year }}.Test.csproj
