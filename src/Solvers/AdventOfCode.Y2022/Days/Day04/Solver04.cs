@@ -51,8 +51,8 @@ internal sealed class Solver04 : BaseSolver<int>
             int end2 = line.NextElement<int>();
 
             yield return new(
-                new(Enumerable.Range(start1, end1 - start1 + 1)),
-                new(Enumerable.Range(start2, end2 - start2 + 1))
+                [.. Enumerable.Range(start1, end1 - start1 + 1)],
+                [.. Enumerable.Range(start2, end2 - start2 + 1)]
             );
         }
     }
