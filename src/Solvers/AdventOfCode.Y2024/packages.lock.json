@@ -4,7 +4,7 @@
     "net9.0": {
       "AoCHelper": {
         "type": "Direct",
-        "requested": "[4.0.0, )",
+        "requested": "[4.0.0, 4.0.0]",
         "resolved": "4.0.0",
         "contentHash": "USsKxpVIHjynCcjgrHlCcskywGPeuwRYRIyRs9pncbA7EJZRhR4SI/ev60lUx7cPixFXDlXlkybhQT2m4OSJOw==",
         "dependencies": {
@@ -13,13 +13,13 @@
       },
       "FileParser": {
         "type": "Direct",
-        "requested": "[3.0.0, )",
+        "requested": "[3.0.0, 3.0.0]",
         "resolved": "3.0.0",
         "contentHash": "I7AybPkOYSStNMuzqsTjP+cKWwkyY/uCLG6ULTiOzzWaaY4Kof26/EilGJUiBI75OgI96qR9JZDJQF0vpY7OCg=="
       },
       "StyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.2.0-beta.556, )",
+        "requested": "[1.2.0-beta.556, 1.2.0-beta.556]",
         "resolved": "1.2.0-beta.556",
         "contentHash": "llRPgmA1fhC0I0QyFLEcjvtM2239QzKr/tcnbsjArLMJxJlu0AA5G7Fft0OI30pHF3MW63Gf4aSSsjc5m82J1Q==",
         "dependencies": {
@@ -39,7 +39,7 @@
       "adventofcode.common": {
         "type": "Project",
         "dependencies": {
-          "AoCHelper": "[4.0.0, )"
+          "AoCHelper": "[4.0.0, 4.0.0]"
         }
       }
     }

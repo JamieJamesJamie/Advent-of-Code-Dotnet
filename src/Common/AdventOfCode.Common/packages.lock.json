@@ -4,7 +4,7 @@
     "net9.0": {
       "AoCHelper": {
         "type": "Direct",
-        "requested": "[4.0.0, )",
+        "requested": "[4.0.0, 4.0.0]",
         "resolved": "4.0.0",
         "contentHash": "USsKxpVIHjynCcjgrHlCcskywGPeuwRYRIyRs9pncbA7EJZRhR4SI/ev60lUx7cPixFXDlXlkybhQT2m4OSJOw==",
         "dependencies": {
@@ -13,7 +13,7 @@
       },
       "StyleCop.Analyzers": {
         "type": "Direct",
-        "requested": "[1.2.0-beta.556, )",
+        "requested": "[1.2.0-beta.556, 1.2.0-beta.556]",
         "resolved": "1.2.0-beta.556",
         "contentHash": "llRPgmA1fhC0I0QyFLEcjvtM2239QzKr/tcnbsjArLMJxJlu0AA5G7Fft0OI30pHF3MW63Gf4aSSsjc5m82J1Q==",
         "dependencies": {
