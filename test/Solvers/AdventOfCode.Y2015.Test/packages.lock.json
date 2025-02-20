@@ -10,9 +10,9 @@
       },
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[8.0.1, 8.0.1]",
-        "resolved": "8.0.1",
-        "contentHash": "IW5CdXiD4BIijMkJsEajhkQr7HSgzoxZBHp77b4tm8isCKGaDH2AGugW6DLS0/EPhO/MCZ2JOGg6ObdlKISJMg=="
+        "requested": "[8.1.0, 8.1.0]",
+        "resolved": "8.1.0",
+        "contentHash": "S5787OgdBp7BI4dnKqJA2IBsZYekUSTCMiScr5VtMMhIEhZV/UilYLvDfILuZvpKRbvBv1dG/rUP02+Sv0S4JQ=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -142,7 +142,7 @@
         "type": "Project",
         "dependencies": {
           "AdventOfCode.Common": "[1.0.0, )",
-          "FluentAssertions": "[8.0.1, 8.0.1]",
+          "FluentAssertions": "[8.1.0, 8.1.0]",
           "Microsoft.NET.Test.Sdk": "[17.13.0, 17.13.0]",
           "xunit": "[2.9.3, 2.9.3]"
         }
