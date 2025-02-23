@@ -16,7 +16,7 @@
       "datasourceTemplate": "node-version",
       "depNameTemplate": "node",
       "matchStrings": [
-        "{ \"currentValue\": features.$sift(function($value, $key) {$key ~> /ghcr.io\\/devcontainers\\/features\\/node/}).*.version }\""
+        "{ \"currentValue\": features.$sift(function($value, $key) {$key ~> /ghcr.io\\/devcontainers\\/features\\/node/}).*.version }"
       ]
     }
   ]
