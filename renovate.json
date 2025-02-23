@@ -1,5 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["local>JamieJamesJamie/renovate-config"],
-  "gitIgnoredAuthors": ["41898282+github-actions[bot]@users.noreply.github.com"]
+  "gitIgnoredAuthors": ["41898282+github-actions[bot]@users.noreply.github.com"],
+  "customManagers": [
+    {
+      "description": "Manager for the node devcontainer feature",
+      "fileMatch": [ "^.devcontainer/devcontainer.json$", "^.devcontainer.json$" ],
+      "fileFormat": "json",
+      "customType": "jsonata",
+      "datasourceTemplate": "node-version",
+      "depNameTemplate": "node",
+      "matchStrings": [ "{ \"currentValue\": features.$sift(function($value, $key) {$key ~> /ghcr.io\\/devcontainers\\/features\\/node/}).*.version }\"" ]
+    }
+  ]
 }
