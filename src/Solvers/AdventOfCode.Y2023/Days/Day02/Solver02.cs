@@ -24,7 +24,6 @@ internal sealed partial class Solver02 : BaseSolver<int>
     /// Initializes a new instance of the <see cref="Solver02"/> class.
     /// </summary>
     /// <param name="inputFilePath">The expected input file path.</param>
-
     public Solver02(string? inputFilePath)
         : base(inputFilePath) => this.matchCollections = this.ParseInput();
 

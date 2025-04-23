@@ -8,19 +8,16 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
-
   <ItemGroup Label=".editorconfig EditorConfigFiles">
     <EditorConfigFiles Remove="$(MSBuildThisFileDirectory).editorconfig" />
   </ItemGroup>
   <ItemGroup Label=".editorconfig None Include">
     <None Include="$(MSBuildThisFileDirectory).editorconfig" />
   </ItemGroup>
-
   <ItemGroup Label="stylecop.json">
     <None Remove="stylecop.json" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" />
   </ItemGroup>
-
   <ItemGroup Label="Global Package References">
     <PackageReference Include="StyleCop.Analyzers">
       <PrivateAssets>all</PrivateAssets>

@@ -1,7 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference
-      Include="..\..\..\src\Common\AdventOfCode.Common\AdventOfCode.Common.csproj"
-    />
+    <ProjectReference Include="..\..\..\src\Common\AdventOfCode.Common\AdventOfCode.Common.csproj" />
   </ItemGroup>
 </Project>
