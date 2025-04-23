@@ -211,7 +211,6 @@ public class IEnumerableExtensionsTests
     /// </summary>
     /// <param name="input">Sequence to zip.</param>
     /// <param name="expectedOutput">Expected output.</param>
-
     [Theory]
     [MemberData(nameof(ZipCustomResultSelectorIntegerData))]
     public void Zip_CustomResultSelector_ReverseFunctionSelector_IntegerElements_ReturnsExpected(

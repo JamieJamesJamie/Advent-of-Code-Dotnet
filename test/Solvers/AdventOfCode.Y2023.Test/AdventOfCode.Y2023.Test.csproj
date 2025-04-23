@@ -7,7 +7,6 @@
       Include="..\..\..\src\Solvers\AdventOfCode.Y2023\AdventOfCode.Y2023.csproj"
     />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="Inputs\**\*.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -2,13 +2,11 @@
   <Import
     Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props','$(MSBuildThisFileDirectory)../'))"
   />
-
   <PropertyGroup Label="Test Project Properties">
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <NoWarn>$(NoWarn);CA2007;CA1707;CA1515</NoWarn>
   </PropertyGroup>
-
   <ItemGroup Label="Test Project Package References">
     <PackageReference Include="coverlet.collector">
       <IncludeAssets>
@@ -26,7 +24,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-
   <ItemGroup Label="Test Project Global Usings">
     <Using Include="FluentAssertions" />
     <Using Include="Xunit" />

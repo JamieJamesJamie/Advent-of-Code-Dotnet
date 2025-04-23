@@ -2,11 +2,9 @@
   <Import
     Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props','$(MSBuildThisFileDirectory)../'))"
   />
-
   <ItemGroup Label="Non-Test Project Properties">
     <InternalsVisibleTo Include="$(MSBuildProjectName).Test" />
   </ItemGroup>
-
   <ItemGroup Label="Non-Test Project Package References">
     <PackageReference Include="AoCHelper" />
   </ItemGroup>
