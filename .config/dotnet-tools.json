@@ -4,11 +4,17 @@
   "tools": {
     "csharpier": {
       "version": "1.0.0",
-      "commands": ["dotnet-csharpier"]
+      "commands": [
+        "csharpier"
+      ],
+      "rollForward": false
     },
     "husky": {
       "version": "0.7.2",
-      "commands": ["husky"]
+      "commands": [
+        "husky"
+      ],
+      "rollForward": false
     }
   }
 }
