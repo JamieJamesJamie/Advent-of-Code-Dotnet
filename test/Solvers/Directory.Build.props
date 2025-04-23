@@ -1,7 +1,5 @@
 <Project>
-  <Import
-    Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props','$(MSBuildThisFileDirectory)../'))"
-  />
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props','$(MSBuildThisFileDirectory)../'))" />
   <ItemGroup Label="Solver Test Project Global Usings">
     <Using Include="AdventOfCode.Common.Test.TestHelpers" />
   </ItemGroup>

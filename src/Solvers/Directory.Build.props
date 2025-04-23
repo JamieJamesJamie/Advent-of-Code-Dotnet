@@ -1,7 +1,5 @@
 <Project>
-  <Import
-    Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props','$(MSBuildThisFileDirectory)../'))"
-  />
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props','$(MSBuildThisFileDirectory)../'))" />
   <PropertyGroup Label="Solver Project Properties">
     <OutputType>Exe</OutputType>
   </PropertyGroup>
@@ -9,9 +7,7 @@
     <PackageReference Include="FileParser" />
   </ItemGroup>
   <ItemGroup Label="Solver Project Project References">
-    <ProjectReference
-      Include="$(MSBuildThisFileDirectory)..\Common\AdventOfCode.Common\AdventOfCode.Common.csproj"
-    />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\Common\AdventOfCode.Common\AdventOfCode.Common.csproj" />
   </ItemGroup>
   <ItemGroup Label="Solver Project Global Usings">
     <Using Include="AdventOfCode.Common.AOCHelper" />
