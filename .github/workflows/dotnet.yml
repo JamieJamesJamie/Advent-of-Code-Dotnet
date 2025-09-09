@@ -6,7 +6,7 @@ on:
 
 env:
   # renovate: datasource=dotnet-version depName=dotnet-sdk
-  DOTNET_VERSION: "9.0.304"
+  DOTNET_VERSION: "9.0.305"
 
 jobs:
   format:
