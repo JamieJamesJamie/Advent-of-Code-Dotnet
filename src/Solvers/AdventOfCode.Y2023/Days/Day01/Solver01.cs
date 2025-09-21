@@ -24,7 +24,7 @@ internal sealed class Solver01 : BaseSolver<int>
 
     private static readonly Dictionary<string, int> NumberMappingsReversed = NumberMappings
         .Select(numberMapping => new KeyValuePair<string, int>(
-            new string(numberMapping.Key.Reverse().ToArray()),
+            new([.. numberMapping.Key.Reverse()]),
             numberMapping.Value
         ))
         .ToDictionary();
@@ -70,7 +70,7 @@ internal sealed class Solver01 : BaseSolver<int>
     {
         if (reverse)
         {
-            line = new string(line.Reverse().ToArray());
+            line = new([.. line.Reverse()]);
         }
 
         Dictionary<string, int> mappings = reverse ? NumberMappingsReversed : NumberMappings;

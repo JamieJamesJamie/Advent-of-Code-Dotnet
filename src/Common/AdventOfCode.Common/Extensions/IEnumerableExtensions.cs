@@ -61,23 +61,24 @@ public static class IEnumerableExtensions
         Func<IEnumerable<T>, TResult> resultSelector
     )
     {
-        ImmutableList<IEnumerable<T>> sequencesList = sequences.ToImmutableList();
+        ImmutableList<IEnumerable<T>> sequencesList = [.. sequences];
 
         if (sequencesList.IsEmpty)
         {
             yield break;
         }
 
-        ImmutableList<IEnumerator<T>> enumerators = sequencesList
-            .Select(sequence => sequence.GetEnumerator())
-            .ToImmutableList();
+        ImmutableList<IEnumerator<T>> enumerators =
+        [
+            .. sequencesList.Select(sequence => sequence.GetEnumerator()),
+        ];
 
         try
         {
             while (enumerators.TrueForAll(enumerator => enumerator.MoveNext()))
             {
                 yield return resultSelector(
-                    enumerators.Select(enumerator => enumerator.Current).ToImmutableList()
+                    [.. enumerators.Select(enumerator => enumerator.Current)]
                 );
             }
         }
