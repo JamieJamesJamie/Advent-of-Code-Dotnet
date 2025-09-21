@@ -26,10 +26,9 @@ internal sealed class Solver01 : BaseSolver<uint>
     /// <param name="inputFilePath">The expected input file path.</param>
     public Solver01(string? inputFilePath)
         : base(inputFilePath) =>
-        this.locationIdLists = new ParsedFile(this.InputFilePath)
-            .Select(line => line.ToList<int>())
-            .Zip()
-            .ToImmutableList();
+        this.locationIdLists = [
+            .. new ParsedFile(this.InputFilePath).Select(line => line.ToList<int>()).Zip(),
+        ];
 
     /// <inheritdoc/>
     protected override uint Solve1() =>

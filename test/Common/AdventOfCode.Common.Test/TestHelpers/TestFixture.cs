@@ -39,7 +39,7 @@ public abstract class TestFixture
         ]
             .TrimStart('_');
 
-        string numbersOnly = new(substring.TakeWhile(char.IsDigit).ToArray());
+        string numbersOnly = new([.. substring.TakeWhile(char.IsDigit)]);
 
         uint digits = uint.TryParse(numbersOnly, out uint index) ? index : default;
 
