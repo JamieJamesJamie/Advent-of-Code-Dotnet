@@ -12,6 +12,18 @@ using System.Collections.Immutable;
 public static class IEnumerableExtensions
 {
     /// <summary>
+    /// Cycles indefinitely through <paramref name="sequence"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements in <paramref name="sequence"/>.</typeparam>
+    /// <param name="sequence">The sequence.</param>
+    /// <returns>An <see cref="IEnumerable{T}"/> that infinitely cycles through <paramref name="sequence"/>.</returns>
+    public static IEnumerable<T> Cycle<T>(this IEnumerable<T>? sequence)
+    {
+        ArgumentNullException.ThrowIfNull(sequence);
+        return CycleSequence(sequence);
+    }
+
+    /// <summary>
     /// Enumerates through <paramref name="sequence"/> and produces a sequence of every
     /// "<paramref name="step"/>"th element.
     /// </summary>
@@ -54,6 +66,25 @@ public static class IEnumerableExtensions
     {
         ArgumentNullException.ThrowIfNull(resultSelector);
         return ZipIterator(sequences, resultSelector);
+    }
+
+    private static IEnumerable<T> CycleSequence<T>(IEnumerable<T> sequence)
+    {
+        List<T> savedSequence = [];
+
+        foreach (T item in sequence)
+        {
+            yield return item;
+            savedSequence.Add(item);
+        }
+
+        while (savedSequence.Count > 0)
+        {
+            foreach (T item in savedSequence)
+            {
+                yield return item;
+            }
+        }
     }
 
     private static IEnumerable<TResult> ZipIterator<T, TResult>(

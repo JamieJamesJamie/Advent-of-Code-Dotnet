@@ -141,6 +141,36 @@ public class IEnumerableExtensionsTests
     private static readonly IEnumerable<int> SliceStepInput = [1, 2, 3, 4, 5];
 
     /// <summary>
+    /// Tests whether <see cref="IEnumerableExtensions.Cycle{T}"/> returns
+    /// expected outputs given valid inputs.
+    /// </summary>
+    /// <param name="sequence">Input.</param>
+    /// <param name="count">The number of elements to take from the start of the sequence.</param>
+    /// <param name="expected">Expected output.</param>
+    [Theory]
+    [InlineData(new int[] { 1, 2, 3 }, 3, new int[] { 1, 2, 3 })]
+    [InlineData(new int[] { 1, 2, 3 }, 6, new int[] { 1, 2, 3, 1, 2, 3 })]
+    [InlineData(new int[] { 1, 2, 3 }, 4, new int[] { 1, 2, 3, 1 })]
+    [InlineData(new int[] { 1, 2 }, 4, new int[] { 1, 2, 1, 2 })]
+    [InlineData(new int[] { 1, 2, 3 }, 0, new int[] { })]
+    [InlineData(new int[] { 1, 2, 3 }, 1, new int[] { 1 })]
+    [InlineData(new int[] { }, 2, new int[] { })]
+    public void Cycle_ReturnsExpected(int[] sequence, int count, int[] expected) =>
+        sequence.Cycle().Take(count).Should().BeEquivalentTo(expected);
+
+    /// <summary>
+    /// Tests whether <see cref="IEnumerableExtensions.Cycle{T}"/> throws
+    /// expected exception given <see langword="null"/> input.
+    /// </summary>
+    [Fact]
+    public void Cycle_SequenceNull_ThrowsArgumentNullException()
+    {
+        Func<IEnumerable<int>> cycle = () => IEnumerableExtensions.Cycle<int>(null);
+
+        cycle.Should().ThrowExactly<ArgumentNullException>();
+    }
+
+    /// <summary>
     /// Tests whether <see cref="IEnumerableExtensions.SliceStep{T}"/> returns
     /// expected outputs given valid inputs.
     /// </summary>
