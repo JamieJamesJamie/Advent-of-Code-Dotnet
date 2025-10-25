@@ -11,6 +11,12 @@
           "Spectre.Console": "0.49.1"
         }
       },
+      "CommunityToolkit.HighPerformance": {
+        "type": "Direct",
+        "requested": "[8.4.0, 8.4.0]",
+        "resolved": "8.4.0",
+        "contentHash": "flxspiBs0G/0GMp7IK2J2ijV9bTG6hEwFc/z6ekHqB6nwRJ4Ry2yLdx+TkbCUYFCl4XhABkAwomeKbT6zM2Zlg=="
+      },
       "FileParser": {
         "type": "Direct",
         "requested": "[3.0.0, 3.0.0]",
