@@ -48,14 +48,12 @@ internal sealed class Solver02 : BaseSolver<int, string>
         {
             foreach (string line2 in this.letters.Skip(line1Index + 1))
             {
-                string lettersToReturn = new(
-                    [
-                        .. line1
-                            .Zip(line2)
-                            .Where(characters => characters.First == characters.Second)
-                            .Select(characters => characters.First),
-                    ]
-                );
+                string lettersToReturn = new([
+                    .. line1
+                        .Zip(line2)
+                        .Where(characters => characters.First == characters.Second)
+                        .Select(characters => characters.First),
+                ]);
 
                 if (lettersToReturn.Length == line1.Length - 1)
                 {
