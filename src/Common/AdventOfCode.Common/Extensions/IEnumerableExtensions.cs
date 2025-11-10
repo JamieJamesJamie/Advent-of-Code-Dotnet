@@ -108,9 +108,9 @@ public static class IEnumerableExtensions
         {
             while (enumerators.TrueForAll(enumerator => enumerator.MoveNext()))
             {
-                yield return resultSelector(
-                    [.. enumerators.Select(enumerator => enumerator.Current)]
-                );
+                yield return resultSelector([
+                    .. enumerators.Select(enumerator => enumerator.Current),
+                ]);
             }
         }
         finally
