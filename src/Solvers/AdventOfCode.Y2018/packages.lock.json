@@ -19,9 +19,9 @@
       },
       "FileParser": {
         "type": "Direct",
-        "requested": "[3.0.0, 3.0.0]",
-        "resolved": "3.0.0",
-        "contentHash": "I7AybPkOYSStNMuzqsTjP+cKWwkyY/uCLG6ULTiOzzWaaY4Kof26/EilGJUiBI75OgI96qR9JZDJQF0vpY7OCg=="
+        "requested": "[4.0.0, 4.0.0]",
+        "resolved": "4.0.0",
+        "contentHash": "ayFIQhQ0dH8RoJ2nrNzk9n7dLoNqtGCuwQJZoRaV1vHVCmw9E3Mk8XILeT3j5nWootQtFwxFRgjIRypbcl2m8g=="
       },
       "StyleCop.Analyzers": {
         "type": "Direct",
