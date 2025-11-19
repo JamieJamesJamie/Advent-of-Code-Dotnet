@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="AoCHelper" Version="[4.0.0]" />
+    <PackageVersion Include="AoCHelper" Version="[4.1.0]" />
     <PackageVersion Include="CommunityToolkit.HighPerformance" Version="[8.4.0]" />
     <PackageVersion Include="coverlet.collector" Version="[6.0.4]" />
     <PackageVersion Include="FileParser" Version="[4.0.0]" />
