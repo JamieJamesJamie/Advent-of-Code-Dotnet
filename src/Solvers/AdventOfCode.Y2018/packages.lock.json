@@ -4,11 +4,11 @@
     "net10.0": {
       "AoCHelper": {
         "type": "Direct",
-        "requested": "[4.0.0, 4.0.0]",
-        "resolved": "4.0.0",
-        "contentHash": "USsKxpVIHjynCcjgrHlCcskywGPeuwRYRIyRs9pncbA7EJZRhR4SI/ev60lUx7cPixFXDlXlkybhQT2m4OSJOw==",
+        "requested": "[4.1.0, 4.1.0]",
+        "resolved": "4.1.0",
+        "contentHash": "kMtiNnlPZhOyIjx2/XLk5JLgwKuhW1QMhrA38HRgIgdc5HUQF8ehp632XEPUZndNuAbk9PEZ5wdoiMlgOt2qLA==",
         "dependencies": {
-          "Spectre.Console": "0.49.1"
+          "Spectre.Console": "0.54.0"
         }
       },
       "CommunityToolkit.HighPerformance": {
@@ -34,8 +34,8 @@
       },
       "Spectre.Console": {
         "type": "Transitive",
-        "resolved": "0.49.1",
-        "contentHash": "USV+pdu49OJ3nCjxNuw1K9Zw/c1HCBbwbjXZp0EOn6wM99tFdAtN34KEBZUMyRuJuXlUMDqhd8Yq9obW2MslYA=="
+        "resolved": "0.54.0",
+        "contentHash": "StDXCFayfy0yB1xzUHT2tgEpV1/HFTiS4JgsAQS49EYTfMixSwwucaQs/bIOCwXjWwIQTMuxjUIxcB5XsJkFJA=="
       },
       "StyleCop.Analyzers.Unstable": {
         "type": "Transitive",
@@ -45,7 +45,7 @@
       "adventofcode.common": {
         "type": "Project",
         "dependencies": {
-          "AoCHelper": "[4.0.0, 4.0.0]"
+          "AoCHelper": "[4.1.0, 4.1.0]"
         }
       }
     }
