@@ -140,7 +140,7 @@ jobs:
 
     strategy:
       matrix:
-        project-year: ["2015", "2018", "2022", "2023", "2024"]
+        project-year: ["2015", "2018", "2019", "2022", "2023", "2024"]
 
     steps:
       - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
