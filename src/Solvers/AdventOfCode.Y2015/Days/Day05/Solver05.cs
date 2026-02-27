@@ -62,5 +62,5 @@ internal sealed class Solver05 : BaseSolver<int>
         string.Join(string.Empty, regexes.Select(regex => $"(?=^.*{regex}.*$)"));
 
     private int NumNiceStrings(params string[] regexes) =>
-        Regex.Matches(this.input, AllRegexes(regexes), RegexOptions.Multiline).Count;
+        Regex.Count(this.input, AllRegexes(regexes), RegexOptions.Multiline);
 }
