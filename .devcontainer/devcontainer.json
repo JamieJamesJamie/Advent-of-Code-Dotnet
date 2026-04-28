@@ -10,7 +10,7 @@
     "ghcr.io/devcontainers/features/dotnet:2.5.0": {
       "version": "10.0.203"
     },
-    "ghcr.io/devcontainers/features/node:1.7.1": {
+    "ghcr.io/devcontainers/features/node:2.0.0": {
       "nodeGypDependencies": true,
       "version": "24.15.0",
       "nvmVersion": "0.40.4"
