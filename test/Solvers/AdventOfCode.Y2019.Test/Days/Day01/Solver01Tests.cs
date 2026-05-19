@@ -17,13 +17,13 @@ public class Solver01Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedSum">The expected sum.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 2)]
-    [InlineData(2, 2)]
-    [InlineData(3, 654)]
-    [InlineData(4, 33583)]
-    [InlineData(5, 34241)]
-    [InlineData(6, 0)]
+    [Test]
+    [Arguments(1, 2)]
+    [Arguments(2, 2)]
+    [Arguments(3, 654)]
+    [Arguments(4, 33583)]
+    [Arguments(5, 34241)]
+    [Arguments(6, 0)]
     public async Task Solve_1_ReturnsExpected(uint exampleIndex, uint expectedSum) =>
         (
             await new Solver01(
@@ -39,13 +39,13 @@ public class Solver01Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedSum">The expected sum.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 2)]
-    [InlineData(2, 2)]
-    [InlineData(3, 966)]
-    [InlineData(4, 50346)]
-    [InlineData(5, 51316)]
-    [InlineData(6, 0)]
+    [Test]
+    [Arguments(1, 2)]
+    [Arguments(2, 2)]
+    [Arguments(3, 966)]
+    [Arguments(4, 50346)]
+    [Arguments(5, 51316)]
+    [Arguments(6, 0)]
     public async Task Solve_2_ReturnsExpected(uint exampleIndex, uint expectedSum) =>
         (
             await new Solver01(

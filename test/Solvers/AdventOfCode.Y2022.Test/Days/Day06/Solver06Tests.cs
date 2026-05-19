@@ -17,12 +17,12 @@ public class Solver06Tests : TestFixture
     /// <param name="testFileSuffix">Suffix of the test file.</param>
     /// <param name="expected">The expected result.</param>
     /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
-    [Theory]
-    [InlineData("1", "7")]
-    [InlineData("2", "5")]
-    [InlineData("3", "6")]
-    [InlineData("4", "10")]
-    [InlineData("5", "11")]
+    [Test]
+    [Arguments("1", "7")]
+    [Arguments("2", "5")]
+    [Arguments("3", "6")]
+    [Arguments("4", "10")]
+    [Arguments("5", "11")]
     public async Task Solve_1_ReturnsExpected(string testFileSuffix, string expected) =>
         (await this.CreateSolver(testFileSuffix).Solve_1()).Should().Be(expected);
 
@@ -32,12 +32,12 @@ public class Solver06Tests : TestFixture
     /// <param name="testFileSuffix">Suffix of the test file.</param>
     /// <param name="expected">The expected result.</param>
     /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
-    [Theory]
-    [InlineData("1", "19")]
-    [InlineData("2", "23")]
-    [InlineData("3", "23")]
-    [InlineData("4", "29")]
-    [InlineData("5", "26")]
+    [Test]
+    [Arguments("1", "19")]
+    [Arguments("2", "23")]
+    [Arguments("3", "23")]
+    [Arguments("4", "29")]
+    [Arguments("5", "26")]
     public async Task Solve_2_ReturnsExpected(string testFileSuffix, string expected) =>
         (await this.CreateSolver(testFileSuffix).Solve_2()).Should().Be(expected);
 

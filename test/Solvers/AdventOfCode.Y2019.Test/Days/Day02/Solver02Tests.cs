@@ -17,12 +17,12 @@ public class Solver02Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedValue">The expected value.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 3500)]
-    [InlineData(2, 2)]
-    [InlineData(3, 2)]
-    [InlineData(4, 2)]
-    [InlineData(5, 30)]
+    [Test]
+    [Arguments(1, 3500)]
+    [Arguments(2, 2)]
+    [Arguments(3, 2)]
+    [Arguments(4, 2)]
+    [Arguments(5, 30)]
     public async Task Solve_1_ReturnsExpected(uint exampleIndex, uint expectedValue) =>
         (
             await new Solver02(
