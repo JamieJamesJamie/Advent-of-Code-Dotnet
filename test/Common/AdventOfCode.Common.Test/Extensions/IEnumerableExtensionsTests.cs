@@ -14,7 +14,7 @@ public class IEnumerableExtensionsTests
     /// <summary>
     /// Valid test data for <see cref="IEnumerableExtensions.SliceStep{T}"/>.
     /// </summary>
-    public static readonly IEnumerable<(int, int[])> SliceStepData =
+    private static readonly IEnumerable<(int, int[])> SliceStepData =
     [
         (2, [1, 3, 5]),
         (3, [1, 4]),
@@ -24,7 +24,7 @@ public class IEnumerableExtensionsTests
     /// <summary>
     /// Valid test data for <see cref="IEnumerableExtensions.Zip{T,TResult}"/>.
     /// </summary>
-    public static readonly IEnumerable<(int[][], int[][])> ZipCustomResultSelectorIntegerData =
+    private static readonly IEnumerable<(int[][], int[][])> ZipCustomResultSelectorIntegerData =
     [
         (
             [
@@ -77,7 +77,7 @@ public class IEnumerableExtensionsTests
     /// <summary>
     /// Valid test data for <see cref="IEnumerableExtensions.Zip{T}"/>.
     /// </summary>
-    public static readonly IEnumerable<(int[][], int[][])> ZipDefaultResultSelectorIntegerData =
+    private static readonly IEnumerable<(int[][], int[][])> ZipDefaultResultSelectorIntegerData =
     [
         (
             [
