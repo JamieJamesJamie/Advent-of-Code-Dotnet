@@ -138,7 +138,7 @@ jobs:
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env['ACTIONS_RUNTIME_TOKEN']);
             core.exportVariable('ACTIONS_RESULTS_URL', process.env['ACTIONS_RESULTS_URL']);
 
-      - run: dotnet run --project test/Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj --configuration Release --coverage --report-trx
+      - run: dotnet run --project test/Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj --configuration Release
 
   test-year:
     needs: [format, csharpier, dotnet-format, prettier]
@@ -163,4 +163,4 @@ jobs:
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env['ACTIONS_RUNTIME_TOKEN']);
             core.exportVariable('ACTIONS_RESULTS_URL', process.env['ACTIONS_RESULTS_URL']);
 
-      - run: dotnet run --project test/Solvers/AdventOfCode.Y${{ matrix.project-year }}.Test/AdventOfCode.Y${{ matrix.project-year }}.Test.csproj --configuration Release --coverage --report-trx
+      - run: dotnet run --project test/Solvers/AdventOfCode.Y${{ matrix.project-year }}.Test/AdventOfCode.Y${{ matrix.project-year }}.Test.csproj --configuration Release
