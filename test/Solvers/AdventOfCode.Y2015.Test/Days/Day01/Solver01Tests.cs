@@ -17,18 +17,18 @@ public class Solver01Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedFloor">The expected floor.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 0)]
-    [InlineData(2, 0)]
-    [InlineData(3, 3)]
-    [InlineData(4, 3)]
-    [InlineData(5, 3)]
-    [InlineData(6, -1)]
-    [InlineData(7, -1)]
-    [InlineData(8, -3)]
-    [InlineData(9, -3)]
-    [InlineData(10, -1)]
-    [InlineData(11, -1)]
+    [Test]
+    [Arguments(1, 0)]
+    [Arguments(2, 0)]
+    [Arguments(3, 3)]
+    [Arguments(4, 3)]
+    [Arguments(5, 3)]
+    [Arguments(6, -1)]
+    [Arguments(7, -1)]
+    [Arguments(8, -3)]
+    [Arguments(9, -3)]
+    [Arguments(10, -1)]
+    [Arguments(11, -1)]
     public async Task Solve_1_ReturnsExpected(uint exampleIndex, int expectedFloor) =>
         (
             await new Solver01(
@@ -44,18 +44,18 @@ public class Solver01Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedPosition">The expected position.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, null)]
-    [InlineData(2, null)]
-    [InlineData(3, null)]
-    [InlineData(4, null)]
-    [InlineData(5, 1)]
-    [InlineData(6, 3)]
-    [InlineData(7, 1)]
-    [InlineData(8, 1)]
-    [InlineData(9, 1)]
-    [InlineData(10, 1)]
-    [InlineData(11, 5)]
+    [Test]
+    [Arguments(1, null)]
+    [Arguments(2, null)]
+    [Arguments(3, null)]
+    [Arguments(4, null)]
+    [Arguments(5, 1)]
+    [Arguments(6, 3)]
+    [Arguments(7, 1)]
+    [Arguments(8, 1)]
+    [Arguments(9, 1)]
+    [Arguments(10, 1)]
+    [Arguments(11, 5)]
     public async Task Solve_2_ReturnsExpected(uint exampleIndex, int? expectedPosition) =>
         (
             await new Solver01(

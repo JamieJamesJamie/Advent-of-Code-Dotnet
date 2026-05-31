@@ -12,21 +12,21 @@ using AdventOfCode.Common.Extensions;
 public class IEnumerableExtensionsTests
 {
     /// <summary>
-    /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.SliceStep{T}"/>.
+    /// Valid test data for <see cref="IEnumerableExtensions.SliceStep{T}"/>.
     /// </summary>
-    public static readonly TheoryData<int, int[]> SliceStepData = new()
-    {
-        { 2, [1, 3, 5] },
-        { 3, [1, 4] },
-        { -2, [1, 3, 5] },
-    };
+    private static readonly IEnumerable<(int, int[])> SliceStepData =
+    [
+        (2, [1, 3, 5]),
+        (3, [1, 4]),
+        (-2, [1, 3, 5]),
+    ];
 
     /// <summary>
-    /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T,TResult}"/>.
+    /// Valid test data for <see cref="IEnumerableExtensions.Zip{T,TResult}"/>.
     /// </summary>
-    public static readonly TheoryData<int[][], int[][]> ZipCustomResultSelectorIntegerData = new()
-    {
-        {
+    private static readonly IEnumerable<(int[][], int[][])> ZipCustomResultSelectorIntegerData =
+    [
+        (
             [
                 [1, 2, 3],
                 [4, 5, 6],
@@ -36,8 +36,8 @@ public class IEnumerableExtensionsTests
                 [5, 2],
                 [6, 3],
             ]
-        },
-        {
+        ),
+        (
             [
                 [1, 2, 3],
                 [4, 5],
@@ -46,8 +46,8 @@ public class IEnumerableExtensionsTests
                 [4, 1],
                 [5, 2],
             ]
-        },
-        {
+        ),
+        (
             [
                 [1, 2],
                 [3, 4, 5],
@@ -56,30 +56,30 @@ public class IEnumerableExtensionsTests
                 [3, 1],
                 [4, 2],
             ]
-        },
-        { [], [] },
-        {
+        ),
+        ([], []),
+        (
             [
                 [],
             ],
             []
-        },
-        {
+        ),
+        (
             [
                 [1],
             ],
             [
                 [1],
             ]
-        },
-    };
+        ),
+    ];
 
     /// <summary>
-    /// Valid <see cref="TheoryData{T}"/> for <see cref="IEnumerableExtensions.Zip{T}"/>.
+    /// Valid test data for <see cref="IEnumerableExtensions.Zip{T}"/>.
     /// </summary>
-    public static readonly TheoryData<int[][], int[][]> ZipDefaultResultSelectorIntegerData = new()
-    {
-        {
+    private static readonly IEnumerable<(int[][], int[][])> ZipDefaultResultSelectorIntegerData =
+    [
+        (
             [
                 [1, 2, 3],
                 [4, 5, 6],
@@ -89,8 +89,8 @@ public class IEnumerableExtensionsTests
                 [2, 5],
                 [3, 6],
             ]
-        },
-        {
+        ),
+        (
             [
                 [1, 2],
                 [3, 4],
@@ -100,8 +100,8 @@ public class IEnumerableExtensionsTests
                 [1, 3, 5],
                 [2, 4, 6],
             ]
-        },
-        {
+        ),
+        (
             [
                 [1, 2, 3],
                 [4, 5],
@@ -110,8 +110,8 @@ public class IEnumerableExtensionsTests
                 [1, 4],
                 [2, 5],
             ]
-        },
-        {
+        ),
+        (
             [
                 [1, 2],
                 [3, 4, 5],
@@ -120,23 +120,23 @@ public class IEnumerableExtensionsTests
                 [1, 3],
                 [2, 4],
             ]
-        },
-        { [], [] },
-        {
+        ),
+        ([], []),
+        (
             [
                 [],
             ],
             []
-        },
-        {
+        ),
+        (
             [
                 [1],
             ],
             [
                 [1],
             ]
-        },
-    };
+        ),
+    ];
 
     private static readonly IEnumerable<int> SliceStepInput = [1, 2, 3, 4, 5];
 
@@ -147,14 +147,14 @@ public class IEnumerableExtensionsTests
     /// <param name="sequence">Input.</param>
     /// <param name="count">The number of elements to take from the start of the sequence.</param>
     /// <param name="expected">Expected output.</param>
-    [Theory]
-    [InlineData(new int[] { 1, 2, 3 }, 3, new int[] { 1, 2, 3 })]
-    [InlineData(new int[] { 1, 2, 3 }, 6, new int[] { 1, 2, 3, 1, 2, 3 })]
-    [InlineData(new int[] { 1, 2, 3 }, 4, new int[] { 1, 2, 3, 1 })]
-    [InlineData(new int[] { 1, 2 }, 4, new int[] { 1, 2, 1, 2 })]
-    [InlineData(new int[] { 1, 2, 3 }, 0, new int[] { })]
-    [InlineData(new int[] { 1, 2, 3 }, 1, new int[] { 1 })]
-    [InlineData(new int[] { }, 2, new int[] { })]
+    [Test]
+    [Arguments(new int[] { 1, 2, 3 }, 3, new int[] { 1, 2, 3 })]
+    [Arguments(new int[] { 1, 2, 3 }, 6, new int[] { 1, 2, 3, 1, 2, 3 })]
+    [Arguments(new int[] { 1, 2, 3 }, 4, new int[] { 1, 2, 3, 1 })]
+    [Arguments(new int[] { 1, 2 }, 4, new int[] { 1, 2, 1, 2 })]
+    [Arguments(new int[] { 1, 2, 3 }, 0, new int[] { })]
+    [Arguments(new int[] { 1, 2, 3 }, 1, new int[] { 1 })]
+    [Arguments(new int[] { }, 2, new int[] { })]
     public void Cycle_ReturnsExpected(int[] sequence, int count, int[] expected) =>
         sequence.Cycle().Take(count).Should().BeEquivalentTo(expected);
 
@@ -162,7 +162,7 @@ public class IEnumerableExtensionsTests
     /// Tests whether <see cref="IEnumerableExtensions.Cycle{T}"/> throws
     /// expected exception given <see langword="null"/> input.
     /// </summary>
-    [Fact]
+    [Test]
     public void Cycle_SequenceNull_ThrowsArgumentNullException()
     {
         Func<IEnumerable<int>> cycle = () => IEnumerableExtensions.Cycle<int>(null);
@@ -176,8 +176,8 @@ public class IEnumerableExtensionsTests
     /// </summary>
     /// <param name="step">Input.</param>
     /// <param name="expectedOutput">Expected output.</param>
-    [Theory]
-    [MemberData(nameof(SliceStepData))]
+    [Test]
+    [MethodDataSource(nameof(SliceStepData))]
     public void SliceStep_WithStepInput_ReturnsExpected(
         int step,
         IEnumerable<int> expectedOutput
@@ -192,9 +192,9 @@ public class IEnumerableExtensionsTests
     /// the same object if the provided step is 1 or -1.
     /// </summary>
     /// <param name="step">Input.</param>
-    [Theory]
-    [InlineData(1)]
-    [InlineData(-1)]
+    [Test]
+    [Arguments(1)]
+    [Arguments(-1)]
     public void SliceStep_WithSingleStep_ReturnsSameEnumerable(int step) =>
         SliceStepInput.SliceStep(step).Should().BeSameAs(SliceStepInput);
 
@@ -202,7 +202,7 @@ public class IEnumerableExtensionsTests
     /// Tests whether <see cref="IEnumerableExtensions.SliceStep{T}"/> returns
     /// the same object if no inputs are provided.
     /// </summary>
-    [Fact]
+    [Test]
     public void SliceStep_NoStepInput_ReturnsExpected() =>
         SliceStepInput.SliceStep().Should().BeSameAs(SliceStepInput);
 
@@ -213,7 +213,7 @@ public class IEnumerableExtensionsTests
     /// and <c>TResult</c> is an <see cref="IEnumerable{T}"/> containing
     /// elements of type <see langword="int"/>.
     /// </summary>
-    [Fact]
+    [Test]
     public void Zip_CustomResultSelector_IdentityFunctionSelector_ReturnsExpected() =>
         new List<List<int>>()
         {
@@ -241,8 +241,8 @@ public class IEnumerableExtensionsTests
     /// </summary>
     /// <param name="input">Sequence to zip.</param>
     /// <param name="expectedOutput">Expected output.</param>
-    [Theory]
-    [MemberData(nameof(ZipCustomResultSelectorIntegerData))]
+    [Test]
+    [MethodDataSource(nameof(ZipCustomResultSelectorIntegerData))]
     public void Zip_CustomResultSelector_ReverseFunctionSelector_IntegerElements_ReturnsExpected(
         IEnumerable<IEnumerable<int>> input,
         IEnumerable<IEnumerable<int>> expectedOutput
@@ -259,7 +259,7 @@ public class IEnumerableExtensionsTests
     /// and <c>TResult</c> is an <see cref="IEnumerable{T}"/> containing
     /// elements of type <see langword="string"/>.
     /// </summary>
-    [Fact]
+    [Test]
     public void Zip_CustomResultSelector_ReverseFunctionSelector_StringElements_ReturnsExpected() =>
         new List<List<string>>()
         {
@@ -281,7 +281,7 @@ public class IEnumerableExtensionsTests
     /// Tests whether <see cref="IEnumerableExtensions.Zip{T,TResult}"/> throws
     /// an <see cref="ArgumentNullException"/> when given a <see langword="null"/> result selector.
     /// </summary>
-    [Fact]
+    [Test]
     public void Zip_CustomResultSelector_NullSelector_ThrowsArgumentNullException() =>
         new List<List<int>>()
             .Invoking(x => x.Zip<int, int?>(null).ToArray())
@@ -295,8 +295,8 @@ public class IEnumerableExtensionsTests
     /// </summary>
     /// <param name="input">Sequence to zip.</param>
     /// <param name="expectedOutput">Expected output.</param>
-    [Theory]
-    [MemberData(nameof(ZipDefaultResultSelectorIntegerData))]
+    [Test]
+    [MethodDataSource(nameof(ZipDefaultResultSelectorIntegerData))]
     public void Zip_DefaultResultSelector_IntegerElements_ReturnsExpected(
         IEnumerable<IEnumerable<int>> input,
         IEnumerable<IEnumerable<int>> expectedOutput
@@ -311,7 +311,7 @@ public class IEnumerableExtensionsTests
     /// expected outputs given valid inputs, that the custom result selector
     /// is the reverse function and <c>T</c> is of type <see langword="string"/>.
     /// </summary>
-    [Fact]
+    [Test]
     public void Zip_DefaultResultSelector_StringElements_ReturnsExpected() =>
         new List<List<string>>()
         {

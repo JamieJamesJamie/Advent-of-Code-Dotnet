@@ -17,9 +17,9 @@ public class Solver02Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedSum">The expected sum.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 12)]
-    [InlineData(2, 0)]
+    [Test]
+    [Arguments(1, 12)]
+    [Arguments(2, 0)]
     public async Task Solve_1_ReturnsExpected(uint exampleIndex, int expectedSum) =>
         (
             await new Solver02(
@@ -35,9 +35,9 @@ public class Solver02Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedLetters">The expected letters.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(3, "fgij")]
-    [InlineData(2, "")]
+    [Test]
+    [Arguments(3, "fgij")]
+    [Arguments(2, "")]
     public async Task Solve_2_ReturnsExpected(uint exampleIndex, string expectedLetters) =>
         (
             await new Solver02(

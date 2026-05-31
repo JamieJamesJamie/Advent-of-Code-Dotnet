@@ -17,9 +17,9 @@ public class Solver04Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedKeySuffix">The expected key suffix.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 609043)]
-    [InlineData(2, 1048970)]
+    [Test]
+    [Arguments(1, 609043)]
+    [Arguments(2, 1048970)]
     public async Task Solve_1_ReturnsExpected(uint exampleIndex, uint expectedKeySuffix) =>
         (
             await new Solver04(
@@ -35,9 +35,9 @@ public class Solver04Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedKeySuffix">The expected key suffix.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 6742839)]
-    [InlineData(2, 5714438)]
+    [Test]
+    [Arguments(1, 6742839)]
+    [Arguments(2, 5714438)]
     public async Task Solve_2_ReturnsExpected(uint exampleIndex, uint expectedKeySuffix) =>
         (
             await new Solver04(

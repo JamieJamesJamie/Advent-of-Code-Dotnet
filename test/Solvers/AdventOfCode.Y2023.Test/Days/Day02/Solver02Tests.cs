@@ -22,14 +22,14 @@ public class Solver02Tests : TestFixture
     /// Tests that <see cref="Solver02.Solve1"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
-    [Fact]
+    [Test]
     public async Task Solve_1_ReturnsExpected() => (await this.solver.Solve_1()).Should().Be("8");
 
     /// <summary>
     /// Tests that <see cref="Solver02.Solve2"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
-    [Fact]
+    [Test]
     public async Task Solve_2_ReturnsExpected() =>
         (await this.solver.Solve_2()).Should().Be("2286");
 }

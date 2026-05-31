@@ -15,7 +15,7 @@ public class BaseSolverTests
     /// Tests whether solving using <see cref="ChildSolver1"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Fact]
+    [Test]
     public async Task BaseSolver_TwoTypeparams_IntChar_Solves()
     {
         BaseSolver<int, char> solver = new ChildSolver1();
@@ -30,7 +30,7 @@ public class BaseSolverTests
     /// Tests whether solving using <see cref="ChildSolver02"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Fact]
+    [Test]
     public async Task BaseSolver_TwoTypeparams_DoubleLong_Solves()
     {
         BaseSolver<double, long> solver = new ChildSolver02();
@@ -45,7 +45,7 @@ public class BaseSolverTests
     /// Tests whether solving using <see cref="ChildSolver_03"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Fact]
+    [Test]
     public async Task BaseSolver_OneTypeparam_Solves()
     {
         BaseSolver<string> solver = new ChildSolver_03();
@@ -60,7 +60,7 @@ public class BaseSolverTests
     /// Tests whether solving the first problem with a null solution returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Fact]
+    [Test]
     public async Task Solve_1_NullSolution_ReturnsEmptyString()
     {
         BaseSolver<string?> solver = new NullSolver();
@@ -74,7 +74,7 @@ public class BaseSolverTests
     /// Tests whether solving the second problem with a null solution returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Fact]
+    [Test]
     public async Task Solve_2_NullSolution_ReturnsEmptyString()
     {
         BaseSolver<string?> solver = new NullSolver();
@@ -87,7 +87,7 @@ public class BaseSolverTests
     /// <summary>
     /// Tests whether <see cref="BaseSolver{TSolve1, TSolve2}"/> returns a given custom input file path.
     /// </summary>
-    [Fact]
+    [Test]
     public void BaseSolver_TwoTypeparams_CustomInputFilePath_ReturnsCustomInputFilePath()
     {
         const string customPath = "customPath";
@@ -100,7 +100,7 @@ public class BaseSolverTests
     /// <summary>
     /// Tests whether <see cref="BaseSolver{TSolve}"/> returns a given custom input file path.
     /// </summary>
-    [Fact]
+    [Test]
     public void BaseSolver_OneTypeparam_CustomInputFilePath_ReturnsCustomInputFilePath()
     {
         const string customPath = "customPath";

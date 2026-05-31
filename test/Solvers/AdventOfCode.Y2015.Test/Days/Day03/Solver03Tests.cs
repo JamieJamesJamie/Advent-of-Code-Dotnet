@@ -17,11 +17,11 @@ public class Solver03Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedHousesVisited">The expected number of houses visited.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 2)]
-    [InlineData(2, 4)]
-    [InlineData(3, 2)]
-    [InlineData(4, 2)]
+    [Test]
+    [Arguments(1, 2)]
+    [Arguments(2, 4)]
+    [Arguments(3, 2)]
+    [Arguments(4, 2)]
     public async Task Solve_1_ReturnsExpected(uint exampleIndex, int expectedHousesVisited) =>
         (
             await new Solver03(
@@ -37,11 +37,11 @@ public class Solver03Tests : TestFixture
     /// <param name="exampleIndex">Index of the example.</param>
     /// <param name="expectedHousesVisited">The expected number of houses visited.</param>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Theory]
-    [InlineData(1, 2)]
-    [InlineData(2, 3)]
-    [InlineData(3, 11)]
-    [InlineData(4, 3)]
+    [Test]
+    [Arguments(1, 2)]
+    [Arguments(2, 3)]
+    [Arguments(3, 11)]
+    [Arguments(4, 3)]
     public async Task Solve_2_ReturnsExpected(uint exampleIndex, int expectedHousesVisited) =>
         (
             await new Solver03(

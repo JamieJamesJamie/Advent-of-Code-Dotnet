@@ -22,7 +22,7 @@ public class Solver01Tests : TestFixture
     /// Tests that <see cref="Solver01.Solve1"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Fact]
+    [Test]
     public async Task Solve_1_ReturnsExpected() =>
         (await this.solver.Solve_1()).Should().Be("24000");
 
@@ -30,7 +30,7 @@ public class Solver01Tests : TestFixture
     /// Tests that <see cref="Solver01.Solve2"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the asynchronous unit test.</returns>
-    [Fact]
+    [Test]
     public async Task Solve_2_ReturnsExpected() =>
         (await this.solver.Solve_2()).Should().Be("45000");
 }

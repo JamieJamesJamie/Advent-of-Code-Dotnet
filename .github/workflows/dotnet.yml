@@ -131,7 +131,14 @@ jobs:
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
-      - run: dotnet test test/Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj
+      - name: Enable Automated Test Report Artifact Upload
+        uses: actions/github-script@v9
+        with:
+          script: |
+            core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env['ACTIONS_RUNTIME_TOKEN']);
+            core.exportVariable('ACTIONS_RESULTS_URL', process.env['ACTIONS_RESULTS_URL']);
+
+      - run: dotnet run --project test/Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj --configuration Release
 
   test-year:
     needs: [format, csharpier, dotnet-format, prettier]
@@ -149,4 +156,11 @@ jobs:
         with:
           dotnet-version: "${{ env.DOTNET_VERSION }}"
 
-      - run: dotnet test test/Solvers/AdventOfCode.Y${{ matrix.project-year }}.Test/AdventOfCode.Y${{ matrix.project-year }}.Test.csproj
+      - name: Enable Automated Test Report Artifact Upload
+        uses: actions/github-script@v9
+        with:
+          script: |
+            core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env['ACTIONS_RUNTIME_TOKEN']);
+            core.exportVariable('ACTIONS_RESULTS_URL', process.env['ACTIONS_RESULTS_URL']);
+
+      - run: dotnet run --project test/Solvers/AdventOfCode.Y${{ matrix.project-year }}.Test/AdventOfCode.Y${{ matrix.project-year }}.Test.csproj --configuration Release

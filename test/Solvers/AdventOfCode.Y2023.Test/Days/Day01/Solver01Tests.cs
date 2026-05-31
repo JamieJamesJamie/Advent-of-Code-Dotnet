@@ -15,7 +15,7 @@ public class Solver01Tests : TestFixture
     /// Tests that <see cref="Solver01.Solve1"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
-    [Fact]
+    [Test]
     public async Task Solve_1_ReturnsExpected() =>
         (await new Solver01(inputFilePath: this.InputFilePath(fileName: "example1")).Solve_1())
             .Should()
@@ -25,7 +25,7 @@ public class Solver01Tests : TestFixture
     /// Tests that <see cref="Solver01.Solve2"/> returns as expected.
     /// </summary>
     /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
-    [Fact]
+    [Test]
     public async Task Solve_2_ReturnsExpected() =>
         (await new Solver01(inputFilePath: this.InputFilePath(fileName: "example2")).Solve_2())
             .Should()
