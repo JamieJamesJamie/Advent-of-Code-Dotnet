@@ -148,12 +148,12 @@ public class IEnumerableExtensionsTests
     /// <param name="count">The number of elements to take from the start of the sequence.</param>
     /// <param name="expected">Expected output.</param>
     [Test]
-    [Arguments(new int[] { 1, 2, 3 }, 3, new int[] { 1, 2, 3 })]
-    [Arguments(new int[] { 1, 2, 3 }, 6, new int[] { 1, 2, 3, 1, 2, 3 })]
-    [Arguments(new int[] { 1, 2, 3 }, 4, new int[] { 1, 2, 3, 1 })]
-    [Arguments(new int[] { 1, 2 }, 4, new int[] { 1, 2, 1, 2 })]
-    [Arguments(new int[] { 1, 2, 3 }, 0, new int[] { })]
-    [Arguments(new int[] { 1, 2, 3 }, 1, new int[] { 1 })]
+    [Arguments(new[] { 1, 2, 3 }, 3, new[] { 1, 2, 3 })]
+    [Arguments(new[] { 1, 2, 3 }, 6, new[] { 1, 2, 3, 1, 2, 3 })]
+    [Arguments(new[] { 1, 2, 3 }, 4, new[] { 1, 2, 3, 1 })]
+    [Arguments(new[] { 1, 2 }, 4, new[] { 1, 2, 1, 2 })]
+    [Arguments(new[] { 1, 2, 3 }, 0, new int[] { })]
+    [Arguments(new[] { 1, 2, 3 }, 1, new[] { 1 })]
     [Arguments(new int[] { }, 2, new int[] { })]
     public void Cycle_ReturnsExpected(int[] sequence, int count, int[] expected) =>
         sequence.Cycle().Take(count).Should().BeEquivalentTo(expected);
