@@ -1,0 +1,56 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path=".nvmrc" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="renovate.json" />
+    <File Path="stylecop.json" />
+  </Folder>
+  <Folder Name="/Solution Items/.config/">
+    <File Path=".config/dotnet-tools.json" />
+  </Folder>
+  <Folder Name="/Solution Items/.devcontainer/">
+    <File Path=".devcontainer/devcontainer.json" />
+  </Folder>
+  <Folder Name="/Solution Items/.github/" />
+  <Folder Name="/Solution Items/.github/workflows/">
+    <File Path=".github/workflows/dotnet.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/.husky/">
+    <File Path=".husky/pre-commit" />
+    <File Path=".husky/task-runner.json" />
+  </Folder>
+  <Folder Name="/src/">
+    <File Path="src/Directory.Build.props" />
+  </Folder>
+  <Folder Name="/src/Common/">
+    <Project Path="src/Common/AdventOfCode.Common/AdventOfCode.Common.csproj" />
+  </Folder>
+  <Folder Name="/src/Solvers/">
+    <File Path="src/Solvers/Directory.Build.props" />
+    <Project Path="src/Solvers/AdventOfCode.Y2015/AdventOfCode.Y2015.csproj" />
+    <Project Path="src/Solvers/AdventOfCode.Y2018/AdventOfCode.Y2018.csproj" />
+    <Project Path="src/Solvers/AdventOfCode.Y2019/AdventOfCode.Y2019.csproj" />
+    <Project Path="src/Solvers/AdventOfCode.Y2022/AdventOfCode.Y2022.csproj" />
+    <Project Path="src/Solvers/AdventOfCode.Y2023/AdventOfCode.Y2023.csproj" />
+    <Project Path="src/Solvers/AdventOfCode.Y2024/AdventOfCode.Y2024.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <File Path="test/Directory.Build.props" />
+  </Folder>
+  <Folder Name="/test/Common/">
+    <Project Path="test/Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj" />
+  </Folder>
+  <Folder Name="/test/Solvers/">
+    <File Path="test/Solvers/Directory.Build.props" />
+    <Project Path="test/Solvers/AdventOfCode.Y2015.Test/AdventOfCode.Y2015.Test.csproj" />
+    <Project Path="test/Solvers/AdventOfCode.Y2018.Test/AdventOfCode.Y2018.Test.csproj" />
+    <Project Path="test/Solvers/AdventOfCode.Y2019.Test/AdventOfCode.Y2019.Test.csproj" />
+    <Project Path="test/Solvers/AdventOfCode.Y2022.Test/AdventOfCode.Y2022.Test.csproj" />
+    <Project Path="test/Solvers/AdventOfCode.Y2023.Test/AdventOfCode.Y2023.Test.csproj" />
+    <Project Path="test/Solvers/AdventOfCode.Y2024.Test/AdventOfCode.Y2024.Test.csproj" />
+  </Folder>
+</Solution>
