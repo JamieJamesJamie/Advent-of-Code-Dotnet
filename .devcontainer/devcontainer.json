@@ -13,7 +13,7 @@
     "ghcr.io/devcontainers/features/node:2.0.0": {
       "nodeGypDependencies": true,
       "version": "24.16.0",
-      "nvmVersion": "0.40.4"
+      "nvmVersion": "0.40.5"
     }
   },
 
