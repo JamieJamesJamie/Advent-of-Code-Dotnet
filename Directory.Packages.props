@@ -8,6 +8,6 @@
     <PackageVersion Include="FileParser" Version="[4.0.0]" />
     <PackageVersion Include="FluentAssertions" Version="[8.10.0]" />
     <PackageVersion Include="StyleCop.Analyzers" Version="[1.2.0-beta.556]" />
-    <PackageVersion Include="TUnit" Version="[1.56.35]" />
+    <PackageVersion Include="TUnit" Version="[1.56.25]" />
   </ItemGroup>
 </Project>
