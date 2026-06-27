@@ -4,10 +4,6 @@ on:
   pull_request:
     branches: [main]
 
-env:
-  # renovate: datasource=dotnet-version depName=dotnet-sdk
-  DOTNET_VERSION: "10.0.301"
-
 jobs:
   format:
     runs-on: ubuntu-latest
@@ -24,8 +20,6 @@ jobs:
           token: ${{ secrets.GIT_AUTO_COMMIT_ACTION_CHECKOUT_PAT }}
 
       - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5.4.0
-        with:
-          dotnet-version: "${{ env.DOTNET_VERSION }}"
 
       - run: dotnet format style
 
@@ -72,8 +66,6 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5.4.0
-        with:
-          dotnet-version: "${{ env.DOTNET_VERSION }}"
 
       - run: dotnet tool restore
 
@@ -92,8 +84,6 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5.4.0
-        with:
-          dotnet-version: "${{ env.DOTNET_VERSION }}"
 
       - run: dotnet format ${{ matrix.subcommand }} --verify-no-changes
 
@@ -128,8 +118,6 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5.4.0
-        with:
-          dotnet-version: "${{ env.DOTNET_VERSION }}"
 
       - name: Enable Automated Test Report Artifact Upload
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
@@ -153,8 +141,6 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5.4.0
-        with:
-          dotnet-version: "${{ env.DOTNET_VERSION }}"
 
       - name: Enable Automated Test Report Artifact Upload
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
