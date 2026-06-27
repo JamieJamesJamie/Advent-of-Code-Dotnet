@@ -114,6 +114,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      TEST_DIRECTORY: test/Common/AdventOfCode.Common.Test
+      TEST_PROJECT: AdventOfCode.Common.Test.csproj
+
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
@@ -126,9 +130,9 @@ jobs:
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env['ACTIONS_RUNTIME_TOKEN']);
             core.exportVariable('ACTIONS_RESULTS_URL', process.env['ACTIONS_RESULTS_URL']);
 
-      - run: dotnet restore --locked-mode
+      - run: dotnet restore --locked-mode ${{ env.TEST_DIRECTORY }}/${{ env.TEST_PROJECT }}
 
-      - run: dotnet run --no-restore --project test/Common/AdventOfCode.Common.Test/AdventOfCode.Common.Test.csproj --configuration Release
+      - run: dotnet run --no-restore --project ${{ env.TEST_DIRECTORY }}/${{ env.TEST_PROJECT }} --configuration Release
 
   test-year:
     needs: [format, csharpier, dotnet-format, prettier]
@@ -139,6 +143,10 @@ jobs:
       matrix:
         project-year: ["2015", "2018", "2019", "2022", "2023", "2024"]
 
+    env:
+      TEST_DIRECTORY: test/Solvers/AdventOfCode.Y${{ matrix.project-year }}.Test
+      TEST_PROJECT: AdventOfCode.Y${{ matrix.project-year }}.Test.csproj
+
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
@@ -151,6 +159,6 @@ jobs:
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env['ACTIONS_RUNTIME_TOKEN']);
             core.exportVariable('ACTIONS_RESULTS_URL', process.env['ACTIONS_RESULTS_URL']);
 
-      - run: dotnet restore --locked-mode
+      - run: dotnet restore --locked-mode ${{ env.TEST_DIRECTORY }}/${{ env.TEST_PROJECT }}
 
-      - run: dotnet run --no-restore --project test/Solvers/AdventOfCode.Y${{ matrix.project-year }}.Test/AdventOfCode.Y${{ matrix.project-year }}.Test.csproj --configuration Release
+      - run: dotnet run --no-restore --project ${{ env.TEST_DIRECTORY }}/${{ env.TEST_PROJECT }} --configuration Release
