@@ -6,7 +6,7 @@
     <PackageVersion Include="AoCHelper" Version="[4.1.0]" />
     <PackageVersion Include="CommunityToolkit.HighPerformance" Version="[8.4.2]" />
     <PackageVersion Include="FileParser" Version="[4.0.0]" />
-    <PackageVersion Include="FluentAssertions" Version="[8.10.0]" />
+    <PackageVersion Include="FluentAssertions" Version="[8.11.0]" />
     <PackageVersion Include="StyleCop.Analyzers" Version="[1.2.0-beta.556]" />
     <PackageVersion Include="TUnit" Version="[1.66.27]" />
   </ItemGroup>
