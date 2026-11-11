@@ -38,10 +38,8 @@ internal sealed class Solver01 : BaseSolver<uint>
                 .Zip(pair =>
                     int.Abs(
                         pair.Skip(1)
-                            .Aggregate(
-                                pair.First(),
-                                (leftListLocationId, rightListLocationId) =>
-                                    leftListLocationId - rightListLocationId
+                            .Aggregate(pair.First(), (leftListLocationId, rightListLocationId) =>
+                                leftListLocationId - rightListLocationId
                             )
                     )
                 )

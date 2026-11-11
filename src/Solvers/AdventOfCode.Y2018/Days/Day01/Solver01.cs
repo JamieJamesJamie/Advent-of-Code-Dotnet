@@ -25,8 +25,10 @@ internal sealed class Solver01 : BaseSolver<int>
     /// <param name="inputFilePath">The expected input file path.</param>
     public Solver01(string? inputFilePath)
         : base(inputFilePath) =>
-        this.frequencyChanges =
-            ParsedFile.ReadAllGroupsOfLines<int>(this.InputFilePath).FirstOrDefault() ?? [];
+        this.frequencyChanges = ParsedFile
+            .ReadAllGroupsOfLines<int>(this.InputFilePath)
+            .FirstOrDefault()
+            ?? [];
 
     /// <inheritdoc/>
     protected override int Solve1() => this.frequencyChanges.Sum();

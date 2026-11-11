@@ -23,8 +23,8 @@ internal sealed class Solver01 : BaseSolver<int>
     /// <param name="inputFilePath">The expected input file path.</param>
     public Solver01(string? inputFilePath)
         : base(inputFilePath) =>
-        this.masses =
-            ParsedFile.ReadAllGroupsOfLines<int>(this.InputFilePath).FirstOrDefault() ?? [];
+        this.masses = ParsedFile.ReadAllGroupsOfLines<int>(this.InputFilePath).FirstOrDefault()
+            ?? [];
 
     /// <inheritdoc/>
     protected override int Solve1() => this.masses.Sum(FuelRequired);

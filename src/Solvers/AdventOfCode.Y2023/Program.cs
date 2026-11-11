@@ -25,13 +25,10 @@ else
     );
 
     await Solver
-        .Solve(
-            indices.Where(index => index < uint.MaxValue),
-            options =>
-            {
-                options.ShowConstructorElapsedTime = true;
-                options.ShowTotalElapsedTimePerDay = true;
-            }
-        )
+        .Solve(indices.Where(index => index < uint.MaxValue), options =>
+        {
+            options.ShowConstructorElapsedTime = true;
+            options.ShowTotalElapsedTimePerDay = true;
+        })
         .ConfigureAwait(false);
 }
